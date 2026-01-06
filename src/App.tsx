@@ -1,5 +1,5 @@
 import { ItemDescriptionPage } from "./pages/ItemDescriptionPage"
-import ItemDummyModel1 from "./testing/ItemModels"
+import { ItemDummyModel1 } from "./testing/ItemModelMocking"
 
 function App() {
 
