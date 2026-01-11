@@ -1,0 +1,20 @@
+import type { ShopItem } from "../models/ShopItem";
+import { DUMMY_CATEGORY_1 } from "./CategoryModelMocking";
+import { ITEM_DUMMY_MODEL_1 } from "./ItemModelMocking";
+
+const DUMMY_ID = 23;
+
+export const SHOP_ITEM_DUMMY_MODEL_1: ShopItem = {
+    id: DUMMY_ID + 11,
+    item: ITEM_DUMMY_MODEL_1,
+    price: 9,
+    description: "Mit diesem Passierschein steht deinen Dungeon-Abenteuern nichts mehr im Wege. Wage dich auf weitere Ebenen und stelle dich der Herausforderung!",
+    features: [
+        "Ermöglicht das Betreten einer weiteren Ebene",
+        "2. Spinnenungeons, Rotdrachenfestung, Meleys Hort (Gruppe), Schiffsverteidigung und Gnollhöhlen",
+        "Passierschein muss dem zuständigen Wächter vorgelegt werden",
+        "Nicht handelbar"
+    ],
+    category: DUMMY_CATEGORY_1,
+    imageName: "passierschein"
+} 

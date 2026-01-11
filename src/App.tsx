@@ -1,11 +1,11 @@
 import { ItemDescriptionPage } from "./pages/ItemDescriptionPage"
-import { ItemDummyModel1 } from "./testing/ItemModelMocking"
+import { SHOP_ITEM_DUMMY_MODEL_1 } from "./testing/ShopItemMocking"
 
 function App() {
 
   return (
     <>
-      <ItemDescriptionPage item={ItemDummyModel1} />
+      <ItemDescriptionPage shopItem={SHOP_ITEM_DUMMY_MODEL_1} />
     </>
   )
 }
