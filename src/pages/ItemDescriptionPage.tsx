@@ -3,7 +3,7 @@ import type { ShopItem } from "../models/ShopItem"
 type ItemDescriptionPageProps = { shopItem: ShopItem }
 
 export const ItemDescriptionPage = ({ shopItem }: ItemDescriptionPageProps) => {
-  const { item, price, category } = shopItem;
+  const { item, price } = shopItem;
 
   const itemImageUrl = "./public/images/"+ shopItem.imageName +".png";
 
@@ -30,7 +30,7 @@ export const ItemDescriptionPage = ({ shopItem }: ItemDescriptionPageProps) => {
         </header>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-5">
           
           {/* Left: Image */}
           <div className="flex items-center justify-center grey-box">
@@ -64,18 +64,21 @@ export const ItemDescriptionPage = ({ shopItem }: ItemDescriptionPageProps) => {
             )}
           </div>
         </div>
-
-        {/* Purchase Section - Placeholder */}
-        <div className="bg-white/30 p-5 border border-[#8b6f47] rounded">
-          <p className="text-[#5a3825]">
-            Purchase Section
-          </p>
-        </div>
       </div>
 
       <div className="mt-1 max-w-2xl mx-auto p-5 shadow-[0px_1px_2px_#000] bg-[#eade9e]">
+        <div className="contrast-box grey-box">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+            
+              <div className="md:col-span-2">
+              <div className="bg-red-700 h-28"></div>
+              </div>
 
-
+              
+              <div className="bg-green-700 h-28"></div>
+            
+          </div>
+        </div>
       </div>
     </div>
     </>

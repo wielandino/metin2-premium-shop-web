@@ -1,11 +1,11 @@
 import type { ShopItem } from "../models/ShopItem";
 import { DUMMY_CATEGORY_1 } from "./CategoryModelMocking";
-import { ITEM_DUMMY_MODEL_1 } from "./ItemModelMocking";
+import { ITEM_DUMMY_MODEL_1, ITEM_DUMMY_MODEL_2 } from "./ItemModelMocking";
 
 const DUMMY_ID = 23;
 
 export const SHOP_ITEM_DUMMY_MODEL_1: ShopItem = {
-    id: DUMMY_ID + 11,
+    id: DUMMY_ID + 1,
     item: ITEM_DUMMY_MODEL_1,
     price: 9,
     description: "Mit diesem Passierschein steht deinen Dungeon-Abenteuern nichts mehr im Wege. Wage dich auf weitere Ebenen und stelle dich der Herausforderung!",
@@ -17,4 +17,17 @@ export const SHOP_ITEM_DUMMY_MODEL_1: ShopItem = {
     ],
     category: DUMMY_CATEGORY_1,
     imageName: "passierschein"
+} 
+
+export const SHOP_ITEM_DUMMY_MODEL_2: ShopItem = {
+    id: DUMMY_ID + 11,
+    item: ITEM_DUMMY_MODEL_2,
+    price: 80,
+    description: "Mit diesem Gutschein im Wert von 50 Drachenmünzen treibst du den Yang-Umsatz in deinem privaten Laden in astronomische Höhen! Ebenfalls eignet er sich als perfektes Geschenk für einen guten Freund. Die Laufzeit des Gutscheins beginnt ab dem Kauf. Durch Rechtsklick einlösbar.",
+    features: [
+        "Gutschein im Wert von 50 DR",
+        "Begrenzte Laufzeit",
+    ],
+    category: DUMMY_CATEGORY_1,
+    imageName: "drgutschein"
 } 
