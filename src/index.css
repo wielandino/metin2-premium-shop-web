@@ -81,3 +81,12 @@ button {
   background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -113px transparent;
   border-color: #845805;
 }
+
+.metin-container {
+  width: 1016px;
+  height: 655px;
+}
+
+.page-image {
+  background-image: url(//gf3.geo.gfsrv.net/cdn54/101a61998e4ae0929a7a5512c7840c.jpg);
+}
