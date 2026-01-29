@@ -1,16 +1,22 @@
+import { useState } from "react";
 import { BuyButton } from "../components/Common/BuyButton";
 import type { ShopItem } from "../models/ShopItem"
+import { QuantitySelection } from "../components/ItemDescriptionPage/QuantitySelection";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem }
 
 
 
 export const ItemDescriptionPage = ({ shopItem }: ItemDescriptionPageProps) => {
-  const { item, price } = shopItem;
+  const { item } = shopItem;
 
   const itemImageUrl = "./public/images/"+ shopItem.imageName +".png";
-  const canBuyInQuantity = shopItem.canBuymultipleQuantity 
   
+  const [price, setPrice] = useState(shopItem.price)
+  const [selectedQuantity, setSelectedQuantity] = useState(1);
+
+  const totalPrice = shopItem.price * selectedQuantity;
+
   return (
     <>
     <div className="max-w-2xl mx-auto shadow-[0px_1px_2px_#000] outline-border">
@@ -28,7 +34,7 @@ export const ItemDescriptionPage = ({ shopItem }: ItemDescriptionPageProps) => {
           <div className="text-right">
             <span className="text-sm text-[#5a3825] mr-2">Preis:</span>
             <span className="text-4xl font-bold text-[#5a3825]">
-              {price}
+              {totalPrice}
             </span>
           </div>
         </header>
@@ -75,17 +81,16 @@ export const ItemDescriptionPage = ({ shopItem }: ItemDescriptionPageProps) => {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             
               <div className="md:col-span-2">
-                <div className="h-28">
-                  { canBuyInQuantity && 
-                    <p>Can Buy in Quantity</p>
-                  }
-                </div>
+                <QuantitySelection maxQuantity={shopItem.maxQuantity}
+                                   quantityPercentDelimeter={shopItem.quantityPercentDelimeter}
+                                   selectedQuantity={selectedQuantity}
+                                   setSelectedQuantity={setSelectedQuantity} />
               </div>
 
               
-              <div className="text-center self-center">
+              <div className="text-center">
                 <p>Jetzt erhältlich für:</p>
-                <span className="text-3xl font-bold text-[#5a3825]"><p>{price}</p></span>
+                <span className="text-3xl font-bold text-[#5a3825]"><p>{totalPrice}</p></span>
                 <BuyButton shopItem={shopItem} />
               </div>
             

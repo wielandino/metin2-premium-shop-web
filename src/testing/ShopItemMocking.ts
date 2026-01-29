@@ -7,7 +7,7 @@ const DUMMY_ID = 23;
 export const SHOP_ITEM_DUMMY_MODEL_1: ShopItem = {
     id: DUMMY_ID + 1,
     item: ITEM_DUMMY_MODEL_1,
-    price: 9,
+    price: 6,
     description: "Mit diesem Passierschein steht deinen Dungeon-Abenteuern nichts mehr im Wege. Wage dich auf weitere Ebenen und stelle dich der Herausforderung!",
     features: [
         "Ermöglicht das Betreten einer weiteren Ebene",
@@ -17,7 +17,8 @@ export const SHOP_ITEM_DUMMY_MODEL_1: ShopItem = {
     ],
     category: DUMMY_CATEGORY_1,
     imageName: "passierschein",
-    canBuymultipleQuantity: true
+    maxQuantity: 14,
+    quantityPercentDelimeter: 7,
 } 
 
 export const SHOP_ITEM_DUMMY_MODEL_2: ShopItem = {
@@ -31,5 +32,6 @@ export const SHOP_ITEM_DUMMY_MODEL_2: ShopItem = {
     ],
     category: DUMMY_CATEGORY_1,
     imageName: "drgutschein",
-    canBuymultipleQuantity: false
+    maxQuantity: 1,
+    quantityPercentDelimeter: 0,
 } 

@@ -9,5 +9,6 @@ export interface ShopItem {
     category?: Category,
     features: string[],
     imageName: string,
-    canBuymultipleQuantity: boolean
+    maxQuantity: number,
+    quantityPercentDelimeter: number
 }

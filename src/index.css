@@ -61,6 +61,9 @@ button {
     font-size: 16px;
     font-weight: bold;
     font-style: normal;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
 }
 
 .btn-buy {
@@ -70,14 +73,30 @@ button {
     box-shadow: rgba(0,0,0,0.3) 2px 2px 0px 0px;
     border-width: 1px;
     border-radius: 0;
-    cursor: pointer;
     line-height: normal;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
+    padding: 5px 10px;  
 }
 
 .btn-buy:hover {
       background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -113px transparent !important;
       border-color: #845805 !important;
+}
+
+.quantity-btn {
+    border-color: #711A0F !important;
+    color: #ffffff !important;
+    background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -2px transparent;
+    text-shadow: 1px 1px 0px #000;
+    min-width: 40px;
+    border-width: 1px;
+    color: #fff;
+    border-color: #711A0F !important;;
+    box-shadow: rgba(0,0,0,0.3) 2px 2px 0px 1px;
+}
+
+.quantity-btn-active {
+    background-color: #8c1919;
+    background: linear-gradient(#af1f1f,#8c1919);
+    box-shadow: #000 2px 2px 3px -1px inset;
+    outline: none;
 }
