@@ -7,7 +7,7 @@ type BuyButtonProps = {
 }
 
 export const BuyButton = ({ shopItem, quantity = 1 }: BuyButtonProps) => {
-    const baseStyle = "text-white border-[#58bb09] btn-buy w-full m-auto"
+    const baseStyle = "text-white border-[#58bb09] buy-btn w-full m-auto"
     
     const handlePurchase = async () => {
         try {

@@ -1,102 +1,83 @@
+/* index.css */
 @import "tailwindcss";
 
 html {
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-}
-
-html a {
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
-}
-
-a {
-    text-decoration: none;
-}
-
-h1,h2,h3,h4,h5 {
-    font-family: "Droid Serif",georgia,"Times New Roman",palatino,"Hoefler Text",baskerville,serif;
-    text-rendering: optimizelegibility;
-    font-weight: normal;
-    color: inherit;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 
 body {
-    background-color: #662d12;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    color: #3c1e16;
-    font-size: 13px;
+  background-color: #662d12;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #3c1e16;
+  font-size: 13px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Droid Serif", georgia, "Times New Roman", serif;
+  font-weight: normal;
 }
 
 h2 {
-    font-size: 1.7em;
-    line-height: 1.2em;
-    margin: 0 0 10px;
-    max-width: 400px;
-    min-height: 30px;
-    width: 100%;
-}
-
-p {
-    font-family: arial,helvetica,sans-serif;
+  font-size: 1.7em;
+  line-height: 1.2em;
+  margin: 0 0 10px;
 }
 
 .contrast-box {
-    color: #3c1e16;
+  color: #3c1e16;
 }
 
 .grey-box {
-    background-color: #d2c78e;
-    padding: 10px;
+  background-color: #d2c78e;
+  padding: 10px;
 }
 
 .tab-content {
-    padding: 0 20px 0 10px;
+  padding: 0 20px 0 10px;
 }
 
 .outline-border {
-    outline:10px solid rgba(0,0,0,0.3);
+  outline: 10px solid rgba(0,0,0,0.3);
 }
 
 button {
-    font-family: "Droid Serif",georgia,"Times New Roman",palatino,"Hoefler Text",baskerville,serif;
-    font-size: 16px;
-    font-weight: bold;
-    font-style: normal;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-}
-
-.btn-buy {
-    background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -150px transparent;
-    text-shadow: #290000 1px 1px 0px !important;
-    min-height: 32px;
-    box-shadow: rgba(0,0,0,0.3) 2px 2px 0px 0px;
-    border-width: 1px;
-    border-radius: 0;
-    line-height: normal;
-    padding: 5px 10px;  
-}
-
-.btn-buy:hover {
-      background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -113px transparent !important;
-      border-color: #845805 !important;
+  font-family: "Droid Serif", georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
 }
 
 .quantity-btn {
-    border-color: #711A0F !important;
-    color: #ffffff !important;
-    background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -2px transparent;
-    text-shadow: 1px 1px 0px #000;
-    min-width: 40px;
-    border-width: 1px;
-    color: #fff;
-    border-color: #711A0F !important;;
-    box-shadow: rgba(0,0,0,0.3) 2px 2px 0px 1px;
+  border-color: #711A0F;
+  color: #ffffff;
+  background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -2px transparent;
+  text-shadow: 1px 1px 0px #000;
+  min-width: 40px;
+  border-width: 1px;
+  box-shadow: rgba(0,0,0,0.3) 2px 2px 0px 1px;
+  transition: all 0.2s; 
+}
+
+.quantity-btn:hover {
+  opacity: 0.9;
 }
 
 .quantity-btn-active {
-    background-color: #8c1919;
-    background: linear-gradient(#af1f1f,#8c1919);
-    box-shadow: #000 2px 2px 3px -1px inset;
-    outline: none;
+  background: linear-gradient(#af1f1f, #8c1919);
+  box-shadow: #000 2px 2px 3px -1px inset;
+  outline: none;
+}
+
+.buy-btn {
+  background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -150px transparent;
+  text-shadow: #290000 1px 1px 0px;
+  min-height: 32px;
+  box-shadow: rgba(0,0,0,0.3) 2px 2px 0px 0px;
+  border-width: 1px;
+}
+
+.buy-btn:hover {
+  background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -113px transparent;
+  border-color: #845805;
 }
