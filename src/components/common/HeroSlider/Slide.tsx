@@ -22,6 +22,7 @@ export const Slide = ({ imageUrl, redirectUrl, alt, children }: SlideProps) => {
            className={`w-full h-full object-cover 
                      ${redirectUrl ? 'cursor-pointer hover:scale-105 transition-transform duration-300' : ''}`}
            onClick={handleClick} />
+           
       {children && (
         <div className="absolute inset-0 flex items-center justify-center">
           {children}

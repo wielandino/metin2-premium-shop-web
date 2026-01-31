@@ -30,10 +30,6 @@ export const HeroSlider = ({
     return () => clearInterval(timer);
   }, [autoPlay, interval, slideCount, currentSlide]);
   
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-  };
-  
   const goToPrevious = () => {
     setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount);
   };
@@ -43,7 +39,7 @@ export const HeroSlider = ({
   };
   
   return (
-    <div className="relative w-full h-48 md:h-72 lg:h-96 overflow-hidden shadow-[0px_2px_6px_#662d12] rounded">
+    <div className="relative w-full h-67.5 overflow-hidden">
       
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
@@ -57,23 +53,16 @@ export const HeroSlider = ({
       
       {showArrows && slideCount > 1 && (
         <>
-          <button onClick={goToPrevious}
-                  className="absolute left-2 top-1/2 -translate-y-1/2
-                           bg-[#711A0F] hover:bg-[#8c1919]
-                           text-white px-3 py-6
-                             shadow-[2px_2px_0px_rgba(0,0,0,0.3)]
-                             transition-all z-10 font-bold text-2xl">
-            ‹
-          </button>
+          <div onClick={goToPrevious}
+               className="heroslider-arrow-btn heroslider-arrow-left">
+                  <div className="heroslider-arrow-inc"></div>
+            
+          </div>
           
-          <button onClick={goToNext}
-            className="absolute right-2 top-1/2 -translate-y-1/2
-                     bg-[#711A0F] hover:bg-[#8c1919]
-                     text-white px-3 py-6
-                       shadow-[2px_2px_0px_rgba(0,0,0,0.3)]
-                       transition-all z-10 font-bold text-2xl">
-            ›
-          </button>
+          <div onClick={goToNext}
+               className="heroslider-arrow-btn heroslider-arrow-right">
+                  <div className="heroslider-arrow-inc"></div>
+          </div>
         </>
       )}
     </div>
