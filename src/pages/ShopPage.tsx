@@ -1,3 +1,5 @@
+import { Button } from "../components/Common/Button"
+
 function ShopPage() {
 
   return (
@@ -13,12 +15,12 @@ function ShopPage() {
                 
                 <div className="flex flex-col text-[0.857em]">
                   <span>
-                    <i className="icon-user mr-1.5" />
+                    <i className="fa-solid fa-user mr-1.5" />
                     <p className="inline-block"><b><u>ArpyAge</u></b></p>
                   </span>
 
                   <span>
-                    <i className="icon-earth mr-1.5" />
+                    <i className="fa-solid fa-earth-europe mr-1.5"></i>
                     <p className="inline-block">LowLevel</p>
                   </span>
                 </div>
@@ -26,11 +28,8 @@ function ShopPage() {
               
             </div>
 
-            <div className="flex">
-              <div className="">
-
-              </div>
-
+            <div className="md:col-span-2 flex justify-end">
+              <Button title="Gamblen" className="base-green-btn min-w-40 uppercase" />
             </div>
           </div>
 
