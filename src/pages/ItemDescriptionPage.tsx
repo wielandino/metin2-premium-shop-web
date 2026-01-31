@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { BuyButton } from "../components/Common/BuyButton";
+import { BuyButton } from "../components/common/BuyButton";
 import type { ShopItem } from "../models/ShopItem"
-import { QuantitySelection } from "../components/ItemDescriptionPage/QuantitySelection";
+import { QuantitySelection } from "../components/pages/ItemDescriptionPage/QuantitySelection";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem }
 
