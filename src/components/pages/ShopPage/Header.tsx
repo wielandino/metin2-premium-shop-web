@@ -27,6 +27,7 @@ export const Header = ({}) => {
 
             <div className="md:col-span-2 flex justify-end items-center">
               <div className="flex flex-col text-[0.857em]">
+                
                   <span>
                     <p className="inline-block">5</p>
                   </span>
@@ -36,7 +37,7 @@ export const Header = ({}) => {
                   </span>
                 </div>
                 
-              <Button title="Gamblen" className="base-green-btn min-w-40 uppercase h-8 ml-7" />
+              <Button title="Gambeln" className="base-green-btn min-w-40 uppercase h-8 ml-7" />
               
             </div>
           </div>
