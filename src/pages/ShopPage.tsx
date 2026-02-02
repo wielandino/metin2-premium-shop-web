@@ -1,15 +1,27 @@
+import { useState } from "react";
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
 import { Header } from "../components/pages/ShopPage/Header"
 import { ItemCarousel } from "../components/pages/ShopPage/ItemCarousel";
 import type { ShopItem } from "../models/ShopItem";
 import { mockShopItems } from "../testing/ShopItemMocking";
+import { Modal } from "../components/common/Modal/Modal";
+import { ItemDescriptionPage } from "./ItemDescriptionPage";
 
 
 function ShopPage() {
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<ShopItem | null>(null);
+
   const handleItemClick = (item: ShopItem) => {
-    window.location.href = `/item/${item.id}`;
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
   };
 
   const handleBuyClick = (item: ShopItem, quantity: number) => {
@@ -30,6 +42,13 @@ function ShopPage() {
                   <div className="slider-banner">
                     <h3>Event</h3>
                     <p>Begib dich auf Beutezug mit der neuen Loot-Box im Shop: Schnee-Leonidas &amp; Loot-Pass erwarten dich!</p>
+                  </div>
+                </Slide>
+                <Slide imageUrl="/images/events/event_3.jpg"
+                  redirectUrl="/event">
+                  <div className="slider-banner">
+                    <h3>Scam</h3>
+                    <p>Lass dich heute mal fett scammen von uns ! :D</p>
                   </div>
                 </Slide>
               </HeroSlider>
@@ -60,6 +79,12 @@ function ShopPage() {
           </div>
         </div>
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {selectedItem && (
+          <ItemDescriptionPage shopItem={selectedItem} />
+        )}
+      </Modal>
     </>
   )
 }

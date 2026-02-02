@@ -4,10 +4,11 @@ import { Button } from './Button';
 type BuyButtonProps = {
   shopItem: ShopItem;
   quantity?: number;
+  title?: string
 }
 
-export const BuyButton = ({ shopItem, quantity = 1 }: BuyButtonProps) => {
-    const baseStyle = "base-green-btn w-full m-auto"
+export const BuyButton = ({ shopItem, quantity = 1, title = "Kaufen" }: BuyButtonProps) => {
+    const baseStyle = "base-green-btn w-full"
     
     const handlePurchase = async () => {
         try {
@@ -19,7 +20,7 @@ export const BuyButton = ({ shopItem, quantity = 1 }: BuyButtonProps) => {
 
     return(
         <>
-            <Button title="Kaufen"
+            <Button title={title}
                     onClick={handlePurchase}
                     className={baseStyle} />
         </>
