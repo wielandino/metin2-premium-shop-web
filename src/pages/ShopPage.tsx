@@ -7,12 +7,14 @@ import type { ShopItem } from "../models/ShopItem";
 import { mockShopItems } from "../testing/ShopItemMocking";
 import { Modal } from "../components/common/Modal/Modal";
 import { ItemDescriptionPage } from "./ItemDescriptionPage";
+import { Navigation } from "../components/common/Navigation/Navigation";
 
 
 function ShopPage() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<ShopItem | null>(null);
+  const [activeTab, setActiveTab] = useState('home');
 
   const handleItemClick = (item: ShopItem) => {
     setSelectedItem(item);
@@ -28,12 +30,23 @@ function ShopPage() {
     console.log(`Kaufe ${quantity}x ${item.item.name}`);
   };
 
+  const handleTabChange = (tabId: string) => {
+    setActiveTab(tabId);
+    console.log('Active tab:', tabId);
+  };
+
   return (
     <>
       <div className="metin-container page-image mx-auto ">
         <Header />
 
         <div className="pr-5 pl-5">
+          <div className="mt-2">
+            <Navigation activeTab={activeTab}
+                        onTabChange={handleTabChange} />
+          </div>
+
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-5 mt-5">
             <div className="md:col-span-2">
               <HeroSlider autoPlay showArrows interval={10000}>

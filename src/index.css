@@ -222,3 +222,21 @@ button {
 .close-btn:hover {
   background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -39px transparent !important;
 }
+
+.btn-navitem {
+  background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -226px transparent !important;
+  border: 2px solid transparent;
+}
+
+.btn-navitem:hover {
+  background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -276px transparent !important;
+}
+
+.btn-navitem-active, .btn-navitem-active:hover {
+  background-color: #e8a314 !important;
+  background-image: none !important;
+  border-top: 1px solid #f2e69f;
+  border-bottom: 6px solid #E8A314;
+  box-shadow: none;
+  color: #171210;
+}
