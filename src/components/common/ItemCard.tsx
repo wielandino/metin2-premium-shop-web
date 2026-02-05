@@ -6,15 +6,24 @@ import type { Category } from '../../models/Category';
 import { mockShopItems } from '../../testing/ShopItemMocking';
 
 interface ItemCardProps {
+  items?: ShopItem[];
   onItemClick?: (item: ShopItem) => void;
   onBuyClick?: (item: ShopItem, quantity: number) => void;
   itemsFromCategory?: Category;
   onlyNew?: boolean;
   onlyHot?: boolean;
-  isCarousel?: boolean
+  isCarousel?: boolean;
 }
 
-export const ItemCard = ({onItemClick, onBuyClick, itemsFromCategory, onlyNew, onlyHot, isCarousel = false}: ItemCardProps) => {
+export const ItemCard = ({
+  items: itemsProp,
+  onItemClick,
+  onBuyClick,
+  itemsFromCategory,
+  onlyNew,
+  onlyHot,
+  isCarousel = false
+}: ItemCardProps) => {
 
   const [ref] = useKeenSlider<HTMLDivElement>({
     slides: {
@@ -23,13 +32,12 @@ export const ItemCard = ({onItemClick, onBuyClick, itemsFromCategory, onlyNew, o
     },
     loop: true,
     drag: false
-  })
-  
-  const items = mockShopItems.filter(item => {
+  });
+
+  const items = itemsProp ?? mockShopItems.filter(item => {
     const categoryMatch = itemsFromCategory ? item.category!.id === itemsFromCategory.id : true;
     const newMatch = onlyNew ? item.isNew === true : true;
     const hotMatch = onlyHot ? item.isHot === true : true;
-
     return categoryMatch && newMatch && hotMatch;
   });
 
@@ -37,9 +45,9 @@ export const ItemCard = ({onItemClick, onBuyClick, itemsFromCategory, onlyNew, o
     <>
       <div ref={ref} className={isCarousel ? `keen-slider` : 'flex flex-row flex-wrap'}>
         {items.map((item) => (
-          <div key={item.id} 
-               className={`h-47 shadow-[0_1px_2px_#000] pt-2 pr-2.5 pb-2 pl-2.5 item-card
-                           ${isCarousel ? 'keen-slider__slide' : 'mr-5 mb-5 w-66.75'}`}>
+          <div key={item.id}
+            className={`h-47 shadow-[0_1px_2px_#000] pt-2 pr-2.5 pb-2 pl-2.5 item-card
+              ${isCarousel ? 'keen-slider__slide' : 'mr-5 mb-5 w-66.75'}`}>
 
             <h4 className="mt-0.5 mb-1.5 pt-0.5 text-[16px]">
               <a className="text-[#662d12]"
@@ -59,6 +67,7 @@ export const ItemCard = ({onItemClick, onBuyClick, itemsFromCategory, onlyNew, o
                   height="15"
                   className="inline-block mr-1" />
                 <p className="inline-block text-[#662d12]">Highlights</p>
+
                 <div className="h-20 overflow-hidden text-[11px] leading-[1.2]">
                   <ul className="list-none p-0 m-0 line-clamp-4">
                     {item.features.map((feature, index) => (
@@ -67,14 +76,13 @@ export const ItemCard = ({onItemClick, onBuyClick, itemsFromCategory, onlyNew, o
                       </li>
                     ))}
                   </ul>
-
                 </div>
+
                 <div className="w-27.75 float-right">
                   <BuyButton shopItem={item} title={item.price.toString()} />
                 </div>
               </div>
             </div>
-
           </div>
         ))}
       </div>

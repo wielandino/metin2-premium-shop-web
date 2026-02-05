@@ -18,6 +18,7 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
         { id: 'home', label: '', path: '/' },
         { id: 'all', label: 'Alle Artikel', path: '/category/all' },
         { id: 'new', label: 'Neue Artikel', path: '/category/new' },
+        { id: 'hot', label: 'Beliebte Artikel', path: '/category/hot' },
     ];
 
     const getCurrentTab = () => {
