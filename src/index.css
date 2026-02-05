@@ -189,7 +189,7 @@ button {
   scrollbar-width: none;
 }
 
-.carousel-item {
+.item-card {
   background: urL("/images/item_bg.jpg");
 }
 

@@ -1,19 +1,20 @@
-import type { ShopItem } from '../../../models/ShopItem';
+import type { ShopItem } from '../../models/ShopItem';
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import { BuyButton } from '../../common/BuyButton';
-import type { Category } from '../../../models/Category';
-import { mockShopItems } from '../../../testing/ShopItemMocking';
+import { BuyButton } from './BuyButton';
+import type { Category } from '../../models/Category';
+import { mockShopItems } from '../../testing/ShopItemMocking';
 
-interface ItemCarouselProps {
+interface ItemCardProps {
   onItemClick?: (item: ShopItem) => void;
   onBuyClick?: (item: ShopItem, quantity: number) => void;
   itemsFromCategory?: Category;
-  isNew?: boolean;
-  isHot?: boolean;
+  onlyNew?: boolean;
+  onlyHot?: boolean;
+  isCarousel?: boolean
 }
 
-export const ItemCarousel = ({onItemClick, onBuyClick, itemsFromCategory, isNew, isHot}: ItemCarouselProps) => {
+export const ItemCard = ({onItemClick, onBuyClick, itemsFromCategory, onlyNew, onlyHot, isCarousel = false}: ItemCardProps) => {
 
   const [ref] = useKeenSlider<HTMLDivElement>({
     slides: {
@@ -26,18 +27,19 @@ export const ItemCarousel = ({onItemClick, onBuyClick, itemsFromCategory, isNew,
   
   const items = mockShopItems.filter(item => {
     const categoryMatch = itemsFromCategory ? item.category!.id === itemsFromCategory.id : true;
-    const newMatch = isNew ? item.isNew === true : true;
-    const hotMatch = isHot ? item.isHot === true : true;
+    const newMatch = onlyNew ? item.isNew === true : true;
+    const hotMatch = onlyHot ? item.isHot === true : true;
 
     return categoryMatch && newMatch && hotMatch;
   });
 
   return (
     <>
-      <div ref={ref} className="keen-slider">
+      <div ref={ref} className={isCarousel ? `keen-slider` : 'flex flex-row flex-wrap'}>
         {items.map((item) => (
-          <div key={item.id}
-            className="keen-slider__slide carousel-item h-47 shadow-[0_1px_2px_#000] pt-2 pr-2.5 pb-2 pl-2.5">
+          <div key={item.id} 
+               className={`h-47 shadow-[0_1px_2px_#000] pt-2 pr-2.5 pb-2 pl-2.5 item-card
+                           ${isCarousel ? 'keen-slider__slide' : 'mr-5 mb-5 w-66.75'}`}>
 
             <h4 className="mt-0.5 mb-1.5 pt-0.5 text-[16px]">
               <a className="text-[#662d12]"
@@ -67,7 +69,7 @@ export const ItemCarousel = ({onItemClick, onBuyClick, itemsFromCategory, isNew,
                   </ul>
 
                 </div>
-                <div className="w-27.75 absolute right-2.5">
+                <div className="w-27.75 float-right">
                   <BuyButton shopItem={item} title={item.price.toString()} />
                 </div>
               </div>

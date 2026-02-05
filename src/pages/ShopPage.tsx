@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
 import { Header } from "../components/pages/ShopPage/Header"
-import { ItemCarousel } from "../components/pages/ShopPage/ItemCarousel";
+import { ItemCard } from "../components/common/ItemCard";
 import type { ShopItem } from "../models/ShopItem";
 import { mockShopItems } from "../testing/ShopItemMocking";
 import { Modal } from "../components/common/Modal/Modal";
@@ -84,8 +84,9 @@ function ShopPage() {
           <div className="mt-5">
             <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2.5 border-b ">Beliebte Artikel</h2>
 
-            <ItemCarousel
-              isHot={true}
+            <ItemCard
+              isCarousel={true}
+              onlyHot={true}
               onItemClick={handleItemClick}
               onBuyClick={handleBuyClick}
             />

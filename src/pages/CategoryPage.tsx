@@ -4,7 +4,7 @@ import type { ShopItem } from "../models/ShopItem";
 import { mockShopItems } from "../testing/ShopItemMocking";
 import { Header } from "../components/pages/ShopPage/Header";
 import { Navigation } from "../components/common/Navigation/Navigation";
-import { ItemCarousel } from "../components/pages/ShopPage/ItemCarousel";
+import { ItemCard } from "../components/common/ItemCard";
 import { Modal } from "../components/common/Modal/Modal";
 import { ItemDescriptionPage } from "./ItemDescriptionPage";
 export const CategoryPage = () => {
@@ -77,7 +77,7 @@ export const CategoryPage = () => {
             </h2>
             
             {filteredItems.length > 0 ? (
-              <ItemCarousel
+              <ItemCard
                 items={filteredItems}
                 onItemClick={handleItemClick}
                 onBuyClick={handleBuyClick}
