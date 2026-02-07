@@ -39,8 +39,8 @@ export const HeroSlider = ({
   };
   
   return (
-    <div className="relative w-full h-67.5 overflow-hidden">
-      
+    <div className="relative w-full h-40 sm:h-48 md:h-56 lg:h-67.5 overflow-hidden">
+
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div key={index}
@@ -50,17 +50,17 @@ export const HeroSlider = ({
           </div>
         ))}
       </div>
-      
+
       {showArrows && slideCount > 1 && (
         <>
           <div onClick={goToPrevious}
-               className="heroslider-arrow-btn heroslider-arrow-left">
+               className="heroslider-arrow-btn heroslider-arrow-left hidden sm:block">
                   <div className="heroslider-arrow-inc"></div>
-            
+
           </div>
-          
+
           <div onClick={goToNext}
-               className="heroslider-arrow-btn heroslider-arrow-right">
+               className="heroslider-arrow-btn heroslider-arrow-right hidden sm:block">
                   <div className="heroslider-arrow-inc"></div>
           </div>
         </>

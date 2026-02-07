@@ -29,22 +29,21 @@ export const QuantitySelection = ({ maxQuantity, quantityPercentDelimeter, selec
 
 
     return(
-        <>
-        <p>Anzahl auswählen</p>
-        {possibleQuantities.map((quantity) => {
-
-                const isActive = selectedQuantity === quantity;
-                return (
-                    
-                    <button className={`quantity-btn mr-2 ${isActive ? 'quantity-btn-active' : ''}`} 
+        <div className="w-full">
+            <p className="text-xs sm:text-sm md:text-base mb-2 sm:mb-3 text-[#5a3825] font-semibold">Anzahl auswählen</p>
+            <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                {possibleQuantities.map((quantity) => {
+                    const isActive = selectedQuantity === quantity;
+                    return (
+                        <button
+                            className={`quantity-btn ${isActive ? 'quantity-btn-active' : ''}`}
                             key={quantity}
                             onClick={() => setSelectedQuantity(quantity)}>
-                                {quantity}
-                    </button>
-                )
-            }
-        )}
-        
-        </>
+                            {quantity}
+                        </button>
+                    )
+                })}
+            </div>
+        </div>
     )
 }

@@ -33,34 +33,28 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
     const currentTab = getCurrentTab();
 
     return (
-        <nav className="border-b border-solid border-[#E8A314]">
-            <div className="h-8">
+        <nav className="border-b border-solid border-[#E8A314] overflow-x-auto scrollbar-hide">
+            <div className="h-7 sm:h-8 md:h-9 flex items-center min-w-max">
                 {tabs.map((tab) => {
-                    console.log(currentTab)
                     const isActive = currentTab === tab.id;
-                    const tabClasses = "text-[13px] text-[#f2e69f] pt-1.5 pr-1.5 pb-1.5 pl-1.5 font-normal btn-navitem"
+                    const tabClasses = "text-[11px] sm:text-[12px] md:text-[13px] text-[#f2e69f] py-1 px-2 sm:px-2.5 md:py-1.5 md:px-3 font-normal btn-navitem whitespace-nowrap inline-block"
                     const isActiveClasses = "btn-navitem-active";
 
 
                     if (tab.id === 'home') {
                         return (
-                            <>
-                                <Link className="mr-1 shadow-none!" key={tab.id} to={tab.path}>
-                                    <a className={`${tabClasses} ${isActive ? isActiveClasses : ''}`}>
-                                        <i className="fa-solid fa-house" />
-                                    </a>
-                                </Link>
-                            </>
+                            <Link className="mr-1 sm:mr-1.5 shadow-none!" key={tab.id} to={tab.path}>
+                                <a className={`${tabClasses} ${isActive ? isActiveClasses : ''}`}>
+                                    <i className="fa-solid fa-house text-sm sm:text-base" />
+                                </a>
+                            </Link>
                         )
                     }
 
                     return (
-                        <>
-                            <Link className="mr-1 shadow-none!" key={tab.id} to={tab.path}>
-                                <a className={`${tabClasses} ${isActive ? isActiveClasses : ''}`}>{tab.label}</a>
-                            </Link>
-
-                        </>
+                        <Link className="mr-1 sm:mr-1.5 shadow-none!" key={tab.id} to={tab.path}>
+                            <a className={`${tabClasses} ${isActive ? isActiveClasses : ''}`}>{tab.label}</a>
+                        </Link>
                     );
                 })}
             </div>

@@ -99,31 +99,30 @@ export const CategoryPage = () => {
     <>
       <div className="metin-container page-image mx-auto">
         <Header />
-        
-        <div className="pr-5 pl-5">
+
+        <div className="px-3 sm:px-4 md:px-5">
           <div className="mt-2">
-            <Navigation 
+            <Navigation
               activeTab={categoryId || 'all'}
             />
           </div>
-          
-          <div className="mt-5">
-            <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2.5 border-b">
+
+          <div className="mt-3 sm:mt-4 md:mt-5">
+            <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
               {getCategoryTitle()}
             </h2>
 
-            {/* Sub Nav */}
-            <div className="flex">
-              <SubNavigation 
+            <div className="flex flex-col md:flex-row gap-2 md:gap-0">
+              <SubNavigation
                 categories={categoryTree}
                 activeCategoryId={activeCategoryId}
                 activeSubCategoryId={activeSubCategoryId}
                 onCategoryClick={handleCategoryClick}
                 onSubCategoryClick={handleSubCategoryClick}
               />
-              
+
               {filteredItems.length > 0 ? (
-                <div className="overflow-y-auto h-100">
+                <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
                   <ItemCard
                     items={filteredItems}
                     onItemClick={handleItemClick}
@@ -131,7 +130,7 @@ export const CategoryPage = () => {
                   />
                 </div>
               ) : (
-                <p className="text-[#f2e69f] text-center py-10">
+                <p className="text-[#f2e69f] text-center py-6 sm:py-8 md:py-10 flex-1">
                   Keine Artikel in dieser Kategorie gefunden.
                 </p>
               )}
@@ -139,7 +138,7 @@ export const CategoryPage = () => {
           </div>
         </div>
       </div>
-      
+
       <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
         {selectedItem && (
           <ItemDescriptionPage shopItem={selectedItem} />

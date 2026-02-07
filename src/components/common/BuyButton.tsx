@@ -9,7 +9,7 @@ type BuyButtonProps = {
 
 export const BuyButton = ({ shopItem, quantity = 1, title = "Kaufen" }: BuyButtonProps) => {
     const baseStyle = "base-green-btn w-full"
-    
+
     const handlePurchase = async () => {
         try {
             alert(`Buy ${quantity}x ${shopItem.name}!`);
@@ -19,11 +19,8 @@ export const BuyButton = ({ shopItem, quantity = 1, title = "Kaufen" }: BuyButto
     }
 
     return(
-        <>
-            <Button title={title}
-                    onClick={handlePurchase}
-                    className={baseStyle} />
-        </>
-
+        <Button title={title}
+                onClick={handlePurchase}
+                className={baseStyle} />
     );
 }

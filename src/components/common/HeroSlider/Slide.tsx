@@ -19,12 +19,12 @@ export const Slide = ({ imageUrl, redirectUrl, alt, children }: SlideProps) => {
     <div className="relative w-full h-full">
       <img src={imageUrl}
            alt={alt || 'Slide'}
-           className={`w-full h-full object-cover 
-                     ${redirectUrl ? 'cursor-pointer hover:scale-105 transition-transform duration-300' : ''}`}
+           className={`w-full h-full object-cover
+                     ${redirectUrl ? 'cursor-pointer md:hover:scale-105 transition-transform duration-300 active:scale-95' : ''}`}
            onClick={handleClick} />
-           
+
       {children && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-end justify-center pointer-events-none">
           {children}
         </div>
       )}
