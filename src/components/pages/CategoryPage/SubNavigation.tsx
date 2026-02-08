@@ -24,11 +24,11 @@ export const SubNavigation = ({
           const isMainCategoryActive = activeCategoryId === categoryWithSubs.category.id;
 
           return (
-            <li key={categoryWithSubs.category.id} className="relative group text-[0.7em] sm:text-[0.75em] md:text-[0.846em] shrink-0">
+            <li key={categoryWithSubs.category.id} className="relative group text-[1.3em] sm:text-[0.75em] md:text-[0.846em] shrink-0">
               <button
                 onClick={() => onCategoryClick(categoryWithSubs.category.id)}
                 className={`
-                  w-20 sm:w-24 md:w-26.25 text-[#f2e69f] px-1 sm:px-1.5 py-1.5 sm:py-2 text-center transition-colors catitem
+                  min-w-20 sm:w-24 md:w-26.25 text-[#f2e69f] px-1 sm:px-1.5 py-1.5 sm:py-2 text-center transition-colors catitem
                   ${isMainCategoryActive ? 'catitem-active' : 'bg-[#662d12] hover:bg-[#7d3515]'}
                 `}
               >
@@ -37,7 +37,7 @@ export const SubNavigation = ({
                   src={DEFAULT_ICON}
                   alt={categoryWithSubs.category.name}
                 />
-                <span className="text-[10px] sm:text-[11px] md:text-[13px] leading-tight block">
+                <span className="text-[1.5em] sm:text-[11px] md:text-[13px] leading-tight block">
                   {categoryWithSubs.category.name}
                 </span>
               </button>

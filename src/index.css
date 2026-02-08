@@ -212,13 +212,13 @@ button {
 }
 
 .slider-banner h3 {
-  font-size: 16px;
+  font-size: 2em;
   margin: 0;
   line-height: 1.3;
 }
 
 .slider-banner p {
-  font-size: 12px;
+  font-size: 1em;
   line-height: 1.3;
   margin: 0 0 5px;
 }

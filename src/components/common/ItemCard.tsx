@@ -76,7 +76,7 @@ export const ItemCard = ({
             className={`shadow-[0_1px_2px_#000] p-2 sm:p-2.5 item-card
               ${isCarousel ? 'keen-slider__slide min-h-45 sm:min-h-47.5 md:min-h-50' : 'w-full sm:w-[calc(50%-0.5rem)] md:w-[calc(33.333%-0.875rem)] lg:w-66.75 mb-3 sm:mb-4 md:mb-5'}`}>
 
-            <h4 className="mt-0.5 mb-1 sm:mb-1.5 pt-0.5 text-sm sm:text-[15px] md:text-[16px] leading-tight">
+            <h4 className="mt-0.5 mb-1 sm:mb-1.5 pt-0.5 text-[1.5em] sm:text-[15px] md:text-[16px] leading-tight">
               <a className="text-[#662d12] cursor-pointer hover:underline"
                 onClick={() => onItemClick && onItemClick(item)}>{item.name}</a>
             </h4>
@@ -94,10 +94,10 @@ export const ItemCard = ({
                     width="12"
                     height="12"
                     className="inline-block mr-0.5 sm:mr-1 w-3 h-3 sm:w-3.75 sm:h-3.75" />
-                  <p className="inline-block text-[#662d12] text-[10px] sm:text-[11px]">Highlights</p>
+                  <p className="inline-block text-[#662d12] text-[1.2em] sm:text-[11px]">Highlights</p>
                 </div>
 
-                <div className="flex-1 overflow-hidden text-[9px] sm:text-[10px] md:text-[11px] leading-[1.2] mb-1">
+                <div className="flex-1 overflow-hidden text-[1.2em] sm:text-[0.8em] md:text-[11px] leading-[1.2] mb-1">
                   <ul className="list-none p-0 m-0 line-clamp-3 sm:line-clamp-4">
                     {item.features.map((feature, index) => (
                       <li key={index}>
