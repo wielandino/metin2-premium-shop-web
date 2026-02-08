@@ -1,3 +1,4 @@
+import { Icon } from "../common/Icon";
 import type { PurchaseReward } from "../../models/Cart";
 
 interface RewardItemProps {
@@ -8,9 +9,9 @@ export const RewardItem = ({ reward }: RewardItemProps) => {
   const renderIcon = () => {
     switch (reward.type) {
       case 'dr_voucher':
-        return <i className="fa-solid fa-money-bill-wave text-3xl text-[#e8a314]"></i>;
+        return <Icon icon="money-bill-wave" className="text-3xl text-[#e8a314]" />;
       case 'tombola_ticket':
-        return <i className="fa-solid fa-ticket text-3xl text-[#e8a314]"></i>;
+        return <Icon icon="ticket" className="text-3xl text-[#e8a314]" />;
       case 'yabbie_coins':
         return reward.item ? (
           <img
@@ -19,7 +20,7 @@ export const RewardItem = ({ reward }: RewardItemProps) => {
             className="w-12 h-12 object-contain"
           />
         ) : (
-          <i className="fa-solid fa-coins text-3xl text-[#e8a314]"></i>
+          <Icon icon="coins" className="text-3xl text-[#e8a314]" />
         );
       default:
         return null;

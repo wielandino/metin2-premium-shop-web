@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MobileDrawer } from './MobileDrawer';
+import { Icon } from '../Icon';
 
 interface NavigationTab {
     id: string;
@@ -45,7 +46,7 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
                         className="text-[#f2e69f] hover:text-[#e8a314] transition-colors p-2"
                         aria-label="Menü öffnen"
                     >
-                        <i className="fa-solid fa-bars text-2xl"></i>
+                        <Icon icon="bars" className="text-2xl" />
                     </button>
                     <span className="text-[#f2e69f] ml-3 font-bold">
                         {tabs.find(t => t.id === currentTab)?.label || 'Navigation'}
@@ -64,7 +65,7 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
                             return (
                                 <Link className="mr-1 sm:mr-1.5 shadow-none!" key={tab.id} to={tab.path}>
                                     <div className={`${tabClasses} ${isActive ? isActiveClasses : ''}`}>
-                                        <i className="fa-solid fa-house text-sm sm:text-base" />
+                                        <Icon icon="house" className="text-sm sm:text-base" />
                                     </div>
                                 </Link>
                             )

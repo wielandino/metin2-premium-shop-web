@@ -1,3 +1,4 @@
+import { Icon } from "../../../common/Icon";
 import type { TombolaItem } from "../../../../models/TombolaItem";
 import { calculateChance } from "../utils/tombolaHelpers";
 
@@ -24,7 +25,7 @@ export const TombolaSlot = ({ item, allItems, isActive, isSpinning }: TombolaSlo
         {item.isPenalty ? (
           <>
             <div className="tombola-penalty-icon">
-              <i className="fa-solid fa-skull-crossbones" aria-hidden="true"></i>
+              <Icon icon="skull-crossbones" />
             </div>
             <div className="tombola-item-name">{item.penaltyText}</div>
           </>

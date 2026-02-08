@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Icon } from '../Icon';
 
 interface NavigationTab {
     id: string;
@@ -48,7 +49,7 @@ export const MobileDrawer = ({ isOpen, onClose, tabs, currentTab }: MobileDrawer
                         className="text-[#f2e69f] hover:text-[#e8a314] transition-colors p-2"
                         aria-label="Menü schließen"
                     >
-                        <i className="fa-solid fa-xmark text-2xl"></i>
+                        <Icon icon="xmark" className="text-2xl" />
                     </button>
                 </div>
 
@@ -59,17 +60,17 @@ export const MobileDrawer = ({ isOpen, onClose, tabs, currentTab }: MobileDrawer
                         const getIcon = (tabId: string) => {
                             switch (tabId) {
                                 case 'home':
-                                    return 'fa-house';
+                                    return 'house';
                                 case 'all':
-                                    return 'fa-bag-shopping';
+                                    return 'bag-shopping';
                                 case 'new':
-                                    return 'fa-sparkles';
+                                    return 'star';
                                 case 'hot':
-                                    return 'fa-fire';
+                                    return 'fire';
                                 case 'tombola':
-                                    return 'fa-dice';
+                                    return 'dice';
                                 default:
-                                    return 'fa-circle';
+                                    return 'circle';
                             }
                         };
 
@@ -83,10 +84,10 @@ export const MobileDrawer = ({ isOpen, onClose, tabs, currentTab }: MobileDrawer
                                         : 'text-[#f2e69f] hover:bg-[rgba(232,163,20,0.2)] border-l-4 border-transparent'
                                     }`}
                             >
-                                <i className={`fa-solid ${getIcon(tab.id)} text-lg mr-3 min-w-5`}></i>
+                                <Icon icon={getIcon(tab.id) as any} className="text-lg mr-3 min-w-5" />
                                 <span className="font-medium">{tab.label}</span>
                                 {isActive && (
-                                    <i className="fa-solid fa-check ml-auto text-sm"></i>
+                                    <Icon icon="check" className="ml-auto text-sm" />
                                 )}
                             </Link>
                         );

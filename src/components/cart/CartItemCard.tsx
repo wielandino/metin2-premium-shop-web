@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "../common/Button";
+import { Icon } from "../common/Icon";
 import type { CartItem } from "../../models/Cart";
 
 interface CartItemCardProps {
@@ -97,7 +98,7 @@ export const CartItemCard = ({
             onClick={() => onRemove(shopItem.id)}
             className="text-red-500 hover:text-red-700 px-3"
           >
-            <i className="fa-solid fa-trash"></i>
+            <Icon icon="trash" />
           </button>
         </div>
       </div>

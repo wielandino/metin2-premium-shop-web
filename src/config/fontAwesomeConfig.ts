@@ -1,0 +1,43 @@
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+import {
+  faBars,
+  faCheck,
+  faCircleInfo,
+  faCoins,
+  faEarthEurope,
+  faGift,
+  faHouse,
+  faMoneyBillWave,
+  faShoppingCart,
+  faSkullCrossbones,
+  faTicket,
+  faTrash,
+  faUser,
+  faXmark,
+  faBagShopping,
+  faStar,
+  faFire,
+  faDice,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+  faBars,
+  faCheck,
+  faCircleInfo,
+  faCoins,
+  faEarthEurope,
+  faGift,
+  faHouse,
+  faMoneyBillWave,
+  faShoppingCart,
+  faSkullCrossbones,
+  faTicket,
+  faTrash,
+  faUser,
+  faXmark,
+  faBagShopping,
+  faStar,
+  faFire,
+  faDice,
+);

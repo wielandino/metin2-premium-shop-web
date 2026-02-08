@@ -1,4 +1,5 @@
 import type { TierDescription } from "../../../../constants/tombolaConstants";
+import { Icon } from "../../../common/Icon";
 import type { TombolaTier } from "../../../../models/TombolaItem";
 
 interface TierSelectionCardProps {
@@ -26,7 +27,7 @@ export const TierSelectionCard = ({ tier, selectedTier, onSelect }: TierSelectio
       </h3>
       <div className={`text-xs sm:text-sm mb-2 ${isSelected ? 'text-[#3c1e16]' : 'text-[#f2e69f]'
         }`}>
-        <i className="fa-solid fa-ticket mr-1" aria-hidden="true"></i>
+        <Icon icon="ticket" className="mr-1" />
         Kosten: {tier.cost} Ticket{tier.cost > 1 ? 's' : ''}
       </div>
       <p className={`text-xs ${isSelected ? 'text-[#3c1e16]' : 'text-[#f2e69f]'

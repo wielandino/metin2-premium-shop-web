@@ -1,3 +1,4 @@
+import { Icon } from "../../../common/Icon";
 import type { TombolaItem } from "../../../../models/TombolaItem";
 
 interface TombolaItemDisplayProps {
@@ -27,7 +28,7 @@ export const TombolaItemDisplay = ({
     return (
       <>
         <div className={`tombola-penalty-icon ${size === "large" ? "tombola-penalty-icon-large" : ""}`}>
-          <i className={`fa-solid fa-skull-crossbones ${iconSizes[size]}`} aria-hidden="true"></i>
+          <Icon icon="skull-crossbones" className={iconSizes[size]} />
         </div>
         {showName && (
           <span className={`font-bold ${size === "large" ? "text-red-600" : "text-[#f2e69f]"}`}>

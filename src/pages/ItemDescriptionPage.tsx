@@ -31,7 +31,7 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
           <div className="text-left sm:text-right">
             <span className="text-xs sm:text-sm text-[#5a3825] mr-2">Preis:</span>
             <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#5a3825]">
-              {totalPrice}
+              {totalPrice} DR
             </span>
           </div>
         </header>
@@ -81,7 +81,7 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
 
             <div className="text-center">
               <p className="text-xs sm:text-sm mb-1">Jetzt erhältlich für:</p>
-              <p className="text-2xl sm:text-3xl font-bold text-[#5a3825] mb-2">{totalPrice}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-[#5a3825] mb-2">{totalPrice} DR</p>
               <BuyButton shopItem={shopItem} />
             </div>
           </div>

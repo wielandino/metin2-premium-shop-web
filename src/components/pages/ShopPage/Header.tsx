@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "../../common/Button";
+import { Icon } from "../../common/Icon";
 import { useCart } from "../../../context/CartContext";
 
 export const Header = () => {
@@ -15,12 +16,12 @@ export const Header = () => {
 
             <div className="flex flex-col text-[0.7em] sm:text-[0.8em] md:text-[0.857em] justify-center invisible sm:visible">
               <span className="whitespace-nowrap">
-                <i className="fa-solid fa-user mr-1 sm:mr-1.5" />
+                <Icon icon="user" className="mr-1 sm:mr-1.5" />
                 <p className="inline-block"><b><u>ArpyAge</u></b></p>
               </span>
 
               <span className="whitespace-nowrap">
-                <i className="fa-solid fa-earth-europe mr-1 sm:mr-1.5"></i>
+                <Icon icon="earth-europe" className="mr-1 sm:mr-1.5" />
                 <p className="inline-block">LowLevel</p>
               </span>
             </div>
@@ -30,7 +31,7 @@ export const Header = () => {
         <div className="md:col-span-2 flex justify-end items-center gap-2 sm:gap-3 md:gap-4">
           <Link to="/cart" className="relative">
             <button className="text-[#f2e69f] hover:text-[#e8a314] transition-colors relative">
-              <i className="fa-solid fa-shopping-cart text-xl sm:text-2xl"></i>
+              <Icon icon="shopping-cart" className="text-xl sm:text-2xl" />
               {totalItems > 0 && (
                 <span className="absolute -top-2 -right-2 bg-[#e8a314] text-[#3c1e16] text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center border-2 border-[#662d12]">
                   {totalItems}
