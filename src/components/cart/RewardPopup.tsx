@@ -17,7 +17,7 @@ export const RewardPopup = ({ rewards, onClose }: RewardPopupProps) => {
         className="bg-[url('/images/item_bg.jpg')] border-3 border-[#e8a314] max-w-md w-full p-6 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="bg-linear-to-br from-[#e8a314] to-[#f2e69f] p-4 mb-4 -m-6 mb-4">
+        <div className="bg-linear-to-br from-[#e8a314] to-[#f2e69f] p-4 mb-4 -m-6">
           <h3 className="text-2xl font-bold text-[#3c1e16] text-center">
             Kauf erfolgreich!
           </h3>
