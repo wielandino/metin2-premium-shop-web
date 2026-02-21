@@ -5,10 +5,10 @@ import { TicketDisplay } from "../components/pages/Tombola/utils/TicketDisplay";
 import { TierSelectionCard } from "../components/pages/Tombola/utils/TierSelectionCard";
 import { TombolaInfoBox } from "../components/pages/Tombola/utils/TombolaInfoBox";
 import { useUser } from "../context/UserContext";
-import { TOMBOLA_TIERS } from "../constants/tombolaConstants";
 import type { TombolaItem, TombolaReward, TombolaTier } from "../models/TombolaItem";
 import { Tombola } from "../components/pages/Tombola/Tombola";
 import { api } from "../services/api";
+import { TOMBOLA_TIERS } from "../utils/constants/tombolaConstants";
 
 export const TombolaPage = () => {
   const { userId, tombolaTickets, refreshUser } = useUser();

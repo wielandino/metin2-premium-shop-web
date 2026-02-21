@@ -1,5 +1,5 @@
+import { TOMBOLA_INFO_TEXT } from "../../../../utils/constants/tombolaConstants";
 import { Icon } from "../../../common/Icon";
-import { TOMBOLA_INFO_TEXT } from "../../../../constants/tombolaConstants";
 
 interface TicketDisplayProps {
   ticketCount: number;

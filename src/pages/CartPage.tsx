@@ -23,6 +23,7 @@ export const CartPage = () => {
     if (isPurchasing) return;
 
     const cost = items.reduce((sum, i) => sum + i.shopItem.price * i.quantity, 0);
+    
     if (cost > drBalance) {
       alert(`Nicht genug DR-Guthaben. Benötigt: ${cost} DR, Vorhanden: ${drBalance} DR`);
       return;

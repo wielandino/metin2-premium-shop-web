@@ -1,4 +1,4 @@
-import type { TombolaTier } from "../models/TombolaItem";
+import type { TombolaTier } from "../../models/TombolaItem";
 
 export interface TierDescription {
   tier: TombolaTier;

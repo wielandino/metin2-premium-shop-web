@@ -1,6 +1,6 @@
-import type { TierDescription } from "../../../../constants/tombolaConstants";
 import { Icon } from "../../../common/Icon";
 import type { TombolaTier } from "../../../../models/TombolaItem";
+import type { TierDescription } from "../../../../utils/constants/tombolaConstants";
 
 interface TierSelectionCardProps {
   tier: TierDescription;
