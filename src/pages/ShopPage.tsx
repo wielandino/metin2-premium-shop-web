@@ -2,25 +2,17 @@ import { useState, useEffect } from "react";
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
 import { Header } from "../components/pages/ShopPage/Header"
-import { ItemCard } from "../components/common/ItemCard";
 import type { ShopItem } from "../models/ShopItem";
-import { Modal } from "../components/common/Modal/Modal";
 import { ItemDescriptionPage } from "./ItemDescriptionPage";
 import { Navigation } from "../components/common/Navigation/Navigation";
-import { api } from "../services/api";
+import { Modal } from "../components/common/Modal/Modal";
+
 
 
 function ShopPage() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<ShopItem | null>(null);
-  const [hotItems, setHotItems] = useState<ShopItem[]>([]);
-
-  useEffect(() => {
-    api.shop.getItems()
-      .then(items => setHotItems(items.filter(i => i.isHot)))
-      .catch(err => console.error('Fehler beim Laden der Shop-Items:', err));
-  }, []);
 
   const handleItemClick = (item: ShopItem) => {
     setSelectedItem(item);
@@ -76,12 +68,6 @@ function ShopPage() {
             <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
               Beliebte Artikel
             </h2>
-
-            <ItemCard
-              items={hotItems}
-              isCarousel={true}
-              onItemClick={handleItemClick}
-            />
           </div>
         </div>
       </div>

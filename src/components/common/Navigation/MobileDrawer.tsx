@@ -67,8 +67,6 @@ export const MobileDrawer = ({ isOpen, onClose, tabs, currentTab }: MobileDrawer
                                     return 'star';
                                 case 'hot':
                                     return 'fire';
-                                case 'tombola':
-                                    return 'dice';
                                 default:
                                     return 'circle';
                             }

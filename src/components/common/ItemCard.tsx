@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import type { ShopItem } from '../../models/ShopItem';
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
-import { AddToCartButton } from './AddToCartButton';
 
 interface ItemCardProps {
   items: ShopItem[];
@@ -100,7 +99,7 @@ export const ItemCard = ({
               </div>
             </div>
             <div className="w-full sm:w-auto sm:max-w-30 md:w-27.75 sm:float-right">
-              <AddToCartButton shopItem={item} title={`${item.price} DR`} />
+              
             </div>
           </div>
         ))}

@@ -22,12 +22,10 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
         { id: 'all', label: 'Alle Artikel', path: '/category/all' },
         { id: 'new', label: 'Neue Artikel', path: '/category/new' },
         { id: 'hot', label: 'Beliebte Artikel', path: '/category/hot' },
-        { id: 'tombola', label: 'Tombola', path: '/tombola' },
     ];
 
     const getCurrentTab = () => {
         if (location.pathname === '/') return 'home';
-        if (location.pathname === '/tombola') return 'tombola';
 
         const match = location.pathname.match(/\/category\/(.+)/);
         if (match) return match[1];
