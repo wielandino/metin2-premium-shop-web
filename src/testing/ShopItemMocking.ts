@@ -2,9 +2,9 @@ import type { ShopItem } from "../models/ShopItem";
 import {
   HIGHLIGHTS_CATEGORY,
   METINPLUS_CATEGORY,
-  REDUZIERT_CATEGORY,
   OFFERS_CATEGORY,
-  CHARACTER_CATEGORY
+  CHARACTER_CATEGORY,
+  VEREDELN_CATEGORY
 } from "./CategoryModelMocking";
 
 const DUMMY_ID = 23;
@@ -35,7 +35,7 @@ export const SHOP_ITEM_DUMMY_MODEL_2: ShopItem = {
     "Gutschein im Wert von 50 DR",
     "Begrenzte Laufzeit",
   ],
-  category: REDUZIERT_CATEGORY,
+  category: VEREDELN_CATEGORY,
   imageName: "drgutschein",
   maxQuantity: 1,
   quantityPercentDelimeter: 0,
@@ -151,9 +151,9 @@ export const mockShopItems: ShopItem[] = [
   SHOP_ITEM_DUMMY_MODEL_1,
   SHOP_ITEM_DUMMY_MODEL_2,
   SHOP_ITEM_DUMMY_MODEL_3,
+  SHOP_ITEM_DUMMY_MODEL_4,
   SHOP_ITEM_DUMMY_MODEL_5,
   SHOP_ITEM_DUMMY_MODEL_6,
   SHOP_ITEM_DUMMY_MODEL_7,
   SHOP_ITEM_DUMMY_MODEL_8,
-
 ];

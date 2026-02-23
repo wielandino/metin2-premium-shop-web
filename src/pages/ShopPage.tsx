@@ -6,6 +6,8 @@ import type { ShopItem } from "../models/ShopItem";
 import { ItemDescriptionPage } from "./ItemDescriptionPage";
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { Modal } from "../components/common/Modal/Modal";
+import { ItemCard } from "../components/common/ItemCard";
+import { mockShopItems } from "../testing/ShopItemMocking";
 
 
 
@@ -68,7 +70,11 @@ function ShopPage() {
             <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
               Beliebte Artikel
             </h2>
+            <ItemCard items={mockShopItems}
+                    isCarousel={true}
+                    onItemClick={handleItemClick}  />
           </div>
+          
         </div>
       </div>
 

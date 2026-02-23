@@ -1,10 +1,28 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Header } from "../components/pages/ShopPage/Header";
 import { Navigation } from "../components/common/Navigation/Navigation";
+import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
+import { useEffect, useMemo, useState } from "react";
+import { buildCategoryTreeFromItems, type CategoryWithSubs } from "../utils/categoryHelper";
+import type { ShopItem } from "../models/ShopItem";
+import { mockShopItems } from "../testing/ShopItemMocking";
 
 
 export const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
+  const [items, setItems] = useState<ShopItem[]>([]);
+
+  useEffect(() => {
+    // TODO: Change this with a actual API CALL!
+    setItems(mockShopItems);
+  }, [categoryId])
+
+  /**
+   *  Non-Null Assertion Operator because useEffect takes care
+   *  that the items we recieve from the api is not null and have a category
+  */
+  const categoryNavigationTree: CategoryWithSubs[]
+    = useMemo(() => buildCategoryTreeFromItems(items!.map(c => c.category!)), [items]);
 
   return (
     <>
@@ -24,7 +42,7 @@ export const CategoryPage = () => {
             </h2>
 
             <div className="flex flex-col md:flex-row gap-2 md:gap-0">
-              
+              <SubNavigation categories={categoryNavigationTree} />
             </div>
           </div>
         </div>
