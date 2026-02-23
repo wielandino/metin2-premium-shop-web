@@ -12,6 +12,9 @@ const router = createBrowserRouter([
   { path: "/category/:categoryId",
     element: <CategoryPage />
   },
+  { path: "/category/:categoryId?cat=:subCategoryId",
+    element: <CategoryPage />
+  },
 ]);
 
 createRoot(document.getElementById('root')!).render(

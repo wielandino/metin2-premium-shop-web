@@ -5,7 +5,7 @@ interface CategoryWithSubs {
     subCategories: Category[]
 }
 
-function buildCategoryTreeFromItems(categories: Category[]): CategoryWithSubs[] {
+function buildCategoryTree(categories: Category[]): CategoryWithSubs[] {
     const filtered: Category[] = categories.filter(c => c != null);
     const result: CategoryWithSubs[] = [];
 
@@ -30,5 +30,5 @@ function buildCategoryTreeFromItems(categories: Category[]): CategoryWithSubs[] 
 }
 
 
-export { buildCategoryTreeFromItems };
+export { buildCategoryTree };
 export type { CategoryWithSubs };

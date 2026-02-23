@@ -1,28 +1,41 @@
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { Header } from "../components/pages/ShopPage/Header";
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
 import { useEffect, useMemo, useState } from "react";
-import { buildCategoryTreeFromItems, type CategoryWithSubs } from "../utils/categoryHelper";
+import { buildCategoryTree, type CategoryWithSubs } from "../utils/categoryHelper";
 import type { ShopItem } from "../models/ShopItem";
 import { mockShopItems } from "../testing/ShopItemMocking";
+import { ItemCard } from "../components/common/ItemCard";
 
 
 export const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const activeSubCategoryId = Number(searchParams.get("cat")) ?? undefined;
+
   const [items, setItems] = useState<ShopItem[]>([]);
+  const filteredItems = 
+    (activeSubCategoryId > 0) ? items.filter(i => i.category?.id === activeSubCategoryId) : items;
+
+
+  function handleCategoryClick(categoryId: number) {
+    setSearchParams({ cat: categoryId.toString() });
+  }
 
   useEffect(() => {
     // TODO: Change this with a actual API CALL!
     setItems(mockShopItems);
   }, [categoryId])
 
+
   /**
    *  Non-Null Assertion Operator because useEffect takes care
    *  that the items we recieve from the api is not null and have a category
   */
   const categoryNavigationTree: CategoryWithSubs[]
-    = useMemo(() => buildCategoryTreeFromItems(items!.map(c => c.category!)), [items]);
+    = useMemo(() => buildCategoryTree(items!.map(c => c.category!)), [items]);
 
   return (
     <>
@@ -42,7 +55,15 @@ export const CategoryPage = () => {
             </h2>
 
             <div className="flex flex-col md:flex-row gap-2 md:gap-0">
-              <SubNavigation categories={categoryNavigationTree} />
+              <SubNavigation categories={categoryNavigationTree}
+                activeSubCategoryId={activeSubCategoryId}
+                onCategoryClick={handleCategoryClick} />
+
+              <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
+                <ItemCard
+                  items={filteredItems}
+                />
+              </div>
             </div>
           </div>
         </div>
