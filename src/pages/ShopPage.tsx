@@ -1,30 +1,13 @@
-import { useState, useEffect } from "react";
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
 import { Header } from "../components/pages/ShopPage/Header"
-import type { ShopItem } from "../models/ShopItem";
-import { ItemDescriptionPage } from "./ItemDescriptionPage";
 import { Navigation } from "../components/common/Navigation/Navigation";
-import { Modal } from "../components/common/Modal/Modal";
 import { ItemCard } from "../components/common/ItemCard";
 import { mockShopItems } from "../testing/ShopItemMocking";
 
 
 
 function ShopPage() {
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<ShopItem | null>(null);
-
-  const handleItemClick = (item: ShopItem) => {
-    setSelectedItem(item);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedItem(null);
-  };
 
   return (
     <>
@@ -71,18 +54,11 @@ function ShopPage() {
               Beliebte Artikel
             </h2>
             <ItemCard items={mockShopItems}
-                    isCarousel={true}
-                    onItemClick={handleItemClick}  />
+                      isCarousel={true} />
           </div>
-          
+
         </div>
       </div>
-
-      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-        {selectedItem && (
-          <ItemDescriptionPage shopItem={selectedItem} />
-        )}
-      </Modal>
     </>
   )
 }

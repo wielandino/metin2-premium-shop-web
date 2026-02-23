@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { ShopItem } from '../../models/ShopItem';
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
+import { Modal } from './Modal/Modal';
+import { ItemDescriptionPage } from '../../pages/ItemDescriptionPage';
 
 interface ItemCardProps {
   items: ShopItem[];
@@ -11,7 +13,7 @@ interface ItemCardProps {
 
 export const ItemCard = ({
   items,
-  onItemClick,
+  onItemClick: onItemClickProp,
   isCarousel = false
 }: ItemCardProps) => {
 
@@ -51,6 +53,21 @@ export const ItemCard = ({
       },
     },
   });
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<ShopItem | null>(null);
+
+  const handleItemModalClick = (item: ShopItem) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
+
+  const onItemClick = onItemClickProp ?? handleItemModalClick;
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
 
   useEffect(() => {
     if (isCarousel) instanceRef.current?.update();
@@ -99,11 +116,17 @@ export const ItemCard = ({
               </div>
             </div>
             <div className="w-full sm:w-auto sm:max-w-30 md:w-27.75 sm:float-right">
-              
+
             </div>
           </div>
         ))}
       </div>
+
+      <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
+        {selectedItem && (
+          <ItemDescriptionPage shopItem={selectedItem} />
+        )}
+      </Modal>
     </>
   );
 };
