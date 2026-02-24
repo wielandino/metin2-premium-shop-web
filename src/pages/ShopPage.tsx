@@ -5,8 +5,6 @@ import { Navigation } from "../components/common/Navigation/Navigation";
 import { ItemCard } from "../components/common/ItemCard";
 import { mockShopItems } from "../testing/ShopItemMocking";
 
-
-
 function ShopPage() {
 
   return (
@@ -54,7 +52,7 @@ function ShopPage() {
               Beliebte Artikel
             </h2>
             <ItemCard items={mockShopItems}
-                      isCarousel={true} />
+              isCarousel={true} />
           </div>
 
         </div>

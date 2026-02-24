@@ -6,6 +6,7 @@ import App from './App.tsx'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CategoryPage } from './pages/CategoryPage.tsx'
+import { TombolaPage } from './pages/TombolaPage.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -14,6 +15,9 @@ const router = createBrowserRouter([
   },
   { path: "/category/:categoryId?cat=:subCategoryId",
     element: <CategoryPage />
+  },
+  { path: "/tombola",
+    element: <TombolaPage />
   },
 ]);
 

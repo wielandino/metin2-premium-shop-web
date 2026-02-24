@@ -18,7 +18,7 @@ export const CategoryPage = () => {
 
   const filteredItems =
     (activeSubCategoryId > 0) ? items.filter(i => i.category?.id === activeSubCategoryId) : items;
-  
+
   function handleCategoryClick(categoryId: number) {
     setSearchParams({ cat: categoryId.toString() });
   }
@@ -28,14 +28,22 @@ export const CategoryPage = () => {
 
     let items = mockShopItems;
 
-    if(categoryId == "new")
+    if (categoryId == "new")
       items = items.filter(i => i.isNew);
-    else if(categoryId == "hot")
+    else if (categoryId == "hot")
       items = items.filter(i => i.isHot);
 
     setItems(items);
   }, [categoryId])
 
+
+  let categoryTitle;
+
+  switch (categoryId) {
+    case "hot": categoryTitle = "Beliebte Artikel"; break;
+    case "new": categoryTitle = "Neue Artikel"; break;
+    default: categoryTitle = "Alle Artikel";
+  }
 
   /**
    *  Non-Null Assertion Operator because useEffect takes care
@@ -58,7 +66,7 @@ export const CategoryPage = () => {
 
           <div className="mt-3 sm:mt-4 md:mt-5">
             <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
-              CategoryTitle
+              {categoryTitle}
             </h2>
 
             <div className="flex flex-col md:flex-row gap-2 md:gap-0">
