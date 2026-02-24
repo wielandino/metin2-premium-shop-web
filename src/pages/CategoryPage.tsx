@@ -13,20 +13,27 @@ export const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const activeSubCategoryId = Number(searchParams.get("cat")) ?? undefined;
-
   const [items, setItems] = useState<ShopItem[]>([]);
-  const filteredItems = 
+  const activeSubCategoryId = Number(searchParams.get("cat"));
+
+  const filteredItems =
     (activeSubCategoryId > 0) ? items.filter(i => i.category?.id === activeSubCategoryId) : items;
-
-
+  
   function handleCategoryClick(categoryId: number) {
     setSearchParams({ cat: categoryId.toString() });
   }
 
   useEffect(() => {
     // TODO: Change this with a actual API CALL!
-    setItems(mockShopItems);
+
+    let items = mockShopItems;
+
+    if(categoryId == "new")
+      items = items.filter(i => i.isNew);
+    else if(categoryId == "hot")
+      items = items.filter(i => i.isHot);
+
+    setItems(items);
   }, [categoryId])
 
 
@@ -56,13 +63,11 @@ export const CategoryPage = () => {
 
             <div className="flex flex-col md:flex-row gap-2 md:gap-0">
               <SubNavigation categories={categoryNavigationTree}
-                activeSubCategoryId={activeSubCategoryId}
+                activeCategoryId={activeSubCategoryId}
                 onCategoryClick={handleCategoryClick} />
 
               <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
-                <ItemCard
-                  items={filteredItems}
-                />
+                <ItemCard items={filteredItems} />
               </div>
             </div>
           </div>
