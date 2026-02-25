@@ -1,5 +1,7 @@
 import { Navigation } from "../components/common/Navigation/Navigation"
 import { Header } from "../components/pages/ShopPage/Header"
+import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
+import { TombolaTier } from "../components/pages/TombolaPage/TombolaTier"
 
 export const TombolaPage = () => {
 
@@ -20,6 +22,12 @@ export const TombolaPage = () => {
                             Tombola
                         </h2>
                     </div>
+
+                    <TicketCount />
+
+                    <TombolaTier tierName="Tier 1" />
+                    <TombolaTier tierName="Tier 2" />
+                    <TombolaTier tierName="Tier 3" />
                 </div>
             </div>
         </>
