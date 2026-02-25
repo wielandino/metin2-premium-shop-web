@@ -1,4 +1,4 @@
-import type { Category } from "../models/Category";
+import type { Category } from "../../models/Category";
 
 const DUMMY_ID = 23;
 
