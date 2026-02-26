@@ -3,7 +3,7 @@ import { Slide } from "../components/common/HeroSlider/Slide"
 import { Header } from "../components/pages/ShopPage/Header"
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { ItemCard } from "../components/common/ItemCard";
-import { mockShopItems } from "../testing/ShopItemMocking";
+import { mockShopItems } from "../testing/mock/ShopItemMocking";
 
 function ShopPage() {
 

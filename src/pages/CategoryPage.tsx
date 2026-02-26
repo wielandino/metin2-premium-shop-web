@@ -5,8 +5,8 @@ import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
 import { useEffect, useMemo, useState } from "react";
 import { buildCategoryTree, type CategoryWithSubs } from "../utils/categoryHelper";
 import type { ShopItem } from "../models/ShopItem";
-import { mockShopItems } from "../testing/ShopItemMocking";
 import { ItemCard } from "../components/common/ItemCard";
+import { mockShopItems } from "../testing/mock/ShopItemMocking";
 
 
 export const CategoryPage = () => {

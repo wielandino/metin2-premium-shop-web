@@ -1,10 +1,22 @@
+import { useEffect, useState } from "react"
 import { Navigation } from "../components/common/Navigation/Navigation"
 import { Header } from "../components/pages/ShopPage/Header"
 import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
 import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
+import type { TombolaTier } from "../models/TombolaTier"
+import { TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_GOLD, TOMBOLA_TIER_SILBER } from "../testing/mock/TombolaMocking"
 
 export const TombolaPage = () => {
 
+    const [tombolaTiers, setTombolaTiers] = useState<TombolaTier[]>([]);
+    const [selectedTier, setSelectedTier] = useState<TombolaTier>();
+
+    useEffect(() => {
+        //TODO: API CALL
+        setTombolaTiers([TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD]);
+
+        setSelectedTier(tombolaTiers[1]);
+    }, []);
 
     return (
         <>
@@ -26,9 +38,15 @@ export const TombolaPage = () => {
                     <TicketCount />
 
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-5">
-                        <TombolaTierCard />
-                        <TombolaTierCard />
-                        <TombolaTierCard />
+                        {tombolaTiers.map((tombolaTier) => {
+                            return (
+                                <TombolaTierCard
+                                    tombolaTier={tombolaTier}
+                                    onTombolaTierClick={setSelectedTier}
+                                    isTierSelected={selectedTier == tombolaTier}
+                                    key={tombolaTier.id} />
+                            )
+                        })}
                     </div>
                 </div>
             </div>

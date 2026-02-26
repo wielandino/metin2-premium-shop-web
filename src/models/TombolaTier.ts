@@ -1,8 +1,10 @@
 import type { TombolaItem } from "./TombolaItem"
 
 export interface TombolaTier {
+    id: number,
     tierName: string,
-    tierCost: Number,
+    tierCost: number,
     tierDescription: string,
-    tombolaItems: TombolaItem[]
+    tombolaItems: TombolaItem[],
+    customCss?: string
 }
