@@ -5,6 +5,6 @@ export interface TombolaTier {
     tierName: string,
     tierCost: number,
     tierDescription: string,
-    tombolaItems: TombolaItem[],
-    customCss?: string
+    tombolaItems: TombolaItem[]
+    tierLevel: "bronze" | "silver" | "gold"
 }

@@ -13,9 +13,9 @@ export const TombolaPage = () => {
 
     useEffect(() => {
         //TODO: API CALL
-        setTombolaTiers([TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD]);
-
-        setSelectedTier(tombolaTiers[1]);
+        const tiers = [TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD];
+        setTombolaTiers(tiers);
+        setSelectedTier(tiers[1]);
     }, []);
 
     return (
