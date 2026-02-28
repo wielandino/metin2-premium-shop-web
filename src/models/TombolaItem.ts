@@ -1,6 +1,6 @@
-import type { ShopItem } from "./ShopItem";
+import type { Item } from "./Item";
 
 export interface TombolaItem {
-    item: ShopItem | undefined
+    item: Item
     rollChance: Number
 }

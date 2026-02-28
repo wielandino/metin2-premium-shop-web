@@ -1,15 +1,12 @@
 import type { Category } from "./Category";
+import type { Item } from "./Item";
 
-export interface ShopItem {
-    id: number,
-    price: number,
-    name: string,
-    description?: string,
+export interface ShopItem extends Item {
     category?: Category,
-    features: string[],
-    imageName: string,
+    price: number,
+    features: string[],  
     maxQuantity: number,
     quantityPercentDelimeter: number,
     isNew: boolean,
-    isHot: boolean,
+    isHot: boolean
 }
