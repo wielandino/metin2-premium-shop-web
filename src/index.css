@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+    --tombola-item-icon-filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
+    --golden-fleece: #f2e69f;
+}
+
 html {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
@@ -348,4 +353,25 @@ button {
 
 .catitem {
   font-family: "Droid Serif",georgia,"Times New Roman",palatino,"Hoefler Text",baskerville,serif;
+}
+
+.tombola-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tombola-wrapper {
+  background: url(/images/tombola_bg.png);
+  background-position-x: center;
+  box-shadow: 0 1px 2px #000;
+}
+
+.tombola-item-slot {
+  transition: all .2s ease;
+}
+
+.tombola-item-slot:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px #0000004d;
 }

@@ -5,6 +5,7 @@ import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
 import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
 import type { TombolaTier } from "../models/TombolaTier"
 import { TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_GOLD, TOMBOLA_TIER_SILBER } from "../testing/mock/TombolaMocking"
+import { TombolaWheel } from "../components/pages/TombolaPage/TombolaWheel"
 
 export const TombolaPage = () => {
 
@@ -48,6 +49,8 @@ export const TombolaPage = () => {
                             )
                         })}
                     </div>
+                    
+                    {selectedTier && <TombolaWheel selectedTombolaTier={selectedTier} />}
                 </div>
             </div>
         </>
