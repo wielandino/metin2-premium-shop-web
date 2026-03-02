@@ -2,9 +2,11 @@ import type { TombolaTier } from "../../models/TombolaTier";
 import type { TombolaItem } from "../../models/TombolaItem";
 
 const DUMMY_ID = 100;
+const TOMBOLA_ITEM_DUMMY_ID = 500;
 
 const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
   {
+    id: TOMBOLA_ITEM_DUMMY_ID,
     item: {
       id: DUMMY_ID + 1,
       name: "Segensschriftrolle",
@@ -14,6 +16,7 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 40,
   },
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 11,
     item: {
       id: DUMMY_ID + 2,
       name: "Gegenstand verzaubern",
@@ -23,6 +26,7 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 35,
   },
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 12,
     item: {
       id: DUMMY_ID + 3,
       name: "Passierschein",
@@ -35,6 +39,7 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
 
 const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 13,
     item: {
       id: DUMMY_ID + 11,
       name: "DR-Gutschein (50)",
@@ -44,6 +49,7 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 30,
   },
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 14,
     item: {
       id: DUMMY_ID + 12,
       name: "Schmuckschatulle",
@@ -53,6 +59,7 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 45,
   },
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 15,
     item: {
       id: DUMMY_ID + 13,
       name: "Veredelungsstein +7",
@@ -61,10 +68,26 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     },
     rollChance: 25,
   },
+  {
+    id: TOMBOLA_ITEM_DUMMY_ID + 16,
+    name: "Pech gehabt!",
+    rollChance: 12
+  },
+  {
+    id: TOMBOLA_ITEM_DUMMY_ID + 17,
+    name: "I tried so hard",
+    rollChance: 12
+  },
+  {
+    id: TOMBOLA_ITEM_DUMMY_ID + 18,
+    name: "Versuchs erneut",
+    rollChance: 12
+  }
 ];
 
 const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 19,
     item: {
       id: DUMMY_ID + 21,
       name: "Atlantiskrieger+",
@@ -74,6 +97,7 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 20,
   },
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 20,
     item: {
       id: DUMMY_ID + 22,
       name: "Ahnenwächter-Schwert+",
@@ -83,6 +107,7 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 5,
   },
   {
+    id: TOMBOLA_ITEM_DUMMY_ID + 21,
     item: {
       id: DUMMY_ID + 23,
       name: "DR-Gutschein (200)",

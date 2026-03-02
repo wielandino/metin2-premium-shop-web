@@ -1,6 +1,8 @@
 import type { Item } from "./Item";
 
 export interface TombolaItem {
-    item: Item
-    rollChance: Number
+    id: number
+    item?: Item
+    name?: string
+    rollChance: number
 }
