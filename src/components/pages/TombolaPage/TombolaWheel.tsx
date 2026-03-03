@@ -11,7 +11,6 @@ interface TombolaWheelProps {
 export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
     const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>(selectedTombolaTier.tombolaItems[0])
-
     const allTierItems = selectedTombolaTier.tombolaItems;
 
     useEffect(() => {
@@ -20,7 +19,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                 const currentIdx = allTierItems.findIndex(i => i.id === prev?.id);
                 return allTierItems[currentIdx + 1] ?? allTierItems[0];
             });
-        }, 1500)
+        }, 1500);
 
         return () => clearInterval(id);
     }, [selectedTombolaTier]);
@@ -28,6 +27,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
     useEffect(() => {
         setActiveTombolaItemSlot(allTierItems[0]);
     }, [selectedTombolaTier])
+
 
     return (
         <>
@@ -41,7 +41,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                                 return (
 
                                     <TombolaItemSlot
-                                        tombolaItem={tombolaItem} 
+                                        tombolaItem={tombolaItem}
                                         isSlotActive={isSlotActive}
                                         key={`item-slot-${tombolaItem.id}`} />
                                 )

@@ -16,6 +16,10 @@ export const TombolaItemSlot = ({ tombolaItem, isSlotActive }: TombolaItemSlotPr
         ? "tombola-item-slot-active"
         : "tombola-item-slot-active-penalty";
 
+    const slotTextCssClass = isSlotActive
+        ? "text-[#3c1e16] text-shadow-(--tombola-slot-active-text-shadow)"
+        : "text-(--golden-fleece) text-shadow-(--custom-text-shadow)"
+
     return (
         <div className={`tombola-item-slot ${isSlotActive ? slotActiveCssClass : ``} shadow-[0_1px_2px_#0000004d] border-2 border-solid ${!isBlank ? `border-[#662d12] bg-black/25` : `bg-(--tombola-bg-penalty-color) border-[#8b0000]`} p-4`}>
             <div className="flex flex-col items-center gap-2">
@@ -25,13 +29,13 @@ export const TombolaItemSlot = ({ tombolaItem, isSlotActive }: TombolaItemSlotPr
                     ) : (
                         <img src={"/images/items/" + tombolaItem.item!.imageName + ".png"} className="w-full h-full object-contain filter-(--tombola-item-icon-filter)" />
                     )}
-                    
+
                 </div>
-                <div className="text-(--golden-fleece) text-[.75rem] text-center font-bold text-shadow-(--custom-text-shadow) min-h-10 leading-5">
+                <div className={`${slotTextCssClass} text-[.75rem] text-center font-bold min-h-10 leading-5`}>
                     {slotName}
                 </div>
 
-                <div className="text-[#999] text-[.7rem] text-shadow-(--custom-text-shadow)">{tombolaItem.rollChance.toString()}%</div>
+                <div className={`${slotTextCssClass} text-[.7rem]`}>{tombolaItem.rollChance.toString()}%</div>
             </div>
         </div>
     )
