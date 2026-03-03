@@ -13,9 +13,12 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
     const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>(selectedTombolaTier.tombolaItems[0]);
 
     const [isWheelStopped, setIsWheelStopped] = useState(false);
+    const [isWheelSpinning, setIsWheelSpinning] = useState(false);
+
     const [rolledItem, setRolledItem] = useState<TombolaItem>();
 
     const allTierItems = selectedTombolaTier.tombolaItems;
+    const currentIdx = useRef(0)
 
     const currentTotalWeight = useMemo(
         () => allTierItems.reduce((sum, item) => sum + item.rollChance, 0),
@@ -23,11 +26,9 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
     );
 
     const totalSpinningRounds = 5;
-
     const inactiveSpinningInterval = 1500;
 
     const wheelInterval = useRef(0);
-    let currentSlotIdx = 0;
 
     function spinWheelInterval(time: number = 1500) {
         if (wheelInterval.current !== undefined)
@@ -35,8 +36,8 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
         wheelInterval.current = setInterval(() => {
             setActiveTombolaItemSlot(prev => {
-                currentSlotIdx = allTierItems.findIndex(i => i.id === prev?.id);
-                return allTierItems[currentSlotIdx + 1] ?? allTierItems[0];
+                currentIdx.current = allTierItems.findIndex(i => i.id === prev?.id);
+                return allTierItems[currentIdx.current + 1] ?? allTierItems[0];
             });
         }, time);
     }
@@ -44,17 +45,19 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
     function stopWheelOnItem(targetItem: TombolaItem) {
         clearInterval(wheelInterval.current);
 
-        let idx = allTierItems.findIndex(i => i.id === activeTombolaItemSlot?.id);
         const targetIdx = allTierItems.findIndex(i => i.id === targetItem.id);
 
         const fullRotations = allTierItems.length * totalSpinningRounds;
-        let stepsToTarget = (targetIdx - idx + allTierItems.length) % allTierItems.length;
+        let stepsToTarget = (targetIdx - currentIdx.current + allTierItems.length) % allTierItems.length;
         const totalSteps = fullRotations + stepsToTarget;
 
         let step = 0;
+
+        setIsWheelSpinning(true);
+
         function tick() {
-            idx = (idx + 1) % allTierItems.length;
-            setActiveTombolaItemSlot(allTierItems[idx]);
+            currentIdx.current = (currentIdx.current + 1) % allTierItems.length;
+            setActiveTombolaItemSlot(allTierItems[currentIdx.current]);
             step++;
 
             if (step < totalSteps) {
@@ -63,6 +66,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                 setTimeout(tick, delay);
             } else {
                 setIsWheelStopped(true);
+                setIsWheelSpinning(false);
             }
         }
 
@@ -89,6 +93,8 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
     }, [rolledItem])
 
     function calculateRolledItem() {
+        if (isWheelSpinning)
+            return;
 
         let random = Math.random() * currentTotalWeight;
 
@@ -121,7 +127,11 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                         </div>
 
                         <div className="mt-6 flex items-center justify-center">
-                            <Button title="Drehen" className="base-green-btn min-w-50" onClick={calculateRolledItem} />
+                            <Button title={
+                                `${isWheelSpinning ? `Dreht...` : `Drehen (${selectedTombolaTier.tierCost} Tickets)`}`}
+                                className={`base-green-btn min-w-50 
+                                    ${isWheelSpinning ? `opacity-50 cursor-not-allowed` : ``}`}
+                                onClick={calculateRolledItem} />
                         </div>
                     </div>
                 </div>
