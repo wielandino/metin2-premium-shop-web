@@ -29,8 +29,13 @@ export const TombolaTierCard = ({
         }
     }
 
-    const currentTierButtonStyle = (isTierSelected) ? tierStyles[tombolaTier.tierLevel].activeCss : tierStyles[tombolaTier.tierLevel].defaultCss;
-    const currentTierFontStyle = (isTierSelected) ? "text-[#3c1e16]" : "text-[#f2e69f]";
+    const currentTierButtonStyle = (isTierSelected)
+        ? tierStyles[tombolaTier.tierLevel].activeCss
+        : tierStyles[tombolaTier.tierLevel].defaultCss;
+
+    const currentTierFontStyle = (isTierSelected) 
+        ? "text-[#3c1e16]" 
+        : "text-[#f2e69f]";
 
     return (
         <>

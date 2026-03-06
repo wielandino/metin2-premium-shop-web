@@ -27,18 +27,24 @@ export const Header = () => {
 
         <div className="md:col-span-2 flex justify-end items-center gap-2 sm:gap-3 md:gap-4">
           <div className="flex items-center gap-1 sm:gap-1.5 invisible sm:visible">
-            <Icon icon="coins" className="text-[#e8a314] text-base sm:text-lg" />
+            <Icon
+              icon="coins"
+              className="text-tequila text-base sm:text-lg" />
             <span className="text-[#f2e69f] text-xs sm:text-sm font-bold whitespace-nowrap">
               1 DR
             </span>
           </div>
 
-            <button className="text-[#f2e69f] hover:text-[#e8a314] transition-colors relative">
-              <Icon icon="shopping-cart" className="text-xl sm:text-2xl" />
-            </button>
+          <button className="text-[#f2e69f] hover:text-tequila transition-colors relative">
+            <Icon
+              icon="shopping-cart"
+              className="text-xl sm:text-2xl" />
+          </button>
 
           <Link to="/">
-            <Button title="Gambeln" className="base-green-btn min-w-20 sm:min-w-28 md:min-w-40 uppercase h-7 sm:h-8 text-xs sm:text-sm md:text-base" />
+            <Button
+              title="Gambeln"
+              className="base-green-btn min-w-20 sm:min-w-28 md:min-w-40 uppercase h-7 sm:h-8 text-xs sm:text-sm md:text-base" />
           </Link>
         </div>
       </div>

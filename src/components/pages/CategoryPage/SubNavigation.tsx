@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { CategoryWithSubs } from "../../../utils/categoryHelper";
 
 interface SubNavigationProps {
@@ -27,10 +28,15 @@ export const SubNavigation = ({
             <li key={categoryWithSubs.parentCategory.id} className="relative group text-[1.3em] sm:text-[0.75em] md:text-[0.846em] shrink-0">
               <button
                 onClick={() => onCategoryClick(categoryWithSubs.parentCategory.id)}
-                className={`
-                  min-w-20 sm:w-24 md:w-26.25 text-[#f2e69f] px-1 sm:px-1.5 py-1.5 sm:py-2 text-center transition-colors catitem
-                  ${isMainCategoryActive ? 'catitem-active' : 'bg-[#662d12] hover:bg-[#7d3515]'}`}
-              >
+                className={clsx(
+                  "min-w-20 sm:w-24 md:w-26.25",
+                  "text-[#f2e69f] text-center transition-colors",
+                  "px-1 sm:px-1.5 py-1.5 sm:py-2",
+                  "catitem",
+                  isMainCategoryActive
+                    ? 'catitem-active'
+                    : 'bg-[#662d12] hover:bg-[#7d3515]'
+                )}>
                 <img
                   className="h-6 w-6 sm:h-7 sm:w-7 md:h-7.5 md:w-7.5 mx-auto mb-0.5 sm:mb-1"
                   src={DEFAULT_ICON}
@@ -42,7 +48,13 @@ export const SubNavigation = ({
               </button>
 
               {categoryWithSubs.subCategories.length > 0 && (
-                <ul className="md:absolute md:left-full md:top-0 bg-[#680603] w-full md:min-w-50 md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible transition-all duration-200 md:z-10">
+                <ul className={clsx(
+                  "md:absolute md:left-full md:top-0",
+                  "w-full md:min-w-50",
+                  "md:opacity-0 md:invisible md:group-hover:opacity-100 md:group-hover:visible",
+                  "transition-all duration-200 md:z-10",
+                  "bg-[#680603]"
+                )}>
                   {categoryWithSubs.subCategories.map((subCategory) => {
                     const isSubCategoryActive = activeCategoryId === subCategory.id;
 
@@ -53,14 +65,16 @@ export const SubNavigation = ({
                             e.stopPropagation();
                             onCategoryClick(subCategory.id);
                           }}
-                          className={`
-                            w-full text-left block px-3 sm:px-4 py-1.5 sm:py-2 transition-colors font-serif text-[0.9em] sm:text-[1em] md:text-[1.182em]
-                            ${isSubCategoryActive
-                              ? 'text-[#e8a314]'
-                              : 'text-[#f2e69f] hover:text-[#e8a314]'
-                            }
-                          `}
-                        >
+                          className={clsx(
+                            "w-full block transition-colors ",
+                            "px-3 sm:px-4 py-1.5 sm:py-2",
+                            "text-left text-[0.9em] sm:text-[1em] md:text-[1.182em]",
+                            "font-serif",
+                            isSubCategoryActive
+                              ? 'text-tequila'
+                              : 'text-[#f2e69f] hover:text-tequila'
+
+                          )}>
                           {subCategory.name}
                         </button>
                       </li>

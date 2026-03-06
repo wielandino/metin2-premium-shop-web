@@ -4,6 +4,7 @@ import { Button } from "../../common/Button/Button"
 import { TombolaItemSlot } from "./TombolaItemSlot"
 import type { TombolaItem } from "../../../models/TombolaItem"
 import { Modal } from "../../common/Modal/Modal"
+import clsx from "clsx"
 
 interface TombolaWheelProps {
     selectedTombolaTier: TombolaTier
@@ -130,18 +131,28 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                         </div>
 
                         <div className="mt-6 flex items-center justify-center">
-                            <Button title={
-                                `${isWheelSpinning ? `Dreht...` : `Drehen (${selectedTombolaTier.tierCost} Tickets)`}`}
-                                className={`base-green-btn min-w-50 
-                                    ${isWheelSpinning ? `opacity-50 cursor-not-allowed` : ``}`}
+                            <Button
+                                title={`${isWheelSpinning ? `Dreht...` : `Drehen (${selectedTombolaTier.tierCost} Tickets)`}`}
+                                className={clsx(
+                                    "base-green-btn min-w-50",
+                                    {
+                                        "opacity-50 cursor-not-allowed": isWheelSpinning
+                                    }
+                                )}
                                 onClick={calculateRolledItem} />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <Modal isOpen={isModalOpen} onClose={() => { setRolledItem(undefined); setIsModalOpen(false); }}>
-                Damn nigga
+            <Modal
+                isOpen={isModalOpen}
+                onClose={() => {
+                    setRolledItem(undefined);
+                    setIsModalOpen(false);
+                }}>
+                    
+                Damn
             </Modal>
         </>
     )
