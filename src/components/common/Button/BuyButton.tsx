@@ -1,4 +1,4 @@
-import type { ShopItem } from '../../models/ShopItem';
+import type { ShopItem } from '../../../models/ShopItem';
 import { Button } from './Button';
 
 type BuyButtonProps = {

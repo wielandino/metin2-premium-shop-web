@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import type { TombolaTier } from "../../../models/TombolaTier"
-import { Button } from "../../common/Button"
+import { Button } from "../../common/Button/Button"
 import { TombolaItemSlot } from "./TombolaItemSlot"
 import type { TombolaItem } from "../../../models/TombolaItem"
+import { Modal } from "../../common/Modal/Modal"
 
 interface TombolaWheelProps {
     selectedTombolaTier: TombolaTier
@@ -14,8 +15,9 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
     const [isWheelStopped, setIsWheelStopped] = useState(false);
     const [isWheelSpinning, setIsWheelSpinning] = useState(false);
-
     const [rolledItem, setRolledItem] = useState<TombolaItem>();
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const allTierItems = selectedTombolaTier.tombolaItems;
     const currentIdx = useRef(0)
@@ -67,6 +69,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
             } else {
                 setIsWheelStopped(true);
                 setIsWheelSpinning(false);
+                setIsModalOpen(true)
             }
         }
 
@@ -136,6 +139,10 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                     </div>
                 </div>
             </div>
+
+            <Modal isOpen={isModalOpen} onClose={() => { setRolledItem(undefined); setIsModalOpen(false); }}>
+                Damn nigga
+            </Modal>
         </>
     )
 }
