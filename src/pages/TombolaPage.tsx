@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Navigation } from "../components/common/Navigation/Navigation"
-import { Header } from "../components/pages/ShopPage/Header"
+import { Header } from "../components/common/Header"
 import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
 import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
 import type { TombolaTier } from "../models/TombolaTier"

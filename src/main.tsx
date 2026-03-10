@@ -7,22 +7,28 @@ import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CategoryPage } from './pages/CategoryPage.tsx'
 import { TombolaPage } from './pages/TombolaPage.tsx'
+import { UserProvider } from './context/UserContext.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
-  { path: "/category/:categoryId",
+  {
+    path: "/category/:categoryId",
     element: <CategoryPage />
   },
-  { path: "/category/:categoryId?cat=:subCategoryId",
+  {
+    path: "/category/:categoryId?cat=:subCategoryId",
     element: <CategoryPage />
   },
-  { path: "/tombola",
+  {
+    path: "/tombola",
     element: <TombolaPage />
   },
 ]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>
 )

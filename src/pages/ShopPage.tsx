@@ -1,6 +1,6 @@
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
-import { Header } from "../components/pages/ShopPage/Header"
+import { Header } from "../components/common/Header"
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { ItemCard } from "../components/common/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";

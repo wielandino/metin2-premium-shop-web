@@ -43,7 +43,7 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
                 <div className="h-12 flex items-center px-3">
                     <button
                         onClick={() => setIsMobileMenuOpen(true)}
-                        className="text-[#f2e69f] hover:text-[#e8a314] transition-colors p-2"
+                        className="text-[#f2e69f] hover:text-tequila transition-colors p-2"
                         aria-label="Menü öffnen"
                     >
                         <Icon icon="bars" className="text-2xl" />

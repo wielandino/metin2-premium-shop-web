@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
-import { Button } from "../../common/Button/Button";
-import { Icon } from "../../common/Icon";
+import { Button } from "./Button/Button";
+import { Icon } from "./Icon";
+import { useContext } from "react";
+import { UserContext } from "../../context/UserContext";
 
 export const Header = () => {
+
+  const user = useContext(UserContext);
 
   return (
     <div className="bg-transparent shadow-[0_1px_2px_#662d12] text-[#f2e69f] px-3 sm:px-4 md:px-5 md:pr-12 py-1.5 sm:py-2">
@@ -14,7 +18,7 @@ export const Header = () => {
             <div className="flex flex-col text-[0.7em] sm:text-[0.8em] md:text-[0.857em] justify-center invisible sm:visible">
               <span className="whitespace-nowrap">
                 <Icon icon="user" className="mr-1 sm:mr-1.5" />
-                <p className="inline-block"><b><u>ArpyAge</u></b></p>
+                <p className="inline-block"><b><u>{user?.username}</u></b></p>
               </span>
 
               <span className="whitespace-nowrap">
@@ -31,7 +35,7 @@ export const Header = () => {
               icon="coins"
               className="text-tequila text-base sm:text-lg" />
             <span className="text-[#f2e69f] text-xs sm:text-sm font-bold whitespace-nowrap">
-              1 DR
+              {user?.drBalance} DR
             </span>
           </div>
 

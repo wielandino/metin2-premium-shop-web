@@ -1,5 +1,5 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import { Header } from "../components/pages/ShopPage/Header";
+import { Header } from "../components/common/Header";
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
 import { useEffect, useMemo, useState } from "react";
