@@ -5,6 +5,8 @@ import { TombolaItemSlot } from "./TombolaItemSlot"
 import type { TombolaItem } from "../../../models/TombolaItem"
 import { Modal } from "../../common/Modal/Modal"
 import clsx from "clsx"
+import { RewardCard } from "../../common/RewardCard"
+import { TombolaRewardCard } from "./TombolaRewardCard"
 
 interface TombolaWheelProps {
     selectedTombolaTier: TombolaTier
@@ -68,13 +70,18 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                 const delay = 80 + 400 * Math.pow(progress, 3);
                 setTimeout(tick, delay);
             } else {
-                setIsWheelStopped(true);
-                setIsWheelSpinning(false);
-                setIsModalOpen(true)
+
+                setTimeout(xyz, 800)
             }
         }
 
         setTimeout(tick, 80);
+    }
+
+    function xyz() {
+        setIsWheelStopped(true);
+        setIsWheelSpinning(false);
+        setIsModalOpen(true)
     }
 
     useEffect(() => {
@@ -145,15 +152,27 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                 </div>
             </div>
 
-            <Modal
-                isOpen={isModalOpen}
-                onClose={() => {
-                    setRolledItem(undefined);
-                    setIsModalOpen(false);
-                }}>
-                    
-                Damn
-            </Modal>
+            {rolledItem !== undefined && (
+                <Modal
+                    isOpen={isModalOpen}
+                    showCloseModalBtn={false}>
+                    <RewardCard
+                        cardTitle={rolledItem?.item === undefined ? "Schade!" : "Glückwunsch!"}
+                        onCloseBtnText={rolledItem?.item === undefined ? "Nochmal" : "Großartig"}
+                        isModal={true}
+                        onClose={() => {
+                            setRolledItem(undefined);
+                            setIsModalOpen(false);
+                        }}>
+
+                        <TombolaRewardCard
+                            isFail={rolledItem?.item === undefined}
+                            rewardName={rolledItem?.name ?? rolledItem?.item?.name ?? ""}
+                            reward={"reward"}
+                            priceIcon={rolledItem!.item?.imageName ?? undefined} />
+                    </RewardCard>
+                </Modal>
+            )}
         </>
     )
 }

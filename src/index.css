@@ -1,20 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-    --tombola-item-icon-filter: drop-shadow(0 2px 4px rgba(0,0,0,.5));
-    
-    --custom-text-shadow: 1px 1px 2px rgba(0,0,0,.8);
-    --tombola-bg-penalty-color: rgba(139, 0, 0, 0.2);
-    --tombola-slot-active-text-shadow: 1px 2px rgba(242,230,159,.5);
+  --tombola-item-icon-filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .5));
 
-    --color-tequila: #e8a314;
-    --golden-fleece: #f2e69f;
+  --custom-text-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
+  --tombola-bg-penalty-color: rgba(139, 0, 0, 0.2);
+  --tombola-slot-active-text-shadow: 1px 2px rgba(242, 230, 159, .5);
+  --tombola-penalty-drop-shadow-filter: drop-shadow(0 0 20px rgba(220, 20, 60, 0.8));
+  
+  --color-tequila: #e8a314;
+  --golden-fleece: #f2e69f;
 
-    --reward-card-bg: #ede0af;
-    --reward-card-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(232, 163, 20, 0.4);
-    --reward-card-header-bg: linear-gradient(135deg, #e8a314 0%, #f2e69f 100%);
-    --reward-card-sub-bg-color: rgba(232, 163, 20, 0.25);
-    --reward-card-sub-border-color: rgba(232, 163, 20, 0.6);
+  --reward-card-bg: #ede0af;
+  --reward-card-box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 40px rgba(232, 163, 20, 0.4);
+  --reward-card-header-bg: linear-gradient(135deg, #e8a314 0%, #f2e69f 100%);
+  --reward-card-sub-bg-color: rgba(232, 163, 20, 0.25);
+  --reward-card-sub-border-color: rgba(232, 163, 20, 0.6);
+  --reward-card-header-text-shadow: 0 1px 2px rgba(242, 230, 159, 0.5);
 
 }
 
@@ -306,6 +308,7 @@ button {
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -343,14 +346,15 @@ button {
 .btn-navitem {
   background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -226px transparent !important;
   border: 2px solid transparent;
-  font-family: "Droid Serif",georgia,"Times New Roman",palatino,"Hoefler Text",baskerville,serif;
+  font-family: "Droid Serif", georgia, "Times New Roman", palatino, "Hoefler Text", baskerville, serif;
 }
 
 .btn-navitem:hover {
   background: url("//gf1.geo.gfsrv.net/cdn3a/8568b91705c7d246e926bdbc9b04b7.png") 0 -276px transparent !important;
 }
 
-.btn-navitem-active, .btn-navitem-active:hover {
+.btn-navitem-active,
+.btn-navitem-active:hover {
   background-color: #e8a314 !important;
   background-image: none !important;
   border-top: 1px solid #f2e69f;
@@ -365,7 +369,7 @@ button {
 }
 
 .catitem {
-  font-family: "Droid Serif",georgia,"Times New Roman",palatino,"Hoefler Text",baskerville,serif;
+  font-family: "Droid Serif", georgia, "Times New Roman", palatino, "Hoefler Text", baskerville, serif;
 }
 
 .tombola-container {
@@ -390,21 +394,29 @@ button {
 }
 
 .tombola-item-slot-active {
-  background: linear-gradient(135deg,#e8a314,#f2e69f);
+  background: linear-gradient(135deg, #e8a314, #f2e69f);
   border-color: #e8a314;
-  box-shadow: 0 0 20px #e8a31499,inset 0 0 20px #f2e69f66;
+  box-shadow: 0 0 20px #e8a31499, inset 0 0 20px #f2e69f66;
   transform: scale(1.05);
   z-index: 5;
 }
 
 .tombola-item-slot-active-penalty {
-  background: linear-gradient(135deg,#dc143c,#8b0000);
+  background: linear-gradient(135deg, #dc143c, #8b0000);
   border-color: #dc143c;
-  box-shadow: 0 0 20px #dc143c99,inset 0 0 20px #8b000066;
+  box-shadow: 0 0 20px #dc143c99, inset 0 0 20px #8b000066;
   transform: scale(1.05);
 }
 
 .tombola-slot-active {
   color: #3c1e16 !important;
-  text-shadow: 0 1px 2px rgba(242,230,159,.5);
+  text-shadow: 0 1px 2px rgba(242, 230, 159, .5);
+}
+
+.reward-header {
+  background: linear-gradient(135deg, #e8a314 0%, #f2e69f 100%);
+}
+
+.penalty-shake {
+  animation: penalty-shake 0.5s ease-in-out;
 }
