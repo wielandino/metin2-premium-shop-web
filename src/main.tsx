@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CategoryPage } from './pages/CategoryPage.tsx'
 import { TombolaPage } from './pages/TombolaPage.tsx'
 import { UserProvider } from './context/UserContext.tsx'
+import { CartPage } from './pages/CartPage.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/tombola",
     element: <TombolaPage />
+  },
+  {
+    path: "/cart",
+    element: <CartPage />
   },
 ]);
 

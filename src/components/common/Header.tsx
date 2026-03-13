@@ -39,13 +39,22 @@ export const Header = () => {
             </span>
           </div>
 
-          <button className="text-[#f2e69f] hover:text-tequila transition-colors relative">
+          <div className="flex items-center gap-1 sm:gap-1.5 invisible sm:visible">
+            <Icon
+              icon="ticket"
+              className="text-tequila text-base sm:text-lg" />
+            <span className="text-[#f2e69f] text-xs sm:text-sm font-bold whitespace-nowrap">
+              {user?.tombolaTickets} Tickets
+            </span>
+          </div>
+
+          <Link to="/cart" className="text-[#f2e69f] hover:text-tequila transition-colors relative">
             <Icon
               icon="shopping-cart"
               className="text-xl sm:text-2xl" />
-          </button>
+          </Link>
 
-          <Link to="/">
+          <Link to="/tombola">
             <Button
               title="Gambeln"
               className="base-green-btn min-w-20 sm:min-w-28 md:min-w-40 uppercase h-7 sm:h-8 text-xs sm:text-sm md:text-base" />
