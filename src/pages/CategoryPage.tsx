@@ -1,5 +1,5 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import { Header } from "../components/common/Header";
+import { NavigationHeader } from "../components/common/Navigation/NavigationHeader";
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
 import { useEffect, useMemo, useState } from "react";
@@ -55,12 +55,12 @@ export const CategoryPage = () => {
   return (
     <>
       <div className="metin-container page-image mx-auto">
-        <Header />
+        <NavigationHeader />
 
         <div className="px-3 sm:px-4 md:px-5">
           <div className="mt-2">
             <Navigation
-              activeTab={categoryId || 'all'}
+              activeTabId={categoryId || 'all'}
             />
           </div>
 

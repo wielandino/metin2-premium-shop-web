@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Navigation } from "../components/common/Navigation/Navigation"
-import { Header } from "../components/common/Header"
+import { NavigationHeader } from "../components/common/Navigation/NavigationHeader"
 import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
 import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
 import type { TombolaTier } from "../models/TombolaTier"
@@ -22,12 +22,12 @@ export const TombolaPage = () => {
     return (
         <>
             <div className="metin-container page-image mx-auto">
-                <Header />
+                <NavigationHeader />
 
                 <div className="px-3 sm:px-4 md:px-5">
                     <div className="mt-2">
                         <Navigation
-                            activeTab="tombola"
+                            activeTabId="tombola"
                         />
                     </div>
                     <div className="mt-3 sm:mt-4 md:mt-5">

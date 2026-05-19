@@ -1,4 +1,4 @@
-import { Header } from "../components/common/Header";
+import { NavigationHeader } from "../components/common/Navigation/NavigationHeader";
 import { Navigation } from "../components/common/Navigation/Navigation";
 
 export const CartPage = ({ }) => {
@@ -7,11 +7,11 @@ export const CartPage = ({ }) => {
     return (
         <>
             <div className="metin-container page-image mx-auto">
-                <Header />
+                <NavigationHeader />
 
                 <div className="px-3 sm:px-4 md:px-5">
                     <div className="mt-2">
-                        <Navigation activeTab="home" />
+                        <Navigation activeTabId="home" />
                     </div>
 
                     <div className="mt-3 sm:mt-4 md:mt-5">

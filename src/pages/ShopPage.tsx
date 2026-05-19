@@ -1,6 +1,6 @@
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
-import { Header } from "../components/common/Header"
+import { NavigationHeader } from "../components/common/Navigation/NavigationHeader"
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { ItemCard } from "../components/common/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
@@ -10,11 +10,11 @@ function ShopPage() {
   return (
     <>
       <div className="metin-container page-image mx-auto">
-        <Header />
+        <NavigationHeader />
 
         <div className="px-3 sm:px-4 md:px-5">
           <div className="mt-2">
-            <Navigation activeTab="home" />
+            <Navigation activeTabId="home" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 mb-5 mt-3 sm:mt-5">
