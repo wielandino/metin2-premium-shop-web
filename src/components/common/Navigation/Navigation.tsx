@@ -23,7 +23,7 @@ export const Navigation = ({ activeTab = 'all' }: NavigationProps) => {
         { id: 'new', label: 'Neue Artikel', path: '/category/new' },
         { id: 'hot', label: 'Beliebte Artikel', path: '/category/hot' },
         { id: 'tombola', label: 'Tombola', path: '/tombola' },
-
+        { id: 'metin-hunt', label: 'Metin-Jagd', path: 'metin-hunt'}
     ];
 
     const getCurrentTab = () => {

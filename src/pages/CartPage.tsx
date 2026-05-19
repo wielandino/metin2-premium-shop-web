@@ -19,6 +19,8 @@ export const CartPage = ({ }) => {
                             Warenkorb
                         </h2>
                     </div>
+
+                    
                 </div>
             </div>
         </>
