@@ -1,12 +1,11 @@
 import { useParams, useSearchParams } from "react-router-dom";
-import { NavigationHeader } from "../components/common/Navigation/NavigationHeader";
-import { Navigation } from "../components/common/Navigation/Navigation";
 import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
 import { useEffect, useMemo, useState } from "react";
 import { buildCategoryTree, type CategoryWithSubs } from "../utils/categoryHelper";
 import type { ShopItem } from "../models/ShopItem";
 import { ItemCard } from "../components/common/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
+import { MainContainer } from "../components/common/MainContainer";
 
 
 export const CategoryPage = () => {
@@ -54,33 +53,17 @@ export const CategoryPage = () => {
 
   return (
     <>
-      <div className="metin-container page-image mx-auto">
-        <NavigationHeader />
+      <MainContainer activeTabId={categoryId || 'all'} pageHeaderName={categoryTitle}>
+        <div className="flex flex-col md:flex-row gap-2 md:gap-0">
+          <SubNavigation categories={categoryNavigationTree}
+            activeCategoryId={activeSubCategoryId}
+            onCategoryClick={handleCategoryClick} />
 
-        <div className="px-3 sm:px-4 md:px-5">
-          <div className="mt-2">
-            <Navigation
-              activeTabId={categoryId || 'all'}
-            />
-          </div>
-
-          <div className="mt-3 sm:mt-4 md:mt-5">
-            <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
-              {categoryTitle}
-            </h2>
-
-            <div className="flex flex-col md:flex-row gap-2 md:gap-0">
-              <SubNavigation categories={categoryNavigationTree}
-                activeCategoryId={activeSubCategoryId}
-                onCategoryClick={handleCategoryClick} />
-
-              <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
-                <ItemCard items={filteredItems} />
-              </div>
-            </div>
+          <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
+            <ItemCard items={filteredItems} />
           </div>
         </div>
-      </div>
+      </MainContainer>
     </>
   );
 };
