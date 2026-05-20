@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ShopItem } from "../models/ShopItem"
+import type { ShopItem } from "../api/types/ShopItem"
 import { QuantitySelection } from "../components/pages/ItemDescriptionPage/QuantitySelection";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem, isInModal?: boolean; }

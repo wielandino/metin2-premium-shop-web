@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-Content \"E:\\\\Programming\\\\metin2-premium-shop-web\\\\src\\\\models\\\\Hunt\\\\Hunt.ts\" -Raw)"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-import type { TombolaTier } from "../../../models/TombolaTier"
+import type { TombolaTier } from "../../../api/types/TombolaTier"
 
 interface TombolaTierCardProps {
     tombolaTier: TombolaTier,

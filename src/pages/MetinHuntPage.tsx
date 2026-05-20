@@ -14,7 +14,7 @@ export const MetinHuntPage = () => {
                     <div className="bg-(--transparent-box-bg-color-primary) border border-solid border-tequila-darker">
                         <div className="p-4">
                             <p className="text-tequila uppercase font-bold text-[12px] mb-3">
-                                <Icon icon="shield" /> Rüstung - Widerstands-Boni
+                                <Icon icon="shield" /> Rüstung - Stärke- & Widerstandsboni
                             </p>
 
                             <ArmorySlot />

@@ -1,5 +1,5 @@
 import { faSkullCrossbones } from "@fortawesome/free-solid-svg-icons/faSkullCrossbones"
-import type { TombolaItem } from "../../../models/TombolaItem"
+import type { TombolaItem } from "../../../api/types/TombolaItem"
 import { Icon } from "../../common/Icon"
 import clsx from "clsx"
 

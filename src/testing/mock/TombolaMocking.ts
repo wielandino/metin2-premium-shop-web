@@ -1,5 +1,5 @@
-import type { TombolaTier } from "../../models/TombolaTier";
-import type { TombolaItem } from "../../models/TombolaItem";
+import type { TombolaTier } from "../../api/types/TombolaTier";
+import type { TombolaItem } from "../../api/types/TombolaItem";
 
 const DUMMY_ID = 100;
 const TOMBOLA_ITEM_DUMMY_ID = 500;

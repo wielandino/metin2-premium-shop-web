@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
 import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
-import type { TombolaTier } from "../models/TombolaTier"
+import type { TombolaTier } from "../api/types/TombolaTier"
 import { TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_GOLD, TOMBOLA_TIER_SILBER } from "../testing/mock/TombolaMocking"
 import { TombolaWheel } from "../components/pages/TombolaPage/TombolaWheel"
 import { MainContainer } from "../components/common/MainContainer"

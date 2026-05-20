@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { ShopItem } from '../../models/ShopItem';
+import type { ShopItem } from '../../api/types/ShopItem';
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Modal } from './Modal/Modal';

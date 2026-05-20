@@ -2,7 +2,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
 import { useEffect, useMemo, useState } from "react";
 import { buildCategoryTree, type CategoryWithSubs } from "../utils/categoryHelper";
-import type { ShopItem } from "../models/ShopItem";
+import type { ShopItem } from "../api/types/ShopItem";
 import { ItemCard } from "../components/common/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
 import { MainContainer } from "../components/common/MainContainer";

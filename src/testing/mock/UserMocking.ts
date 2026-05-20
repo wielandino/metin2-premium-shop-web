@@ -1,5 +1,5 @@
-import type { User } from "../../models/User/User";
-import type { UserCurrency } from "../../models/User/UserCurrency";
+import type { User } from "../../api/types/User/User";
+import type { UserCurrency } from "../../api/types/User/UserCurrency";
 
 export const MOCK_USER_CURRENCY_1: UserCurrency = {
   user: null!,

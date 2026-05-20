@@ -1,7 +1,5 @@
-import type { User } from "./User";
-
 export interface UserCurrency {
-    user: User;
+    id: number;
     tombolaTickets: number;
     yabbieCoins: number;
 }

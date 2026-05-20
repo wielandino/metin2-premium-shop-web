@@ -1,4 +1,4 @@
-import type { ShopItem } from "../../models/ShopItem";
+import type { ShopItem } from "../../api/types/ShopItem";
 import {
   HIGHLIGHTS_CATEGORY,
   METINPLUS_CATEGORY,
