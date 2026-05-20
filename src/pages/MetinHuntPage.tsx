@@ -1,7 +1,7 @@
 import { Icon } from "../components/common/Icon";
 import { MainContainer } from "../components/common/MainContainer";
 import { AdderBtn } from "../components/pages/MetinHuntPage/AdderBtn";
-import { HuntOptionSlot } from "../components/pages/MetinHuntPage/HuntOptions/HuntOptionSlot";
+import { ArmorySlot } from "../components/pages/MetinHuntPage/CharacterArmory/ArmorySlot";
 import { SwitcherBtn } from "../components/pages/MetinHuntPage/SwitcherBtn";
 
 export const MetinHuntPage = () => {
@@ -17,10 +17,10 @@ export const MetinHuntPage = () => {
                                 <Icon icon="shield" /> Rüstung - Widerstands-Boni
                             </p>
 
-                            <HuntOptionSlot />
-                            <HuntOptionSlot />
-                            <HuntOptionSlot />
-                            <HuntOptionSlot />
+                            <ArmorySlot />
+                            <ArmorySlot />
+                            <ArmorySlot />
+                            <ArmorySlot />
 
                             <div className="divider"></div>
                             <div className="flex gap-3">
