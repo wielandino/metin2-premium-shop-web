@@ -5,6 +5,7 @@ import { AdderBtn } from "../components/pages/MetinHuntPage/AdderBtn";
 import { ArmoryEffectSlot } from "../components/pages/MetinHuntPage/CharacterArmory/ArmoryEffectSlot";
 import { SwitcherBtn } from "../components/pages/MetinHuntPage/SwitcherBtn";
 import { UserContext } from "../context/UserContext";
+import { HuntOptionSlot } from "../components/pages/MetinHuntPage/HuntOptions/HuntOptionSlot";
 
 export const MetinHuntPage = () => {
 
@@ -38,8 +39,8 @@ export const MetinHuntPage = () => {
                         </div>
                     </div>
 
-                    <div className="">
-                        <p className="text-white">Container 2</p>
+                    <div className="flex flex-col gap-2.5">
+                        <HuntOptionSlot />
                     </div>
                 </div>
 
