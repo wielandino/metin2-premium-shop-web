@@ -1,5 +1,6 @@
 import { createContext } from "react";
-import { MOCK_USER_1 } from "../testing/mock/UserMocking";
+import { MOCK_USER_1 } from "../testing/mock/User/UserMocking";
+import type { UserArmory } from "../api/types/User/UserArmory";
 
 interface UserProviderProps {
     children: React.ReactNode;
@@ -9,6 +10,7 @@ interface UserContextType {
     username: string;
     drBalance: number;
     tombolaTickets: number;
+    activeArmory: UserArmory | null;
 }
 
 
@@ -21,7 +23,8 @@ const UserProvider = ({ children }: UserProviderProps) => {
         <UserContext.Provider value={{
             username: defaultUser.username,
             drBalance: defaultUser.currency.yabbieCoins,
-            tombolaTickets: defaultUser.currency.tombolaTickets
+            tombolaTickets: defaultUser.currency.tombolaTickets,
+            activeArmory: defaultUser.activeArmory,
         }}>
             {children}
         </UserContext.Provider>
