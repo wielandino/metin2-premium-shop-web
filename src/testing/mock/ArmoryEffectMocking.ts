@@ -10,7 +10,7 @@ export const MOCK_ARMORY_EFFECT_FLAT_DAMAGE: DamageEffect = {
 }
 
 export const MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT: DamageResistenceEffect = {
-    "name": "Abwehr gegen Insekten",
+    name: "Abwehr gegen Insekten",
     id: DUMMY_ID + 1,
     type: 'damage_resistence_effect',
     enemyType: 'insect',
@@ -18,9 +18,9 @@ export const MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT: DamageResistenceEffect
 }
 
 export const MOCK_ARMORY_EFFECT_ELEMENT_BONUS: ElementBonusDamage = {
-    name: "Angriffswert auf Feuer",
+    name: "Angriffswert auf Blitz",
     id: DUMMY_ID + 3,
     type: 'element_damage',
-    elementType: 'Fire',
+    elementType: 'lightning',
     bonus: 15,
 }

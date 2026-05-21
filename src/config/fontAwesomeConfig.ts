@@ -21,7 +21,8 @@ import {
   faDice,
   faShield,
   faShuffle,
-  faFlask
+  faFlask,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -45,5 +46,6 @@ library.add(
   faDice,
   faShield,
   faShuffle,
-  faFlask
+  faFlask,
+  faPlus
 );

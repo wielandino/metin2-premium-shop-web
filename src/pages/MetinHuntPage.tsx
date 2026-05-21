@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { Icon } from "../components/common/Icon";
 import { MainContainer } from "../components/common/MainContainer";
 import { AdderBtn } from "../components/pages/MetinHuntPage/AdderBtn";
-import { ArmorySlot } from "../components/pages/MetinHuntPage/CharacterArmory/ArmorySlot";
+import { ArmoryEffectSlot } from "../components/pages/MetinHuntPage/CharacterArmory/ArmoryEffectSlot";
 import { SwitcherBtn } from "../components/pages/MetinHuntPage/SwitcherBtn";
+import { UserContext } from "../context/UserContext";
 
 export const MetinHuntPage = () => {
+
+    const user = useContext(UserContext);
 
     return (
         <>
@@ -17,10 +21,9 @@ export const MetinHuntPage = () => {
                                 <Icon icon="shield" /> Rüstung - Stärke- & Widerstandsboni
                             </p>
 
-                            <ArmorySlot />
-                            <ArmorySlot />
-                            <ArmorySlot />
-                            <ArmorySlot />
+                            {user?.activeArmory?.armoryEffect.map((armoryEffect, index) => (
+                                <ArmoryEffectSlot key={index} slotNumber={index + 1} armoryEffect={armoryEffect} />
+                            ))}
 
                             <div className="divider"></div>
                             <div className="flex gap-3">

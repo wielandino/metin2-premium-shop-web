@@ -1,1 +1,1 @@
-export type ElementType = 'Fire' | 'Water' | 'Earth' | 'Air' | 'Lightning' | 'Ice' | 'Dark' | 'Light';
+export type ElementType = 'fire' | 'water' | 'earth' | 'air' | 'lightning' | 'ice' | 'dark' | 'light';

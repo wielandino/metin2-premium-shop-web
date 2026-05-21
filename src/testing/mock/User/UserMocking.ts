@@ -1,6 +1,6 @@
 import type { User } from "../../../api/types/User/User";
 import type { UserCurrency } from "../../../api/types/User/UserCurrency";
-import { MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT } from "../ArmoryEffectMocking";
+import { MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_ELEMENT_BONUS, MOCK_ARMORY_EFFECT_FLAT_DAMAGE } from "../ArmoryEffectMocking";
 
 export const MOCK_USER_CURRENCY_1: UserCurrency = {
   tombolaTickets: 5,
@@ -13,7 +13,7 @@ export const MOCK_USER_1: User = {
   armory: [],
   activeArmory: {
     name: "Mönchplattenpanzer",
-    armoryEffect: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT],
+    armoryEffect: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_ELEMENT_BONUS, MOCK_ARMORY_EFFECT_FLAT_DAMAGE, null],
   },
 };
 
