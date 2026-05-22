@@ -1,1 +1,0 @@
-export type EnemyType = 'insect' | 'orc' | 'undead';

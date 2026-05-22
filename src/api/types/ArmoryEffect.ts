@@ -1,7 +1,11 @@
 import type { ElementType } from "./Types/ElementType";
-import type { EnemyType } from "./Types/EnemyType";
+import type { EnemyType } from "./Enemy/EnemyType";
 
-export type ArmoryEffect = DamageEffect | DamageResistenceEffect | ElementBonusDamage;
+export type ArmoryEffect = 
+    DamageEffect | 
+    DamageResistenceEffect | 
+    ElementBonusDamage |
+    ElementBonusResistence;
 
 interface BaseEffect {
     id: number;
@@ -21,6 +25,12 @@ export interface DamageResistenceEffect extends BaseEffect {
 
 export interface ElementBonusDamage extends BaseEffect {
     type: 'element_damage';
+    bonus: number;
+    elementType: ElementType;
+}
+
+export interface ElementBonusResistence extends BaseEffect {
+    type: 'element_resistence';
     bonus: number;
     elementType: ElementType;
 }

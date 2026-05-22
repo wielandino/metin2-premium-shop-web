@@ -5,11 +5,14 @@ import { AdderBtn } from "../components/pages/MetinHuntPage/AdderBtn";
 import { ArmoryEffectSlot } from "../components/pages/MetinHuntPage/CharacterArmory/ArmoryEffectSlot";
 import { SwitcherBtn } from "../components/pages/MetinHuntPage/SwitcherBtn";
 import { UserContext } from "../context/UserContext";
-import { HuntOptionSlot } from "../components/pages/MetinHuntPage/HuntOptions/HuntOptionSlot";
+import { HuntOptionSlot } from "../components/pages/MetinHuntPage/HuntOption/HuntOptionSlot";
+import { mockHuntEnemies } from "../testing/mock/Enemy/HuntEnemyMocking";
 
 export const MetinHuntPage = () => {
 
     const user = useContext(UserContext);
+
+    const huntOptionMocks = mockHuntEnemies;
 
     return (
         <>
@@ -40,7 +43,9 @@ export const MetinHuntPage = () => {
                     </div>
 
                     <div className="flex flex-col gap-2.5">
-                        <HuntOptionSlot />
+                        {huntOptionMocks.map((huntOption, index) => (
+                            <HuntOptionSlot key={index} huntOptionDetails={huntOption} />
+                        ))}
                     </div>
                 </div>
 
