@@ -35,7 +35,7 @@ export const elementUIMap: ElementUIMap = {
         HuntUIMap: {
             primaryColor: '#F1C40F',
             darkColor: '#d4ac0d',
-            backgroundColor: '#f1c40f38',
+            backgroundColor: '#82640038',
             icon: 'bolt',
             gradiantColor: 'rgba(212, 172, 13, 0.8), rgba(212, 172, 13, 0.533)',
             boxShadowColor: '#d4ac0d59'

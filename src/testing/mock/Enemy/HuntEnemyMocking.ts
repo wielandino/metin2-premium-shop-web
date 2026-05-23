@@ -6,6 +6,8 @@ export const MOCK_HUNT_ENEMY_FIRE: HuntOption = {
     element: "fire",
     type: "metin",
     health: 1000,
+    baseDamage: 100,
+    baseDefense: 50,
 }
 
 export const MOCK_HUNT_ENEMY_ICE: HuntOption = {
@@ -14,6 +16,8 @@ export const MOCK_HUNT_ENEMY_ICE: HuntOption = {
     element: "ice",
     type: "metin",
     health: 1000,
+    baseDamage: 80,
+    baseDefense: 70,
 }
 
 export const MOCK_HUNT_ENEMY_LIGHTNING: HuntOption = {
@@ -22,6 +26,8 @@ export const MOCK_HUNT_ENEMY_LIGHTNING: HuntOption = {
     element: "lightning",
     type: "metin",
     health: 1000,
+    baseDamage: 120,
+    baseDefense: 60,
 }
 
 export const mockHuntEnemies: HuntOption[] = [

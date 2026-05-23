@@ -1,10 +1,8 @@
-import type { UserArmory } from "./UserArmory";
+import type { Player } from "../Player/Player";
 import type { UserCurrency } from "./UserCurrency";
 
 export interface User {
     currency: UserCurrency;
-    armory: UserArmory[];
-    activeArmory: UserArmory | null;
-
     username: string;
+    player: Player;
 }

@@ -25,7 +25,7 @@ export const MetinHuntPage = () => {
                                 <Icon icon="shield" /> Rüstung - Stärke- & Widerstandsboni
                             </p>
 
-                            {user?.activeArmory?.armoryEffect.map((armoryEffect, index) => (
+                            {user?.player.activeArmory?.armoryEffect.map((armoryEffect, index) => (
                                 <ArmoryEffectSlot key={index} slotNumber={index + 1} armoryEffect={armoryEffect} />
                             ))}
 

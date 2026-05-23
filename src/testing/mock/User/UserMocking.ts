@@ -10,10 +10,12 @@ export const MOCK_USER_CURRENCY_1: UserCurrency = {
 export const MOCK_USER_1: User = {
   username: "Wieland",
   currency: MOCK_USER_CURRENCY_1,
-  armory: [],
-  activeArmory: {
-    name: "Mönchplattenpanzer",
-    armoryEffect: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_ELEMENT_BONUS, MOCK_ARMORY_EFFECT_FLAT_DAMAGE, null],
+  player: {
+    armory: null,
+    activeArmory: {
+      name: "Mönchplattenpanzer",
+      armoryEffect: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_ELEMENT_BONUS, MOCK_ARMORY_EFFECT_FLAT_DAMAGE, null],
+    },
   },
 };
 
@@ -25,10 +27,12 @@ export const MOCK_USER_CURRENCY_2: UserCurrency = {
 export const MOCK_USER_2: User = {
   username: "Guestplayer",
   currency: MOCK_USER_CURRENCY_2,
-  armory: [],
-  activeArmory: {
-    name: "Mönchplattenpanzer",
-    armoryEffect: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT],
+  player: {
+    armory: null,
+    activeArmory: {
+      name: "Mönchplattenpanzer",
+      armoryEffect: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT],
+    },
   },
 };
 
@@ -40,8 +44,10 @@ export const MOCK_USER_CURRENCY_3: UserCurrency = {
 export const MOCK_USER_3: User = {
   username: "ProHunter99",
   currency: MOCK_USER_CURRENCY_3,
-  armory: [],
-  activeArmory: null,
+  player: {
+    armory: null,
+    activeArmory: null,
+  },
 };
 
 export const mockUsers: User[] = [
