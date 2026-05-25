@@ -1,6 +1,6 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core"
 import type { HuntOption } from "../../../../api/types/Hunt/HuntOption"
-import { elementUIMap } from "../../../../utils/enemyAndElementUIHelper"
+import { elementThemeUIMap } from "../../../../utils/UIHelper"
 import { Button } from "../../../common/Button/Button"
 import { Icon } from "../../../common/Icon"
 import { HuntOptionSlotDescription } from "./HuntOptionSlotDescription"
@@ -14,7 +14,7 @@ type HuntOptionSlotProps = {
 
 export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
 
-    const uiTheme = elementUIMap[huntOptionDetails.element];
+    const uiTheme = elementThemeUIMap[huntOptionDetails.element];
 
 
     const [fightSequenceState, setFightSequenceState] = useState<boolean>();

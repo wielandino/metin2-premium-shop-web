@@ -1,11 +1,12 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import type { ArmoryType } from "../../../api/types/Types/ArmoryType";
 import { Icon } from "../Icon";
 import { UserContext } from "../../../context/UserContext";
-import { Button } from "../Button/Button";
 import { ArmoryEffectSlot } from "./ArmoryEffectSlot";
 import { AdderBtn } from "../../pages/MetinHuntPage/AdderBtn";
 import { SwitcherBtn } from "../../pages/MetinHuntPage/SwitcherBtn";
+import { ArmorySlotButton } from "./ArmorySlotButton";
+import { armoryUIMap } from "../../../utils/UIHelper";
 
 export const CharacterArmory = () => {
 
@@ -13,10 +14,7 @@ export const CharacterArmory = () => {
     const [armorySelectionType, setArmorySelectionType] = useState<ArmoryType>("chest");
     const playerActiveArmory = user?.player.activeArmory;
 
-    const ref = useRef<HTMLDivElement>(null);
-
     const handleArmoryTypeSelection = (type: ArmoryType) => {
-        console.log(ref.current);
         setArmorySelectionType(type);
     };
 
@@ -30,13 +28,10 @@ export const CharacterArmory = () => {
 
                 <div className="flex items-center gap-2 mb-3">
 
-                    <div className="w-10 h-10flex items-center justify-center text-tequila" ref={ref}>
-                        <Button iconId="shield" className="text-[26px] " onClick={() => handleArmoryTypeSelection("chest")} />
-                    </div>
+                    {Object.keys(armoryUIMap).map((type) => (
+                        <ArmorySlotButton key={type} armoryType={type as ArmoryType} isActive={armorySelectionType === type} onArmoryTypeSelection={handleArmoryTypeSelection} />
+                    ))}
 
-                    <div className="w-10 h-10 flex items-center justify-center" ref={ref}>
-                        <Button iconId="hand-fist" className="text-[26px]" onClick={() => handleArmoryTypeSelection("weapon")} />
-                    </div>
                 </div>
 
                 {playerActiveArmory?.armoryPieces.filter((piece) => piece.armoryType === armorySelectionType)

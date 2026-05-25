@@ -1,11 +1,11 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
-import type { ElementUIMap } from "../../../utils/enemyAndElementUIHelper";
+import type { ElementThemeUIMap } from "../../../utils/UIHelper";
 import { Icon } from "../Icon";
 
 type FightSequenceRoundProps = {
     enemyName: string;
     round: number;
-    elementTheme: ElementUIMap[string];
+    elementTheme: ElementThemeUIMap[string];
 }
 
 export const FightSequenceRound = ({ enemyName, round, elementTheme }: FightSequenceRoundProps) => {

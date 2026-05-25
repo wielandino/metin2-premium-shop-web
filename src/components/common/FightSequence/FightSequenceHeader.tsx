@@ -1,9 +1,9 @@
-import type { ElementUIMap } from "../../../utils/enemyAndElementUIHelper";
+import type { ElementThemeUIMap } from "../../../utils/UIHelper";
 import { Icon } from "../Icon"
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 type FightSequenceHeaderProps = {
-    elementTheme: ElementUIMap[string];
+    elementTheme: ElementThemeUIMap[string];
     enemyName: string;
 }
 

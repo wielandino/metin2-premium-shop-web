@@ -1,4 +1,4 @@
-export interface ElementUIMap {
+export interface ElementThemeUIMap {
     [key: string]: {
         color: string;
         icon: string;
@@ -10,7 +10,14 @@ export interface ElementUIMap {
     };
 }
 
-export const elementUIMap: ElementUIMap = {
+export interface ArmoryUIMap {
+    [key: string]: {
+        color: string;
+        icon: string;
+    };
+}
+
+export const elementThemeUIMap: ElementThemeUIMap = {
     fire: {
         color: '#E74C3C',
         icon: 'fire',
@@ -38,5 +45,16 @@ export const elementUIMap: ElementUIMap = {
         gradiantColor: 'rgba(41, 128, 185, 0.8), rgba(41, 128, 185, 0.533)',
         boxShadowColor: '#2980b988'
 
+    }
+};
+
+export const armoryUIMap: ArmoryUIMap = {
+    chest: {
+        color: '#8E44AD',
+        icon: 'shield'
+    },
+    weapon: {
+        color: '#E67E22',
+        icon: 'hand-fist'
     }
 };

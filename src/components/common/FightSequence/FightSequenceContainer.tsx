@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import type { ElementUIMap } from "../../../utils/enemyAndElementUIHelper";
+import type { ElementThemeUIMap } from "../../../utils/UIHelper";
 import { FightSequenceRound } from "./FightSequenceRound";
 import { Icon } from "../Icon";
 
 type FightSequenceContainerProps = {
     enemyName: string;
-    elementTheme: ElementUIMap[string];
+    elementTheme: ElementThemeUIMap[string];
     maxRounds: number;
 }
 
