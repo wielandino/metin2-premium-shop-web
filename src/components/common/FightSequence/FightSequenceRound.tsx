@@ -4,7 +4,7 @@ import { Icon } from "../Icon";
 
 type FightSequenceRoundProps = {
     enemyName: string;
-    round: string;
+    round: number;
     elementTheme: ElementUIMap[string];
 }
 
@@ -28,6 +28,19 @@ export const FightSequenceRound = ({ enemyName, round, elementTheme }: FightSequ
                     Du: <i>Hieb!</i>
                     <span className="ml-1.5 text-[#88ff99]">-150 HP</span>
                 </div>
+
+                <style>
+                    {`
+                        @keyframes fadeSlideIn {
+                            from { opacity: 0; transform: translateY(-6px); }
+                            to   { opacity: 1; transform: translateY(0); }
+                        }
+                        @keyframes pulse {
+                            0%, 100% { opacity: 0.4; }
+                            50%       { opacity: 1; }
+                        }
+                    `}
+                </style>
             </div>
         </>
     );

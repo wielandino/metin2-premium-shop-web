@@ -1,5 +1,4 @@
 import type { FightSequenceDetails } from "../../../api/types/FightSequenceDetails";
-import { Icon } from "../Icon";
 import { FightSequenceHeader } from "./FightSequenceHeader";
 import { FightSequencePlayers } from "./FightSequencePlayers";
 import { FightSequenceContainer } from "./FightSequenceContainer";
@@ -23,10 +22,10 @@ export const FightSequence = ({ fightSequenceDetails }: FightSequenceProps) => {
 
                     <FightSequenceHeader elementTheme={elementTheme} enemyName={fightSequenceDetails.enemyName} />
                     <FightSequencePlayers enemyName={fightSequenceDetails.enemyName} elementTheme={elementTheme} />
-                    <FightSequenceContainer enemyName={fightSequenceDetails.enemyName} elementTheme={elementTheme} />
+                    <FightSequenceContainer enemyName={fightSequenceDetails.enemyName} elementTheme={elementTheme} maxRounds={fightSequenceDetails.rounds} />
 
 
-                    <div className="border-t border-solid p-4 text-center bg-[#e74c3c1f]"
+                    {/* <div className="border-t border-solid p-4 text-center bg-[#e74c3c1f]"
                         style={{
                             borderTopColor: elementTheme.darkColor,
                             animation: '0.4s ease 0s 1 normal none running fadeSlideIn'
@@ -51,7 +50,7 @@ export const FightSequence = ({ fightSequenceDetails }: FightSequenceProps) => {
                             }}>
                             Schließen
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>

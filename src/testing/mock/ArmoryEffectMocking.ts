@@ -1,4 +1,4 @@
-import type { DamageEffect, DamageResistenceEffect, ElementBonusDamage } from "../../api/types/ArmoryEffect"
+import type { DamageEffect, DamageResistenceEffect, ElementBonusDamage } from "../../api/types/Armory/ArmoryEffect";
 
 const DUMMY_ID = 23;
 

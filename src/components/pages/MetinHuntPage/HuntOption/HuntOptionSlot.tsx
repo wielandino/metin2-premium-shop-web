@@ -6,6 +6,7 @@ import { Icon } from "../../../common/Icon"
 import { HuntOptionSlotDescription } from "./HuntOptionSlotDescription"
 import { useState } from "react"
 import { FightSequence } from "../../../common/FightSequence/FightSequence"
+import { MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_4_ROUNDS_WIN } from "../../../../testing/mock/FightSequence/FightSequenceMock"
 
 type HuntOptionSlotProps = {
     huntOptionDetails: HuntOption
@@ -24,12 +25,7 @@ export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
     return (
         <>
             {fightSequenceState ? (
-                <FightSequence fightSequenceDetails={{
-                    isInitiatorWinner: true,
-                    rounds: 4,
-                    enemyName: huntOptionDetails.name,
-                    elementTheme: elementUIMap[huntOptionDetails.element]
-                }} />
+                <FightSequence fightSequenceDetails={MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_4_ROUNDS_WIN} />
             ) : null}
 
             <div className={`border border-solid p-3.5`} style={{ borderColor: uiTheme.darkColor, background: uiTheme.backgroundColor }}>
