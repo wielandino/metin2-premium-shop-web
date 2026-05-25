@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import type { ArmoryEffect } from "../../../../api/types/ArmoryEffect";
 import { getCorrectElementTypeColor, getCorrectEnemyTypeColor } from "../../../../utils/armoryEffectSlotHelper";
 import { Button } from "../../../common/Button/Button"
 import { useState } from "react";
 import { InfoPopup } from "../../../common/InfoPopup";
+import type { ArmoryEffect } from "../../../../api/types/Armory/ArmoryEffect";
 
 export type ArmoryEffectSlotProps = {
     slotNumber: number;

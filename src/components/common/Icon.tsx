@@ -14,7 +14,7 @@ export const Icon = ({
   size,
   className = '',
   ariaLabel,
-  decorative = true
+  decorative = true,
 }: IconProps) => {
   return (
     <FontAwesomeIcon
