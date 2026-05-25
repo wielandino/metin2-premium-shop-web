@@ -1,6 +1,6 @@
-import type { ArmoryEffect } from "../Armory/ArmoryEffect";
+import type { ArmoryPiece } from "../Armory/ArmoryPiece";
 
 export interface PlayerArmory {
     name: string;
-    armoryEffect: (ArmoryEffect | null)[]
+    armoryPieces: ArmoryPiece[];
 }

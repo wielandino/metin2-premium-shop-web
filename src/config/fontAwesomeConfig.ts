@@ -27,6 +27,7 @@ import {
   faSnowflake,
   faBolt,
   faSkull,
+  faHandFist,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -56,4 +57,5 @@ library.add(
   faSnowflake,
   faBolt,
   faSkull,
+  faHandFist
 );

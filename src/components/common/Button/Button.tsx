@@ -1,7 +1,7 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Icon } from "../Icon";
 
-type ButtonProps = {title: string, onClick?: () => void, className: string, iconId?: string | null, style?: React.CSSProperties}; 
+type ButtonProps = {title?: string, onClick?: () => void, className: string, iconId?: string | null, style?: React.CSSProperties}; 
 
 export const Button = ( {title, onClick, className, iconId, style}: ButtonProps) => {
     return (

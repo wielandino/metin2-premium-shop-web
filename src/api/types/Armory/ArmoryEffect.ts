@@ -1,5 +1,5 @@
-import type { ElementType } from "./Types/ElementType";
-import type { EnemyType } from "./Enemy/EnemyType";
+import type { ElementType } from "react";
+import type { EnemyType } from "../Enemy/EnemyType";
 
 export type ArmoryEffect = 
     DamageEffect | 

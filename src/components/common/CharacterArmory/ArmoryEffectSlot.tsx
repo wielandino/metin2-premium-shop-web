@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import { getCorrectElementTypeColor, getCorrectEnemyTypeColor } from "../../../../utils/armoryEffectSlotHelper";
-import { Button } from "../../../common/Button/Button"
+import { getCorrectElementTypeColor, getCorrectEnemyTypeColor } from "../../../utils/armoryEffectSlotHelper";
+import { Button } from "../Button/Button"
 import { useState } from "react";
-import { InfoPopup } from "../../../common/InfoPopup";
-import type { ArmoryEffect } from "../../../../api/types/Armory/ArmoryEffect";
+import { InfoPopup } from "../InfoPopup";
+import type { ArmoryEffect } from "../../../api/types/Armory/ArmoryEffect";
 
 export type ArmoryEffectSlotProps = {
     slotNumber: number;
@@ -19,7 +19,7 @@ export const ArmoryEffectSlot = ({ slotNumber, armoryEffect }: ArmoryEffectSlotP
         if (armoryEffect.type === 'damage_resistence_effect')
             slotTextColor = getCorrectEnemyTypeColor(armoryEffect.enemyType);
         else if (armoryEffect.type === 'element_damage')
-            slotTextColor = getCorrectElementTypeColor(armoryEffect.elementType);
+            slotTextColor = getCorrectElementTypeColor(armoryEffect.elementType.toString());
         else if (armoryEffect.type === 'damage')
             slotTextColor = "#E74C3C";
     }
