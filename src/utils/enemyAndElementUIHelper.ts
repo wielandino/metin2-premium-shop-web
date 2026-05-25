@@ -1,13 +1,3 @@
-export interface HuntOptionUIMap {
-    primaryColor: string;
-    darkColor: string;
-    backgroundColor: string;
-    gradiantColor: string;
-    boxShadowColor: string;
-    icon: string;
-}
-
-
 export interface ElementUIMap {
     [key: string]: {
         color: string;
