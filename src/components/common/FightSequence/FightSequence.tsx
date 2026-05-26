@@ -1,15 +1,17 @@
-import type { FightSequenceDetails } from "../../../api/types/FightSequenceDetails";
 import { FightSequenceHeader } from "./FightSequenceHeader";
 import { FightSequencePlayers } from "./FightSequencePlayers";
 import { FightSequenceContainer } from "./FightSequenceContainer";
+import type { FightSequenceResult } from "../../../models/FightSequence/FightSequenceResult";
 
 type FightSequenceProps = {
-    fightSequenceDetails: FightSequenceDetails;
+    fightSequenceResult: FightSequenceResult;
 }
 
-export const FightSequence = ({ fightSequenceDetails }: FightSequenceProps) => {
+export const FightSequence = ({ fightSequenceResult }: FightSequenceProps) => {
 
-    const elementTheme = fightSequenceDetails.elementTheme;
+    const fightSequenceDetail = fightSequenceResult.fightSequenceDetail;
+    const elementTheme = fightSequenceDetail.elementTheme;
+
 
     return (
         <>
@@ -20,9 +22,9 @@ export const FightSequence = ({ fightSequenceDetails }: FightSequenceProps) => {
                         borderColor: elementTheme.darkColor
                     }}>
 
-                    <FightSequenceHeader elementTheme={elementTheme} enemyName={fightSequenceDetails.enemyName} />
-                    <FightSequencePlayers enemyName={fightSequenceDetails.enemyName} elementTheme={elementTheme} />
-                    <FightSequenceContainer enemyName={fightSequenceDetails.enemyName} elementTheme={elementTheme} maxRounds={fightSequenceDetails.rounds} />
+                    <FightSequenceHeader elementTheme={elementTheme} enemyName={fightSequenceDetail.enemyName} />
+                    <FightSequencePlayers enemyName={fightSequenceDetail.enemyName} elementTheme={elementTheme} />
+                    <FightSequenceContainer enemyName={fightSequenceDetail.enemyName} elementTheme={elementTheme} maxRounds={fightSequenceDetail.rounds} />
 
 
                     {/* <div className="border-t border-solid p-4 text-center bg-[#e74c3c1f]"

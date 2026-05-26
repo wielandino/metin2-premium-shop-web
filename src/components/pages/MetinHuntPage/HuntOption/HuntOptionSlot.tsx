@@ -25,7 +25,7 @@ export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
     return (
         <>
             {fightSequenceState ? (
-                <FightSequence fightSequenceDetails={MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_4_ROUNDS_WIN} />
+                <FightSequence fightSequenceResult={MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_4_ROUNDS_WIN} />
             ) : null}
 
             <div className={`border border-solid p-3.5`} style={{ borderColor: uiTheme.darkColor, background: uiTheme.backgroundColor }}>
