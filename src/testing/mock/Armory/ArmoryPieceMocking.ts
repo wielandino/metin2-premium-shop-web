@@ -1,16 +1,16 @@
 import type { ArmoryPiece } from "../../../api/types/Armory/ArmoryPiece";
-import { MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_ELEMENT_BONUS, MOCK_ARMORY_EFFECT_FLAT_DAMAGE } from "./ArmoryEffectMocking";
+import { MOCK_ARMORY_EFFECT_FLAT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_FLAT_DAMAGE, MOCK_ARMORY_EFFECT_ELEMENT_DAMAGE_FIRE, MOCK_ARMORY_EFFECT_ELEMENT_RESISTENCE_LIGHT } from "./ArmoryEffectMocking";
 
 export const MOCK_ARMORY_CHEST_PIECE: ArmoryPiece = {
     name: "Mönchplattenpanzer",
     armoryBaseEffects: [],
-    armoryEffects: [MOCK_ARMORY_EFFECT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_ELEMENT_BONUS, MOCK_ARMORY_EFFECT_FLAT_DAMAGE, null],
+    armoryEffects: [MOCK_ARMORY_EFFECT_FLAT_DAMAGE_RESISTENCE_EFFECT, MOCK_ARMORY_EFFECT_FLAT_DAMAGE, MOCK_ARMORY_EFFECT_ELEMENT_DAMAGE_FIRE, MOCK_ARMORY_EFFECT_ELEMENT_RESISTENCE_LIGHT],
     armoryType: "chest",
 }
 
 export const MOCK_ARMORY_WEAPON_PIECE: ArmoryPiece = {
     name: "Mönchsstab",
-    armoryBaseEffects: [],
-    armoryEffects: [MOCK_ARMORY_EFFECT_FLAT_DAMAGE, null, null, null],
+    armoryBaseEffects: [MOCK_ARMORY_EFFECT_FLAT_DAMAGE],
+    armoryEffects: [MOCK_ARMORY_EFFECT_FLAT_DAMAGE],
     armoryType: "weapon",
 }

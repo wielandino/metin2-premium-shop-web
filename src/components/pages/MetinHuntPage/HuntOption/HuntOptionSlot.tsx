@@ -14,7 +14,7 @@ type HuntOptionSlotProps = {
 
 export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
 
-    const uiTheme = elementThemeUIMap[huntOptionDetails.element];
+    const uiTheme = elementThemeUIMap[huntOptionDetails.elementType];
 
 
     const [fightSequenceState, setFightSequenceState] = useState<boolean>();

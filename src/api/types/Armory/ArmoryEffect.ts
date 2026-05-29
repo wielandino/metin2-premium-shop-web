@@ -1,36 +1,58 @@
-import type { ElementType } from "react";
 import type { EnemyType } from "../Enemy/EnemyType";
+import type { ElementType } from "../Types/ElementType";
 
-export type ArmoryEffect = 
-    DamageEffect | 
-    DamageResistenceEffect | 
-    ElementBonusDamage |
-    ElementBonusResistence;
+export type ArmoryEffect =
+    FlatDamageBonusEffect |
+    FlatDamageResistenceEffect |
+    ElementDamageBonusEffect |
+    ElementDamgeResistenceBonusEffect |
+    EnemyTypeDamageResistenceEffect;
 
 interface BaseEffect {
     id: number;
     name: string;
+    effectType: string;
 }
 
-export interface DamageEffect extends BaseEffect {
-    type: 'damage';
+
+export interface ElementDamageBonusEffect extends BaseEffect {
+    effectType: 'damage';
+    effectIdentifier: 'element';
+    bonus: number;
+    elementType: ElementType;
+}
+
+export interface ElementDamgeResistenceBonusEffect extends BaseEffect {
+    effectType: 'resistence';
+    effectIdentifier: 'element';
+    bonus: number;
+    elementType: ElementType;
+}
+
+
+//#region damage effects
+
+export interface FlatDamageBonusEffect extends BaseEffect {
+    effectType: 'damage';
+    effectIdentifier: 'flat';
     bonus: number;
 }
 
-export interface DamageResistenceEffect extends BaseEffect {
-    type: 'damage_resistence_effect';
+//#endregion
+
+//#region resistence effects
+
+export interface FlatDamageResistenceEffect extends BaseEffect {
+    effectType: 'resistence';
+    effectIdentifier: 'flat';
+    bonus: number;
+}
+
+export interface EnemyTypeDamageResistenceEffect extends BaseEffect {
+    effectType: 'resistence';
+    effectIdentifier: 'enemy';
     bonus: number;
     enemyType: EnemyType;
 }
 
-export interface ElementBonusDamage extends BaseEffect {
-    type: 'element_damage';
-    bonus: number;
-    elementType: ElementType;
-}
-
-export interface ElementBonusResistence extends BaseEffect {
-    type: 'element_resistence';
-    bonus: number;
-    elementType: ElementType;
-}
+//#endregion

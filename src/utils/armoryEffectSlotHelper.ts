@@ -21,14 +21,12 @@ export function getCorrectElementTypeColor(elementType: string): string {
             return '#2E8B57';
         case 'air':
             return '#F1C40F';
-        case 'lightning':
-            return '#F39C12';
         case 'ice':
             return '#1ABC9C';
         case 'dark':
             return '#2C3E50';
         case 'light':
-            return '#ECF0F1';
+            return '#F39C12';
         default:
             return '#555555'; // Default color
     }

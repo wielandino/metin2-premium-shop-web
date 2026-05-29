@@ -10,10 +10,12 @@ export const MOCK_USER_CURRENCY_1: UserCurrency = {
 export const MOCK_USER_1: User = {
   username: "Wieland",
   currency: MOCK_USER_CURRENCY_1,
-  player: {
-    armory: null,
-    activeArmory: {
-      name: "Default Armory",
+  character: {
+    name: "Gregor",
+    fightAbleUnit: {
+      baseDamage: 120,
+      baseDefense: 20,
+      baseHealth: 200,
       armoryPieces: [MOCK_ARMORY_CHEST_PIECE, MOCK_ARMORY_WEAPON_PIECE],
     },
   },

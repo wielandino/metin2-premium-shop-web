@@ -16,13 +16,24 @@ export const ArmoryEffectSlot = ({ slotNumber, armoryEffect }: ArmoryEffectSlotP
     const isSlotActive = armoryEffect != null;
 
     if (isSlotActive) {
-        if (armoryEffect.type === 'damage_resistence_effect')
-            slotTextColor = getCorrectEnemyTypeColor(armoryEffect.enemyType);
-        else if (armoryEffect.type === 'element_damage')
+
+        if (armoryEffect.effectIdentifier === 'flat') {
+            if (armoryEffect.effectType === 'damage')
+                slotTextColor = '#E74C3C';
+            else if (armoryEffect.effectType === 'resistence')
+                slotTextColor = '#3C73A8';
+        }
+
+        else if (armoryEffect.effectIdentifier === 'element')
             slotTextColor = getCorrectElementTypeColor(armoryEffect.elementType.toString());
-        else if (armoryEffect.type === 'damage')
-            slotTextColor = "#E74C3C";
+
+        else if (armoryEffect.effectIdentifier === 'enemy')
+            slotTextColor = getCorrectEnemyTypeColor(armoryEffect.enemyType);
     }
+
+    const bonusValueString = armoryEffect!.effectIdentifier === 'flat'
+        ? `${armoryEffect!.name} +${armoryEffect!.bonus}`
+        : `${armoryEffect!.name} ${armoryEffect!.bonus}%`
 
     const slotTextVariant = isSlotActive
         ? "text-[12px] font-bold"
@@ -51,23 +62,23 @@ export const ArmoryEffectSlot = ({ slotNumber, armoryEffect }: ArmoryEffectSlotP
                     })}
                     style={{ color: slotTextColor }}>
 
-                    {armoryEffect ? armoryEffect.name + " " + armoryEffect.bonus + "%" : "- Leerer Slot -"}
+                    {armoryEffect ? bonusValueString : '- Leerer Slot'}
                 </span>
 
                 {(armoryEffect == null) && (
-                    <span style={{background: "rgba(0, 0, 0, 0.2)"}}>
+                    <span style={{ background: "rgba(0, 0, 0, 0.2)" }}>
                         <Button title="Adder"
-                                iconId="plus"
-                                className="pt-1 pb-1 pl-2 pr-2 border border-solid border-[#27AE60] text-[#555555] text-[11px] items-center gap-1" />
+                            iconId="plus"
+                            className="pt-1 pb-1 pl-2 pr-2 border border-solid border-[#27AE60] text-[#555555] text-[11px] items-center gap-1" />
                     </span>
                 )}
 
                 {(armoryEffect != null) && (
                     <span style={{ background: "rgba(139, 94, 60, 0.3)" }}>
                         <Button title="Switch"
-                                iconId="shuffle" 
-                                className="pt-1 pb-1 pl-2 pr-2 border border-solid border-[#8b5e3c] text-[#f2e69f] text-[11px] items-center gap-1"
-                                onClick={() => onSwitchClick("Effekt erfolgreich hinzugefügt!")} />
+                            iconId="shuffle"
+                            className="pt-1 pb-1 pl-2 pr-2 border border-solid border-[#8b5e3c] text-[#f2e69f] text-[11px] items-center gap-1"
+                            onClick={() => onSwitchClick("Effekt erfolgreich hinzugefügt!")} />
                     </span>
                 )}
             </div>

@@ -12,7 +12,7 @@ export const CharacterArmory = () => {
 
     const user = useContext(UserContext);
     const [armorySelectionType, setArmorySelectionType] = useState<ArmoryType>("chest");
-    const playerActiveArmory = user?.player.activeArmory;
+    const characterArmoryPieces = user?.character.fightAbleUnit.armoryPieces;
 
     const handleArmoryTypeSelection = (type: ArmoryType) => {
         setArmorySelectionType(type);
@@ -34,7 +34,7 @@ export const CharacterArmory = () => {
 
                 </div>
 
-                {playerActiveArmory?.armoryPieces.filter((piece) => piece.armoryType === armorySelectionType)
+                {characterArmoryPieces?.filter((piece) => piece.armoryType === armorySelectionType)
                     .map((piece) => piece.armoryEffects)
                     .flat()
                     .map((armoryEffect, index) => (

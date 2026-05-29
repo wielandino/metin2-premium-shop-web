@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { MOCK_USER_1 } from "../testing/mock/User/UserMocking";
-import type { Player } from "../api/types/Player/Player";
+import type { Character } from "../api/types/User/Character";
 
 interface UserProviderProps {
     children: React.ReactNode;
@@ -10,7 +10,7 @@ interface UserContextType {
     username: string;
     drBalance: number;
     tombolaTickets: number;
-    player: Player;
+    character: Character;
 }
 
 
@@ -24,7 +24,7 @@ const UserProvider = ({ children }: UserProviderProps) => {
             username: defaultUser.username,
             drBalance: defaultUser.currency.yabbieCoins,
             tombolaTickets: defaultUser.currency.tombolaTickets,
-            player: defaultUser.player,
+            character: defaultUser.character,
         }}>
             {children}
         </UserContext.Provider>

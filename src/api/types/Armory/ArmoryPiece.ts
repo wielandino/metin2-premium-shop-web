@@ -4,6 +4,6 @@ import type { ArmoryEffect } from "./ArmoryEffect";
 export interface ArmoryPiece {
     name: string;
     armoryBaseEffects: ArmoryEffect[];
-    armoryEffects: (ArmoryEffect[] | null);
+    armoryEffects: ArmoryEffect[];
     armoryType: ArmoryType;
 }

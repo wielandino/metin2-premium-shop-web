@@ -1,15 +1,12 @@
-import type { EnemyType } from "./EnemyType";
-import type { ElementType } from "../Types/ElementType";
 import type { Reward } from "../Reward";
-import type { ArmoryEffect } from "../Armory/ArmoryEffect";
+import type { ElementType } from "../Types/ElementType";
+import type { Unit } from "../Unit/Unit";
+import type { EnemyType } from "./EnemyType";
 
-export interface BaseEnemy {
+export interface BaseEnemy extends Unit {
     name: string;
     type: EnemyType;
-    element: ElementType;
-    health: number;
-    baseDefense: number;
-    baseDamage: number;
-    armoryEffects?: ArmoryEffect[] | null;
+    elementType: ElementType;
     rewards?: Reward[] | null;
+    
 }

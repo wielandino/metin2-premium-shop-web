@@ -3,31 +3,40 @@ import type { HuntOption } from "../../../api/types/Hunt/HuntOption";
 export const MOCK_HUNT_ENEMY_FIRE: HuntOption = {
     name: "Feuer-Metin",
     description: "Feuer & Gift. Herausfordernd, aber ohne Rüstung möglich.",
-    element: "fire",
+    elementType: "fire",
     type: "metin",
-    health: 1000,
-    baseDamage: 100,
-    baseDefense: 50,
+    fightAbleUnit: {
+        baseHealth: 1000,
+        baseDamage: 100,
+        baseDefense: 50,
+        armoryPieces: []
+    }
 }
 
 export const MOCK_HUNT_ENEMY_ICE: HuntOption = {
     name: "Eis-Metin",
     description: "Eis & Dunkelheit. Fordert passende Widerstände.",
-    element: "ice",
+    elementType: "ice",
     type: "metin",
-    health: 1000,
-    baseDamage: 80,
-    baseDefense: 70,
+    fightAbleUnit: {
+        baseHealth: 1000,
+        baseDamage: 80,
+        baseDefense: 70,
+        armoryPieces: []
+    }
 }
 
 export const MOCK_HUNT_ENEMY_LIGHTNING: HuntOption = {
     name: "Blitz-Metin",
     description: "Blitz, Dunkelheit & Feuer. Ohne Widerstand kaum zu besiegen.",
-    element: "lightning",
+    elementType: "lightning",
     type: "metin",
-    health: 1000,
-    baseDamage: 120,
-    baseDefense: 60,
+    fightAbleUnit: {
+        baseHealth: 1000,
+        baseDamage: 120,
+        baseDefense: 60,
+        armoryPieces: []
+    }
 }
 
 export const mockHuntEnemies: HuntOption[] = [
