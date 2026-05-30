@@ -1,4 +1,4 @@
-import type { EnemyType } from "../Enemy/EnemyType";
+import type { MonsterType } from "../Enemy/MonsterType";
 import type { ElementType } from "../Types/ElementType";
 
 export type ArmoryEffect =
@@ -52,7 +52,7 @@ export interface EnemyTypeDamageResistenceEffect extends BaseEffect {
     effectType: 'resistence';
     effectIdentifier: 'enemy';
     bonus: number;
-    enemyType: EnemyType;
+    enemyType: MonsterType;
 }
 
 //#endregion

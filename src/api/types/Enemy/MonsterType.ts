@@ -1,0 +1,1 @@
+export type MonsterType = 'insect' | 'orc' | 'undead' | 'metin';

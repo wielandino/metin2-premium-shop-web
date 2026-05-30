@@ -1,23 +1,24 @@
-import type { EnemyType } from "../../api/types/Enemy/EnemyType";
+import type { MonsterType } from "../../api/types/Enemy/MonsterType";
 import type { ElementType } from "../../api/types/Types/ElementType";
 
 export interface CombatStats {
-    armoryEffectStats: ArmoryEffectStats;
-    baseDamage: number;
-    baseDefense: number;
-    baseHealth: number;
+
+    totalDefense: number;
+    totalHealth: number;
+    totalDamage: number;
+
+    bonusCombatStats: BonusCombatStats;
+
+    monsterType: MonsterType | null;
+    elementType: ElementType | null;
 }
 
-export interface ArmoryEffectStats {
-    flatDamage: number;
-    flatResistance: number;
-    bonusValues: {
-        elements: Map<ElementType, BonusValues>;
-        enemies: Map<EnemyType, BonusValues>;
-    };
+export interface BonusCombatStats {
+    elements: Map<ElementType, CombatBonusValues>;
+    enemies: Map<MonsterType, CombatBonusValues>;
 }
 
-export interface BonusValues {
+export interface CombatBonusValues {
     damage: number;
     resistance: number;
 }
