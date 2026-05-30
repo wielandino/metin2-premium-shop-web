@@ -1,4 +1,4 @@
-import type { FlatDamageBonusEffect, ElementDamageBonusEffect, ElementDamgeResistenceBonusEffect, EnemyTypeDamageResistenceEffect } from "../../../api/types/Armory/ArmoryEffect";
+import type { FlatDamageBonusEffect, ElementDamageBonusEffect, ElementDamgeResistenceBonusEffect, EnemyTypeDamageResistenceEffect, FlatDamageResistenceEffect } from "../../../api/types/Armory/ArmoryEffect";
 
 const DUMMY_ID = 23;
 
@@ -10,7 +10,15 @@ export const MOCK_ARMORY_EFFECT_FLAT_DAMAGE: FlatDamageBonusEffect = {
     effectIdentifier: 'flat'
 }
 
-export const MOCK_ARMORY_EFFECT_FLAT_DAMAGE_RESISTENCE_EFFECT: EnemyTypeDamageResistenceEffect = {
+export const MOCK_ARMORY_EFFECT_FLAT_RESISTANCE_EFFECT: FlatDamageResistenceEffect = {
+    bonus: 10,
+    id: DUMMY_ID + 2,
+    name: 'Verteidigung',
+    effectIdentifier: 'flat',
+    effectType: 'resistence'   
+}
+
+export const MOCK_ARMORY_EFFECT_FLAT_DAMAGE_RESISTANCE_EFFECT: EnemyTypeDamageResistenceEffect = {
     name: "Abwehr gegen Insekten",
     id: DUMMY_ID + 11,
     effectType: 'resistence',
