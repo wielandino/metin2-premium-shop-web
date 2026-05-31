@@ -1,4 +1,4 @@
-import type { FlatDamageBonusEffect, ElementDamageBonusEffect, ElementDamgeResistenceBonusEffect, EnemyTypeDamageResistenceEffect, FlatDamageResistenceEffect } from "../../../api/types/Armory/ArmoryEffect";
+import type { FlatDamageBonusEffect, ElementDamageBonusEffect, ElementDamgeResistenceBonusEffect as ElementDamageResistenceBonusEffect, EnemyTypeDamageResistenceEffect, FlatDamageResistenceEffect } from "../../../api/types/Armory/ArmoryEffect";
 
 const DUMMY_ID = 23;
 
@@ -36,11 +36,20 @@ export const MOCK_ARMORY_EFFECT_ELEMENT_DAMAGE_FIRE: ElementDamageBonusEffect = 
     bonus: 13   
 }
 
-export const MOCK_ARMORY_EFFECT_ELEMENT_RESISTENCE_LIGHT: ElementDamgeResistenceBonusEffect = {
+export const MOCK_ARMORY_EFFECT_ELEMENT_RESISTENCE_LIGHT: ElementDamageResistenceBonusEffect = {
     name: 'Abwehr gegen Blitz',
     id: DUMMY_ID + 1111,
     effectType: 'resistence',
     effectIdentifier: 'element',
     elementType: 'light',
+    bonus: 7
+}
+
+export const MOCK_ARMORY_EFFECT_ELEMENT_RESISTENCE_FIRE: ElementDamageResistenceBonusEffect = {
+    name: 'Abwehr gegen Feuer',
+    id: DUMMY_ID + 22,
+    effectType: 'resistence',
+    effectIdentifier: 'element',
+    elementType: 'fire',
     bonus: 7
 }

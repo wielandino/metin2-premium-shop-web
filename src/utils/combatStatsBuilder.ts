@@ -68,12 +68,10 @@ const buildCombatBonusValues = <TKey>(
             key,
             {
                 damage:
-                    totalDamage *
-                    (value.damagePercentMultiplier / 100),
+                    Math.round(totalDamage * (value.damagePercentMultiplier / 100)),
 
                 resistance:
-                    totalDefense *
-                    (value.resistancePercentMultiplier / 100),
+                    Math.round(totalDefense * (value.resistancePercentMultiplier / 100)),
             }
         ])
     )

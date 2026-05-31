@@ -1,4 +1,5 @@
 import type { HuntOption } from "../../../api/types/Hunt/HuntOption";
+import { MOCK_ARMORY_CHEST_PIECE_FIRE_RESISTENCE } from "../Armory/ArmoryPieceMocking";
 
 export const MOCK_HUNT_ENEMY_FIRE: HuntOption = {
     name: "Feuer-Metin",
@@ -7,7 +8,9 @@ export const MOCK_HUNT_ENEMY_FIRE: HuntOption = {
         baseHealth: 1000,
         baseDamage: 100,
         baseDefense: 50,
-        armoryPieces: [],
+        armoryPieces: [
+            MOCK_ARMORY_CHEST_PIECE_FIRE_RESISTENCE
+        ],
         monsterUnit: {
             elementType: 'fire',
             monsterType: 'metin'

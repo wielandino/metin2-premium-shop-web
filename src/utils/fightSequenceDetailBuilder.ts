@@ -14,20 +14,27 @@ export const buildFightSequenceDetail = (initiator: FightableUnit, enemy: Fighta
     // 2. Medium Rounds (4-8): If the initiator or the enemy are slighty stronger than his opponent
     // 3. Long Rounds (9-12): If the initiator or the enemy is even or slightly weaker than his opponent
 
-    const initiatorCombatStats = buildCombatStats(initiator);
-    const enemyCombatStats = buildCombatStats(enemy);
+    const [winner, loser] = isInitiatorWinner
+        ? [buildCombatStats(initiator), buildCombatStats(enemy)]
+        : [buildCombatStats(enemy), buildCombatStats(initiator)];
 
-    let winner;
-    let loser;
+    // First check if the loser does have any elemental resistence
+    const loserElementResistence: number = [...winner.bonusCombatStats.elements]
+        .filter(e => e[1].damage > 0)
+        .reduce((acc, current) => {
 
-    if (isInitiatorWinner) {
-        winner = initiatorCombatStats;
-        loser = enemyCombatStats;
-    } else {
-        winner = enemyCombatStats;
-        loser = initiatorCombatStats;
-    }
+            const element = current[0];
+            let loserElementResistence = 0;
+
+            if (loser.bonusCombatStats.elements.has(element)) {
+                loserElementResistence =
+                    loser.bonusCombatStats.elements.get(element)!.resistance;
+            }
+
+            return acc = loserElementResistence;
+        }, 0)
+
 
     
-
+        console.log(loserElementResistence);
 }
