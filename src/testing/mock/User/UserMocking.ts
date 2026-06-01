@@ -13,9 +13,9 @@ export const MOCK_USER_1: User = {
   character: {
     name: "Gregor",
     fightAbleUnit: {
-      baseDamage: 120,
-      baseDefense: 20,
-      baseHealth: 200,
+      baseDamage: 50,
+      baseDefence: 20,
+      baseHealth: 100,
       armoryPieces: [MOCK_ARMORY_CHEST_PIECE, MOCK_ARMORY_WEAPON_PIECE],
       monsterUnit: null
     },

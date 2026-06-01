@@ -1,17 +1,23 @@
 import { FightSequenceHeader } from "./FightSequenceHeader";
 import { FightSequencePlayers } from "./FightSequencePlayers";
-import { FightSequenceContainer } from "./FightSequenceContainer";
+import { FightSequenceRoundContainer } from "./FightSequenceRoundContainer";
 import type { FightSequenceResult } from "../../../models/FightSequence/FightSequenceResult";
+import type { ElementType } from "../../../api/types/Types/ElementType";
+import type { ElementThemeUIMap } from "../../../utils/UIHelper";
+import { useState } from "react";
 
 type FightSequenceProps = {
     fightSequenceResult: FightSequenceResult;
+    enemyName: string,
+    elementTheme: ElementThemeUIMap[ElementType];
 }
 
-export const FightSequence = ({ fightSequenceResult }: FightSequenceProps) => {
+export const FightSequence = ({ fightSequenceResult, enemyName, elementTheme }: FightSequenceProps) => {
 
     const fightSequenceDetail = fightSequenceResult.fightSequenceDetail;
-    const elementTheme = fightSequenceDetail.elementTheme;
 
+    const [currentInitiatorHp, setCurrentInitiatorHp] = useState<number>();
+    const [currentEnemyHp, setCurrentEnemyHp] = useState<number>();
 
     return (
         <>
@@ -22,9 +28,20 @@ export const FightSequence = ({ fightSequenceResult }: FightSequenceProps) => {
                         borderColor: elementTheme.darkColor
                     }}>
 
-                    <FightSequenceHeader elementTheme={elementTheme} enemyName={fightSequenceDetail.enemyName} />
-                    <FightSequencePlayers enemyName={fightSequenceDetail.enemyName} elementTheme={elementTheme} />
-                    <FightSequenceContainer enemyName={fightSequenceDetail.enemyName} elementTheme={elementTheme} maxRounds={fightSequenceDetail.rounds} />
+                    <FightSequenceHeader
+                        elementTheme={elementTheme}
+                        enemyName={enemyName} />
+                        
+                    <FightSequencePlayers
+                        enemyName={enemyName}
+                        elementTheme={elementTheme} />
+
+                    <FightSequenceRoundContainer
+                        enemyName={enemyName}
+                        elementTheme={elementTheme}
+                        rounds={fightSequenceDetail.rounds}
+                        setCurrentInitiatorHp={setCurrentInitiatorHp}
+                        setCurrentEnemyHp={setCurrentEnemyHp} />
 
 
                     {/* <div className="border-t border-solid p-4 text-center bg-[#e74c3c1f]"

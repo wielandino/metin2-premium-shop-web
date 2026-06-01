@@ -3,7 +3,7 @@ import type { ElementType } from "../../api/types/Types/ElementType";
 
 export interface CombatStats {
 
-    totalDefense: number;
+    totalDefence: number;
     totalHealth: number;
     totalDamage: number;
 
@@ -20,5 +20,5 @@ export interface BonusCombatStats {
 
 export interface CombatBonusValues {
     damage: number;
-    resistance: number;
+    defence: number;
 }

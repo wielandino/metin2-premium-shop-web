@@ -6,7 +6,7 @@ import type { ElementType } from "../api/types/Types/ElementType";
 
 export interface ArmoryEffectStats {
     flatDamage: number;
-    flatDefense: number;
+    flatDefence: number;
 
     elements: Map<ElementType, BonusMultipliers>;
     enemies: Map<MonsterType, BonusMultipliers>;
@@ -14,7 +14,7 @@ export interface ArmoryEffectStats {
 
 export interface BonusMultipliers {
     damagePercentMultiplier: number;
-    resistancePercentMultiplier: number;
+    defencePercentMultiplier: number;
 }
 
 export const buildCombatStats = (unit: FightableUnit): CombatStats => {
@@ -26,25 +26,25 @@ export const buildCombatStats = (unit: FightableUnit): CombatStats => {
         ]));
 
     const totalDamage = unit.baseDamage + armoryEffectStats.flatDamage;
-    const totalDefense = unit.baseDefense + armoryEffectStats.flatDefense;
+    const totalDefence = unit.baseDefence + armoryEffectStats.flatDefence;
 
 
     return {
         totalDamage: totalDamage,
-        totalDefense: totalDefense,
+        totalDefence: totalDefence,
         totalHealth: unit.baseHealth,
 
         bonusCombatStats: {
             elements: buildCombatBonusValues(
                 armoryEffectStats.elements,
                 totalDamage,
-                totalDefense
+                totalDefence
             ),
 
             enemies: buildCombatBonusValues(
                 armoryEffectStats.enemies,
                 totalDamage,
-                totalDefense
+                totalDefence
             )
         },
 
@@ -61,7 +61,7 @@ const sumBonus = (effects: ArmoryEffect[], effectType: string, effectIdentifier:
 const buildCombatBonusValues = <TKey>(
     source: Map<TKey, BonusMultipliers>,
     totalDamage: number,
-    totalDefense: number
+    totalDefence: number
 ): Map<TKey, CombatBonusValues> => {
     return new Map(
         [...source.entries()].map(([key, value]) => [
@@ -70,8 +70,8 @@ const buildCombatBonusValues = <TKey>(
                 damage:
                     Math.round(totalDamage * (value.damagePercentMultiplier / 100)),
 
-                resistance:
-                    Math.round(totalDefense * (value.resistancePercentMultiplier / 100)),
+                defence:
+                    Math.round(totalDefence * (value.defencePercentMultiplier / 100)),
             }
         ])
     )
@@ -92,7 +92,7 @@ const sumTypeBonus = <TEffect extends ArmoryEffect, TKey>(
             if (!values) {
                 values = {
                     damagePercentMultiplier: 0,
-                    resistancePercentMultiplier: 0,
+                    defencePercentMultiplier: 0,
                 };
 
                 accumulator.set(key, values);
@@ -104,7 +104,7 @@ const sumTypeBonus = <TEffect extends ArmoryEffect, TKey>(
                     break;
 
                 case 'resistence':
-                    values.resistancePercentMultiplier += current.bonus;
+                    values.defencePercentMultiplier += current.bonus;
                     break;
             }
 
@@ -122,7 +122,7 @@ const isEnemyEffect = (effect: ArmoryEffect): effect is EnemyTypeDamageResistenc
 
 const buildStatsFromArmoryEffect = (effects: ArmoryEffect[]): ArmoryEffectStats => ({
     flatDamage: sumBonus(effects, 'damage', 'flat'),
-    flatDefense: sumBonus(effects, 'resistence', 'flat'),
+    flatDefence: sumBonus(effects, 'resistence', 'flat'),
     elements: sumTypeBonus(effects, isElementEffect, e => e.elementType),
     enemies: sumTypeBonus(effects, isEnemyEffect, e => e.enemyType)
 

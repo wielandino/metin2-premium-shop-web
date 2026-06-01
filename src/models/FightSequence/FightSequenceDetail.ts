@@ -1,8 +1,12 @@
-import type { ElementType } from "../../api/types/Types/ElementType";
-import type { ElementThemeUIMap } from "../../utils/UIHelper";
-
 export interface FightSequenceDetail {
-    rounds: number;
-    elementTheme: ElementThemeUIMap[ElementType];
-    enemyName: string;
+    rounds: FightSequenceRoundDetails[]
+}
+
+export interface FightSequenceRoundDetails {
+    round: number,
+    winnerDamage: number,
+    loserDamage: number
+
+    winnerRemainingHp: number;
+    loserRemainingHp: number;
 }

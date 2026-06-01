@@ -3,7 +3,7 @@ import type { MonsterUnit } from "./MonsterUnit";
 
 export interface FightableUnit {
     baseHealth: number;
-    baseDefense: number;
+    baseDefence: number;
     baseDamage: number;
     armoryPieces: ArmoryPiece[];
 

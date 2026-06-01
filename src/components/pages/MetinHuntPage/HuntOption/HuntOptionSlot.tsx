@@ -6,7 +6,8 @@ import { Icon } from "../../../common/Icon"
 import { HuntOptionSlotDescription } from "./HuntOptionSlotDescription"
 import { useState } from "react"
 import { FightSequence } from "../../../common/FightSequence/FightSequence"
-import { MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_4_ROUNDS_WIN } from "../../../../testing/mock/FightSequence/FightSequenceMock"
+import { MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_METIN } from "../../../../testing/mock/FightSequence/FightSequenceMock"
+import type { FightSequenceResult } from "../../../../models/FightSequence/FightSequenceResult"
 
 type HuntOptionSlotProps = {
     huntOptionDetails: HuntOption
@@ -14,18 +15,25 @@ type HuntOptionSlotProps = {
 
 export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
 
-    const uiTheme = elementThemeUIMap[huntOptionDetails.fightAbleUnit.monsterUnit!.elementType];
-
+    const uiTheme
+        = elementThemeUIMap[huntOptionDetails.fightAbleUnit.monsterUnit!.elementType];
 
     const [fightSequenceState, setFightSequenceState] = useState<boolean>();
+    const [fightSequenceResult, setFightSequenceResult] = useState<FightSequenceResult>()
+
     const attackStone = () => {
+        const fightSequenceResult = MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_METIN();
+        setFightSequenceResult(fightSequenceResult);
+
         setFightSequenceState(true);
     }
 
     return (
         <>
             {fightSequenceState ? (
-                <FightSequence fightSequenceResult={MOCK_FIGHT_SEQUENCE_AGAINST_FIRE_4_ROUNDS_WIN} />
+                <FightSequence fightSequenceResult={fightSequenceResult!}
+                    enemyName={huntOptionDetails.name}
+                    elementTheme={uiTheme} />
             ) : null}
 
             <div className={`border border-solid p-3.5`} style={{ borderColor: uiTheme.darkColor, background: uiTheme.backgroundColor }}>

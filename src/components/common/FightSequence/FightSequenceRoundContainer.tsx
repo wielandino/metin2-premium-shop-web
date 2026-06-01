@@ -2,14 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import type { ElementThemeUIMap } from "../../../utils/UIHelper";
 import { FightSequenceRound } from "./FightSequenceRound";
 import { Icon } from "../Icon";
+import type { FightSequenceRoundDetails } from "../../../models/FightSequence/FightSequenceDetail";
 
 type FightSequenceContainerProps = {
     enemyName: string;
     elementTheme: ElementThemeUIMap[string];
-    maxRounds: number;
+    rounds: FightSequenceRoundDetails[];
+    setCurrentInitiatorHp: React.Dispatch<React.SetStateAction<number | undefined>>;
+    setCurrentEnemyHp: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-export const FightSequenceContainer = ({ enemyName, elementTheme, maxRounds }: FightSequenceContainerProps) => {
+export const FightSequenceRoundContainer = ({ enemyName, elementTheme, rounds, setCurrentInitiatorHp, setCurrentEnemyHp }: FightSequenceContainerProps) => {
 
     const [currentRound, setCurrentRound] = useState([0]);
     const logRef = useRef<HTMLDivElement>(null);
@@ -18,7 +21,7 @@ export const FightSequenceContainer = ({ enemyName, elementTheme, maxRounds }: F
 
     useEffect(() => {
         const interval = setInterval(() => {
-            if (currentRound.length >= maxRounds) {
+            if (currentRound.length >= rounds.length) {
                 clearInterval(interval);
                 return;
             }
@@ -44,12 +47,12 @@ export const FightSequenceContainer = ({ enemyName, elementTheme, maxRounds }: F
                     <FightSequenceRound
                         key={i + 1}
                         enemyName={enemyName}
-                        round={i + 1}
+                        round={rounds[i]}
                         elementTheme={elementTheme}
                     />
                 ))}
 
-                {currentRound.length < maxRounds && (
+                {currentRound.length < rounds.length && (
                     <div className="text-[#555] text-[11px] text-center p-2 animate-pulse">
                         <Icon icon='khanda' />
                         Kampf läuft…

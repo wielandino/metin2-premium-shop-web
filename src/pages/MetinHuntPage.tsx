@@ -2,16 +2,10 @@ import { MainContainer } from "../components/common/MainContainer";
 import { HuntOptionSlot } from "../components/pages/MetinHuntPage/HuntOption/HuntOptionSlot";
 import { mockHuntEnemies } from "../testing/mock/Enemy/HuntEnemyMocking";
 import { CharacterArmory } from "../components/common/CharacterArmory/CharacterArmory";
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-import { buildFightSequenceDetail } from "../utils/fightSequenceDetailBuilder";
 
 export const MetinHuntPage = () => {
 
     const huntOptionMocks = mockHuntEnemies;
-    const user = useContext(UserContext);
-
-    buildFightSequenceDetail(user!.character.fightAbleUnit, huntOptionMocks[0].fightAbleUnit, true)
 
     return (
         <>
