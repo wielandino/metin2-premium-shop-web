@@ -21,13 +21,13 @@ export const FightSequenceRound = ({ enemyName, round, elementTheme}: FightSeque
                 <div className="text-[#e74c3c] text-[12px] mb-1.5 flex items-center gap-1.5">
                     <Icon icon={elementTheme.icon as IconProp} />
                     {enemyName}: <i>Frostschlag!</i>
-                    <span className="ml-1.5 text-[#ff9999]">-{round.loserDamage}</span>
+                    <span className="ml-1.5 text-[#ff9999]">-{round.enemyDamage}</span>
                 </div>
 
                 <div className="text-[#2ecc71] text-[12px] mb-1.5 flex items-center gap-1.5">
                     <Icon icon="khanda" />
                     Du: <i>Hieb!</i>
-                    <span className="ml-1.5 text-[#88ff99]">-{round.winnerDamage}</span>
+                    <span className="ml-1.5 text-[#88ff99]">-{round.initiatorDamage}</span>
                 </div>
 
                 <style>

@@ -16,8 +16,8 @@ export const FightSequence = ({ fightSequenceResult, enemyName, elementTheme }: 
 
     const fightSequenceDetail = fightSequenceResult.fightSequenceDetail;
 
-    const [currentInitiatorHp, setCurrentInitiatorHp] = useState<number>();
-    const [currentEnemyHp, setCurrentEnemyHp] = useState<number>();
+    const [currentInitiatorHealth, setCurrentInitiatorHealth] = useState<number>(fightSequenceDetail.initiatorTotalHealth);
+    const [currentEnemyHealth, setCurrentEnemyHealth] = useState<number>(fightSequenceDetail.enemyTotalHealth);
 
     return (
         <>
@@ -34,14 +34,16 @@ export const FightSequence = ({ fightSequenceResult, enemyName, elementTheme }: 
                         
                     <FightSequencePlayers
                         enemyName={enemyName}
-                        elementTheme={elementTheme} />
+                        elementTheme={elementTheme}
+                        currentEnemyHealth={currentEnemyHealth}
+                        currentInitiatorHealth={currentInitiatorHealth} />
 
                     <FightSequenceRoundContainer
                         enemyName={enemyName}
                         elementTheme={elementTheme}
                         rounds={fightSequenceDetail.rounds}
-                        setCurrentInitiatorHp={setCurrentInitiatorHp}
-                        setCurrentEnemyHp={setCurrentEnemyHp} />
+                        setCurrentInitiatorHealth={setCurrentInitiatorHealth}
+                        setCurrentEnemyHealth={setCurrentEnemyHealth} />
 
 
                     {/* <div className="border-t border-solid p-4 text-center bg-[#e74c3c1f]"

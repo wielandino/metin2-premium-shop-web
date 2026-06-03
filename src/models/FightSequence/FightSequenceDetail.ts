@@ -1,12 +1,14 @@
 export interface FightSequenceDetail {
     rounds: FightSequenceRoundDetails[]
+    initiatorTotalHealth: number;
+    enemyTotalHealth: number;
 }
 
 export interface FightSequenceRoundDetails {
     round: number,
-    winnerDamage: number,
-    loserDamage: number
+    initiatorDamage: number,
+    enemyDamage: number
 
-    winnerRemainingHp: number;
-    loserRemainingHp: number;
+    initiatorRemainingHealth: number;
+    enemyRemainingHealth: number;
 }

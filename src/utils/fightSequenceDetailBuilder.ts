@@ -4,40 +4,42 @@ import { buildCombatStats } from "./combatStatsBuilder";
 
 export const buildFightSequenceDetail = (initiator: FightableUnit, enemy: FightableUnit, isInitiatorWinner: boolean): FightSequenceDetail => {
 
-    const [winner, loser] = isInitiatorWinner
-        ? [buildCombatStats(initiator), buildCombatStats(enemy)]
-        : [buildCombatStats(enemy), buildCombatStats(initiator)];
+    const initiatorCombatStats = buildCombatStats(initiator);
+    const enemyCombatStats = buildCombatStats(enemy);
 
-    const winnerHp = winner.totalHealth;
-    const loserHp = loser.totalHealth;
+    const initiatorTotalHealth = initiatorCombatStats.totalHealth;
+    const enemyTotalHealth = enemyCombatStats.totalHealth;
 
-    const winnerTotalDamagePerRound = Math.floor(winner.totalDamage - loser.totalDefence)
-    const loserTotalDamagePerRound = Math.floor(loser.totalDamage - winner.totalDefence)
+    const initiatorTotalDamagePerRound = Math.floor(initiatorCombatStats.totalDamage - enemyCombatStats.totalDefence)
+    const enemyTotalDamagePerRound = Math.floor(enemyCombatStats.totalDamage - enemyCombatStats.totalDefence)
 
-    const roundCount = Math.round(loserHp / winnerTotalDamagePerRound)
+    const roundCount = Math.round(enemyTotalHealth / initiatorTotalDamagePerRound)
 
-    let winnerRemainingHp = winnerHp;
-    let loserRemainingHp = loserHp;
+    let initiatorRemainingHealth = initiatorTotalHealth;
+    let enemyRemainingHealth = enemyTotalHealth;
 
     const rounds = Array.from({ length: roundCount }, (_, i) => {
-        const winnerDamage = Math.floor(rangeNumber(winnerTotalDamagePerRound / 1.1, winnerTotalDamagePerRound));
-        const loserDamage = Math.floor(rangeNumber(loserTotalDamagePerRound / 1.1, loserTotalDamagePerRound));
+        const initiatorDamage = Math.floor(rangeNumber(initiatorTotalDamagePerRound / 1.1, initiatorTotalDamagePerRound));
+        const enemyDamage = Math.floor(rangeNumber(enemyTotalDamagePerRound / 1.1, enemyTotalDamagePerRound));
 
-        winnerRemainingHp -= loserDamage;
-        loserRemainingHp -= winnerDamage;
+
+        initiatorRemainingHealth -= enemyDamage;
+        enemyRemainingHealth -= initiatorDamage;
 
         return {
             round: i + 1,
-            winnerDamage,
-            loserDamage,
+            initiatorDamage: initiatorDamage,
+            enemyDamage: enemyDamage,
 
-            winnerRemainingHp: winnerRemainingHp,
-            loserRemainingHp: loserRemainingHp
+            initiatorRemainingHealth: initiatorRemainingHealth,
+            enemyRemainingHealth: enemyRemainingHealth
         };
     });
 
     return {
         rounds: rounds,
+        initiatorTotalHealth: initiatorTotalHealth,
+        enemyTotalHealth: enemyTotalHealth
     }
 };
 

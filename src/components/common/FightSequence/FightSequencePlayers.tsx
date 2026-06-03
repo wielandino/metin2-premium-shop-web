@@ -5,9 +5,11 @@ import type { ElementThemeUIMap } from "../../../utils/UIHelper";
 type FightSequencePlayersProps = {
     enemyName: string;
     elementTheme: ElementThemeUIMap[string];
+    currentInitiatorHealth: number;
+    currentEnemyHealth: number;
 }
 
-export const FightSequencePlayers = ({ enemyName, elementTheme }: FightSequencePlayersProps) => {
+export const FightSequencePlayers = ({ enemyName, elementTheme, currentInitiatorHealth, currentEnemyHealth }: FightSequencePlayersProps) => {
     return (
         <>
             <div className="border-b border-b-solid flex gap-4 items-center"
@@ -26,7 +28,7 @@ export const FightSequencePlayers = ({ enemyName, elementTheme }: FightSequenceP
                     <div className="h-2.5 bg-[#00000066] border border-solid border-tequila"></div>
 
                     <div className="text-[#aaaaaa] text-[11px] mt-1 text-left">
-                        0 / 1000 HP
+                        {currentInitiatorHealth} / 1000 HP
                     </div>
                 </div>
 
@@ -44,7 +46,7 @@ export const FightSequencePlayers = ({ enemyName, elementTheme }: FightSequenceP
                     <div className="h-2.5 bg-[#00000066] border border-solid border-tequila"></div>
 
                     <div className="text-[#aaaaaa] text-[11px] mt-1 text-right">
-                        0 / 1000 HP
+                        {currentEnemyHealth} / 1000 HP
                     </div>
                 </div>
             </div>
