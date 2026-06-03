@@ -1,6 +1,6 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core"
 import type { HuntOption } from "../../../../api/types/Hunt/HuntOption"
-import { elementThemeUIMap } from "../../../../utils/UIHelper"
+import { elementThemes, gradient, boxShadowColor } from "../../../../utils/UIHelper"
 import { Button } from "../../../common/Button/Button"
 import { Icon } from "../../../common/Icon"
 import { HuntOptionSlotDescription } from "./HuntOptionSlotDescription"
@@ -16,7 +16,7 @@ type HuntOptionSlotProps = {
 export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
 
     const uiTheme
-        = elementThemeUIMap[huntOptionDetails.fightAbleUnit.monsterUnit!.elementType];
+        = elementThemes[huntOptionDetails.fightAbleUnit.monsterUnit!.elementType];
 
     const [fightSequenceState, setFightSequenceState] = useState<boolean>();
     const [fightSequenceResult, setFightSequenceResult] = useState<FightSequenceResult>()
@@ -36,10 +36,10 @@ export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
                     elementTheme={uiTheme} />
             ) : null}
 
-            <div className={`border border-solid p-3.5`} style={{ borderColor: uiTheme.darkColor, background: uiTheme.backgroundColor }}>
+            <div className={`border border-solid p-3.5`} style={{ borderColor: uiTheme.palette.dark, background: uiTheme.palette.background }}>
                 <div className="flex items-start gap-3">
                     <div className="flex flex-col items-center min-w-12">
-                        <span style={{ color: uiTheme.darkColor }}>
+                        <span style={{ color: uiTheme.palette.dark }}>
                             <Icon icon={uiTheme.icon as IconProp} className="text-[26px]" />
                         </span>
                         <span className="mt-1 text-[11px] font-bold bg-[#e74c3c4d] border border-solid border-[#e74c3c] text-[#f2e69f]" style={{ padding: '2px 7px' }}>
@@ -53,9 +53,9 @@ export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
                         title="Jagen"
                         iconId="khanda"
                         style={{
-                            background: `linear-gradient(${uiTheme.gradiantColor})`,
-                            boxShadow: `0px 0px 8px ${uiTheme.boxShadowColor}`,
-                            borderColor: uiTheme.darkColor
+                            background: `linear-gradient(${gradient(uiTheme.palette.dark)})`,
+                            boxShadow: `0px 0px 8px ${boxShadowColor(uiTheme.palette.dark)}`,
+                            borderColor: uiTheme.palette.dark
                         }}
                         onClick={() => attackStone()} />
                 </div>
@@ -64,9 +64,9 @@ export const HuntOptionSlot = ({ huntOptionDetails }: HuntOptionSlotProps) => {
                     title="Jagen"
                     iconId="khanda"
                     style={{
-                        background: `linear-gradient(${uiTheme.gradiantColor})`,
-                        boxShadow: `0px 0px 8px ${uiTheme.boxShadowColor}`,
-                        borderColor: uiTheme.darkColor
+                        background: `linear-gradient(${gradient(uiTheme.palette.dark)})`,
+                        boxShadow: `0px 0px 8px ${boxShadowColor(uiTheme.palette.dark)}`,
+                        borderColor: uiTheme.palette.dark
                     }} />
             </div>
         </>

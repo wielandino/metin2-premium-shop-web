@@ -1,10 +1,10 @@
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { Icon } from "../Icon";
-import type { ElementThemeUIMap } from "../../../utils/UIHelper";
+import type { ElementTheme } from "../../../utils/UIHelper";
 
 type FightSequencePlayersProps = {
     enemyName: string;
-    elementTheme: ElementThemeUIMap[string];
+    elementTheme: ElementTheme;
     currentInitiatorHealth: number;
     currentEnemyHealth: number;
 }
@@ -38,7 +38,7 @@ export const FightSequencePlayers = ({ enemyName, elementTheme, currentInitiator
                 <div className="flex-1 text-right">
                     <div className="flex items-center gap-1.5 flex-row mb-1 justify-end">
                         <span className="text-[#f2e69f] text-[12px] font-bold">{enemyName}</span>
-                        <span style={{ color: elementTheme.darkColor }}>
+                        <span style={{ color: elementTheme.palette.dark }}>
                             <Icon icon={elementTheme.icon as IconProp} className="text-[16px]" />
                         </span>
                     </div>

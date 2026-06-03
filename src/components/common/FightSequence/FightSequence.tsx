@@ -2,14 +2,14 @@ import { FightSequenceHeader } from "./FightSequenceHeader";
 import { FightSequencePlayers } from "./FightSequencePlayers";
 import { FightSequenceRoundContainer } from "./FightSequenceRoundContainer";
 import type { FightSequenceResult } from "../../../models/FightSequence/FightSequenceResult";
-import type { ElementType } from "../../../api/types/Types/ElementType";
-import type { ElementThemeUIMap } from "../../../utils/UIHelper";
+import type { ElementTheme } from "../../../utils/UIHelper";
+import { boxShadowColor } from "../../../utils/UIHelper";
 import { useState } from "react";
 
 type FightSequenceProps = {
     fightSequenceResult: FightSequenceResult;
     enemyName: string,
-    elementTheme: ElementThemeUIMap[ElementType];
+    elementTheme: ElementTheme;
 }
 
 export const FightSequence = ({ fightSequenceResult, enemyName, elementTheme }: FightSequenceProps) => {
@@ -24,10 +24,9 @@ export const FightSequence = ({ fightSequenceResult, enemyName, elementTheme }: 
             <div className="fixed inset-0 bg-[#000000e0] flex items-center justify-center z-50 p-4">
                 <div className="bg-[#120800] border-2 border-solid max-w-125 w-full m-h-[90vh] flex flex-col"
                     style={{
-                        boxShadow: `0px 0px 15px ${elementTheme.boxShadowColor}`,
-                        borderColor: elementTheme.darkColor
+                        boxShadow: `0px 0px 15px ${boxShadowColor(elementTheme.palette.dark)}`,
+                        borderColor: elementTheme.palette.dark
                     }}>
-
                     <FightSequenceHeader
                         elementTheme={elementTheme}
                         enemyName={enemyName} />

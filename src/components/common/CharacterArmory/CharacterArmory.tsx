@@ -6,7 +6,7 @@ import { ArmoryEffectSlot } from "./ArmoryEffectSlot";
 import { AdderBtn } from "../../pages/MetinHuntPage/AdderBtn";
 import { SwitcherBtn } from "../../pages/MetinHuntPage/SwitcherBtn";
 import { ArmorySlotButton } from "./ArmorySlotButton";
-import { armoryUIMap } from "../../../utils/UIHelper";
+import { armoryThemes } from "../../../utils/UIHelper";
 
 export const CharacterArmory = () => {
 
@@ -28,7 +28,7 @@ export const CharacterArmory = () => {
 
                 <div className="flex items-center gap-2 mb-3">
 
-                    {Object.keys(armoryUIMap).map((type) => (
+                    {Object.keys(armoryThemes).map((type) => (
                         <ArmorySlotButton key={type} armoryType={type as ArmoryType} isActive={armorySelectionType === type} onArmoryTypeSelection={handleArmoryTypeSelection} />
                     ))}
 

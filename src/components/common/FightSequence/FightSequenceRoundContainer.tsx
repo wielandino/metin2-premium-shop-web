@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import type { ElementThemeUIMap } from "../../../utils/UIHelper";
+import type { ElementTheme } from "../../../utils/UIHelper";
 import { FightSequenceRound } from "./FightSequenceRound";
 import { Icon } from "../Icon";
 import type { FightSequenceRoundDetails } from "../../../models/FightSequence/FightSequenceDetail";
 
 type FightSequenceContainerProps = {
     enemyName: string;
-    elementTheme: ElementThemeUIMap[string];
+    elementTheme: ElementTheme;
     rounds: FightSequenceRoundDetails[];
     setCurrentInitiatorHealth: React.Dispatch<React.SetStateAction<number>>;
     setCurrentEnemyHealth: React.Dispatch<React.SetStateAction<number>>;
