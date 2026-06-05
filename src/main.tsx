@@ -9,8 +9,6 @@ import { CategoryPage } from './pages/CategoryPage.tsx'
 import { TombolaPage } from './pages/TombolaPage.tsx'
 import { UserProvider } from './context/UserContext.tsx'
 import { CartPage } from './pages/CartPage.tsx'
-import { MetinHuntPage } from './pages/MetinHuntPage.tsx'
-import { DungeonPage } from './pages/DungeonPage.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -30,14 +28,6 @@ const router = createBrowserRouter([
     path: "/cart",
     element: <CartPage />
   },
-  {
-    path: "/metin-hunt",
-    element: <MetinHuntPage />
-  },
-  {
-    path: "/dungeon",
-    element: <DungeonPage />
-  }
 ]);
 
 createRoot(document.getElementById('root')!).render(
