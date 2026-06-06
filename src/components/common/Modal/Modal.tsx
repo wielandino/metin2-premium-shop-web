@@ -8,7 +8,7 @@ interface ModalProps {
     showCloseModalBtn: boolean;
 }
 
-export const Modal = ({ isOpen, onClose, children, showCloseModalBtn = false }: ModalProps) => {
+export const Modal = ({ isOpen, onClose, children, showCloseModalBtn = true }: ModalProps) => {
 
     useEffect(() => {
         const handleEscape = (e: KeyboardEvent) => {
@@ -43,9 +43,9 @@ export const Modal = ({ isOpen, onClose, children, showCloseModalBtn = false }: 
                 <button
                     onClick={onClose}
                     className={clsx(
-                        "absolute -top-2 sm:-top-2.5 -right-2 sm:-right-2.5 z-10",
+                        "absolute -top-2 sm:top-0 -right-2 sm:-right-2.5 z-10",
                         "flex items-center justify-center close-btn",
-                        "w-9 h-9 sm:w-8 sm:h-8 md:w-7.5 md:h-7.5",
+                        "w-8 h-8 sm:w-8 sm:h-8 md:w-7.5 md:h-7.5",
                         "text-xl sm:text-2xl text-white",
                         {
                             "hidden!": !showCloseModalBtn

@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 .claude
 .claude/*
+.codegraph
+.reasonix
+.codegraph/*
+.reasonix/*
+reasonix.toml

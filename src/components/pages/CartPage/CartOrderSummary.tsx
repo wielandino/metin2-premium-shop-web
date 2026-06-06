@@ -47,7 +47,7 @@ export const CartOrderSummary = () => {
             </div>
 
             <button
-                className={`base-green-btn w-full py-2.5 text-sm sm:text-base flex items-center justify-center gap-2 ${!canAfford ? "opacity-50 cursor-not-allowed" : ""
+                className={`base-green-btn w-full py-2.5 text-sm sm:text-base flex items-center justify-center gap-2 h-5 ${!canAfford ? "opacity-50 cursor-not-allowed" : ""
                     }`}
             >
                 <>

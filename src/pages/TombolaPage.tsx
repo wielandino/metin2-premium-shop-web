@@ -38,6 +38,7 @@ export const TombolaPage = () => {
 
                 {selectedTier && <TombolaWheel selectedTombolaTier={selectedTier} />}
             </MainContainer>
+            <div className="mb-12" />
         </>
     )
 }
