@@ -53,7 +53,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
         const targetIdx = allTierItems.findIndex(i => i.id === targetItem.id);
 
         const fullRotations = allTierItems.length * totalSpinningRounds;
-        let stepsToTarget = (targetIdx - currentIdx.current + allTierItems.length) % allTierItems.length;
+        const stepsToTarget = (targetIdx - currentIdx.current + allTierItems.length) % allTierItems.length;
         const totalSteps = fullRotations + stepsToTarget;
 
         let step = 0;
@@ -121,8 +121,8 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
     return (
         <>
-            <div className="tombola-container">
-                <div className="tombola-wrapper border-solid border border-[#662d12] h-122.25">
+            <div className="tombola-container pb-5">
+                <div className="tombola-wrapper border-solid border border-[#662d12] h-122.25 mb.5">
                     <div className="m-auto max-w-150 pt-4 pb-4">
                         <div className="grid gap-3 mt-8 grid-cols-4">
                             {selectedTombolaTier.tombolaItems.map((tombolaItem) => {

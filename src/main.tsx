@@ -9,6 +9,7 @@ import { CategoryPage } from './pages/CategoryPage.tsx'
 import { TombolaPage } from './pages/TombolaPage.tsx'
 import { UserProvider } from './context/UserContext.tsx'
 import { CartPage } from './pages/CartPage.tsx'
+import { CartProvider } from './context/CartContext.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },
@@ -33,7 +34,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <UserProvider>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </UserProvider>
   </StrictMode>
 )

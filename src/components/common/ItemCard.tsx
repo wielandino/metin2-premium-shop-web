@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import type { ShopItem } from '../../api/types/ShopItem';
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Modal } from './Modal/Modal';
 import { ItemDescriptionPage } from '../../pages/ItemDescriptionPage';
 import { Button } from './Button/Button';
+import { CartContext } from '../../context/CartContext';
 
 interface ItemCardProps {
   items: ShopItem[];
@@ -17,6 +18,9 @@ export const ItemCard = ({
   onItemClick: onItemClickProp,
   isCarousel = false
 }: ItemCardProps) => {
+
+
+  const cartContext = useContext(CartContext)
 
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
@@ -117,10 +121,10 @@ export const ItemCard = ({
               </div>
               <div className="w-full sm:w-auto sm:max-w-30 md:w-27.75 sm:float-right">
                 <Button
-                  title="Hinzufügen"
+                  title={` ${item.price.toString()} DR`}
                   iconId="shopping-cart"
                   className="base-green-btn w-full text-sm h-5 text-[12px]!"
-                  onClick={() => console.log("Add to cart:", item.name)}
+                  onClick={() => cartContext?.addItem(item, 1)}
                 />
               </div>
             </div>
@@ -130,12 +134,12 @@ export const ItemCard = ({
         {isCarousel && (
           <>
             <div onClick={() => instanceRef.current?.prev()}
-                 className="heroslider-arrow-btn heroslider-arrow-left absolute -left-2.5">
+              className="heroslider-arrow-btn heroslider-arrow-left absolute -left-2.5">
               <div className="heroslider-arrow-inc"></div>
             </div>
 
             <div onClick={() => instanceRef.current?.next()}
-                 className="heroslider-arrow-btn heroslider-arrow-right absolute -right-2.5!">
+              className="heroslider-arrow-btn heroslider-arrow-right absolute -right-2.5!">
               <div className="heroslider-arrow-inc"></div>
             </div>
           </>
