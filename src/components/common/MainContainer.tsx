@@ -12,7 +12,7 @@ export const MainContainer = ({ children, activeTabId, pageHeaderName }: MainCon
         <div className="metin-container page-image mx-auto">
             <NavigationHeader />
 
-            <div className="px-3 sm:px-4 md:px-5">
+            <div className="px-3 sm:px-4 md:px-5 pb-5">
                 <div className="mt-2">
                     <Navigation activeTabId={activeTabId} />
                 </div>

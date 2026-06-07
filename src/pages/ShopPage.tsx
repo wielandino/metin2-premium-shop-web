@@ -2,7 +2,7 @@ import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
 import { NavigationHeader } from "../components/common/Navigation/NavigationHeader"
 import { Navigation } from "../components/common/Navigation/Navigation";
-import { ItemCard } from "../components/common/ItemCard";
+import { ItemCard } from "../components/common/ItemCard/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
 
 function ShopPage() {

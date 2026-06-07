@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { Icon } from "../../common/Icon";
+import { CartContext } from "../../../context/CartContext";
+import { UserContext } from "../../../context/UserContext";
 
 export const CartOrderSummary = () => {
-    const canAfford = true;
+    const cartContext = useContext(CartContext)
+    const userContext = useContext(UserContext)
+
+    const totalPrice = cartContext!.cartItems.reduce((sum, ci) => sum + ci.pricePerQuantity * ci.quantity, 0)
+    const canAfford = userContext!.drBalance >= totalPrice;
 
     return (
         <div className="bg-[#eade9e] shadow-[0_1px_2px_#000] p-4 sm:p-5 sticky top-4">
@@ -13,35 +20,36 @@ export const CartOrderSummary = () => {
             <div className="space-y-2 mb-4 text-sm">
                 <div className="flex justify-between text-[#5a3825]">
                     <span>Zwischensumme</span>
-                    <span>25 DR</span>
-                </div>
-                <div
-                    className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
-                    <span className="truncate max-w-36">
-                        Segensschriftrolle × 1
-                    </span>
-                    <span className="shrink-0">
-                        25 DR
-                    </span>
+                    <span>{totalPrice} DR</span>
                 </div>
 
+                {cartContext!.cartItems.map((item) => (
+                    <div className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
+                        <span className="truncate max-w-36">
+                            {item.item.name} × {item.quantity}
+                        </span>
+                        <span className="shrink-0">
+                            {item.quantity * item.pricePerQuantity} DR
+                        </span>
+                    </div>
+                ))}
             </div>
 
             <div className="border-t border-[#c4b87a] pt-3 mb-4">
                 <div className="flex justify-between items-baseline mb-2">
                     <span className="text-[#5a3825] font-semibold">Gesamtsumme</span>
-                    <span className="text-[#5a3825] text-xl font-bold">25 DR</span>
+                    <span className="text-[#5a3825] text-xl font-bold">{totalPrice} DR</span>
                 </div>
                 <div className="flex justify-between text-xs text-[#5a3825]/70 mb-1">
                     <span>Dein Guthaben</span>
                     <span className={!canAfford ? "text-red-600 font-bold" : ""}>
-                        325 DR
+                        {userContext!.drBalance} DR
                     </span>
                 </div>
                 <div className="flex justify-between text-xs text-[#5a3825]/70">
-                    <span>Verbleibend</span>
+                    <span>Verbleibend nach Kauf</span>
                     <span className={!canAfford ? "text-red-600 font-bold" : "text-green-700"}>
-                        300 DR
+                        {userContext!.drBalance - totalPrice} DR
                     </span>
                 </div>
             </div>
@@ -52,7 +60,7 @@ export const CartOrderSummary = () => {
             >
                 <>
                     <Icon icon="cart-shopping" />
-                    Kaufen (25 DR)
+                    Kaufen ({totalPrice} DR)
                 </>
             </button>
 

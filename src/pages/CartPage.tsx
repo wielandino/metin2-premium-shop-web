@@ -1,9 +1,12 @@
 import { MainContainer } from "../components/common/MainContainer";
 import { Icon } from "../components/common/Icon";
-import { CartItem } from "../components/pages/CartPage/CartItem";
+import { CartItemCard } from "../components/pages/CartPage/CartItemCard";
 import { CartOrderSummary } from "../components/pages/CartPage/CartOrderSummary";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
 export const CartPage = () => {
+    const cartContext = useContext(CartContext)
 
     return (
         <MainContainer activeTabId="home" pageHeaderName="Warenkorb">
@@ -13,24 +16,30 @@ export const CartPage = () => {
                     <div className="flex items-center justify-between bg-[rgba(0,0,0,0.25)] px-3 sm:px-4 py-2 rounded-sm">
                         <span className="text-[#f2e69f] text-sm sm:text-base">
                             <Icon icon="shopping-cart" className="mr-2" />
-                            1 Artikel
+                            {cartContext?.cartItems.length} Artikel
                         </span>
                         <button
                             className="text-[#eade9e] hover:text-red-400 text-xs sm:text-sm transition-colors flex items-center gap-1"
-                        >
+                            onClick={() => cartContext?.clearCart()}>
                             <Icon icon="trash-can" />
                             Warenkorb leeren
                         </button>
                     </div>
 
-                    <CartItem />
+                    {cartContext!.cartItems.map((item) => (
+                        <>
+                            <CartItemCard cartItem={item} />
+                        </>
+                    ))}
+
+
                 </div>
 
-                {/* --- Order Summary --- */}
                 <div className="w-full lg:w-72 shrink-0">
                     <CartOrderSummary />
                 </div>
             </div>
         </MainContainer>
+        
     );
 };
