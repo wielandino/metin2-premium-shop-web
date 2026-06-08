@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Icon } from "../../common/Icon";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
@@ -20,10 +21,12 @@ type PaymentMethodSelectProps = {
 };
 
 export const PaymentMethodSelect = ({ selected, onSelect }: PaymentMethodSelectProps) => {
+    const { t } = useTranslation();
+
     return (
         <div>
             <h3 className="text-[#f2e69f] text-base sm:text-lg mb-3">
-                Zahlungsmethode wählen
+                {t('topUp.selectPayment')}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
                 {paymentMethods.map((method) => (

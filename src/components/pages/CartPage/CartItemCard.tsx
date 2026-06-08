@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import type { CartItem } from "../../../api/types/CartItem";
 import { CartContext } from "../../../context/CartContext/CartContext";
+import { useTranslation } from "react-i18next";
 
 type CartItemProps = {
     cartItem: CartItem
@@ -9,6 +10,7 @@ type CartItemProps = {
 export const CartItemCard = ({ cartItem }: CartItemProps) => {
 
     const cartContext = useContext(CartContext)
+    const { t } = useTranslation()
 
     return (
         <>
@@ -44,11 +46,11 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
 
                     <div className="flex items-center justify-between mt-auto pt-1">
                         <div className="flex items-center gap-2">
-                            <span className="text-xs text-[#5a3825]">Menge:</span>
+                            <span className="text-xs text-[#5a3825]">{t('common.quantity')}:</span>
                             {cartItem.quantity}
                         </div>
                         <span className="text-[10px] sm:text-xs text-[#5a3825]">
-                            {cartItem.pricePerQuantity} DR / Stk.
+                            {cartItem.pricePerQuantity} DR / {t('common.pieceShort')}.
                         </span>
                     </div>
                 </div>

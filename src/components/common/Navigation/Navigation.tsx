@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { MobileDrawer } from './MobileDrawer';
 import { Icon } from '../Icon';
+import { useTranslation } from 'react-i18next';
 
 interface NavigationTab {
     id: string;
@@ -17,12 +18,14 @@ export const Navigation = ({ activeTabId: activeTab = 'all' }: NavigationProps) 
     const location = useLocation();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+    const { t } = useTranslation()
+
     const tabs: NavigationTab[] = [
         { id: 'home', label: 'Home', path: '/' },
-        { id: 'all', label: 'Alle Artikel', path: '/category/all' },
-        { id: 'new', label: 'Neue Artikel', path: '/category/new' },
-        { id: 'hot', label: 'Beliebte Artikel', path: '/category/hot' },
-        { id: 'tombola', label: 'Tombola', path: '/tombola' }
+        { id: 'all', label: t('header.navigation.all'), path: '/category/all' },
+        { id: 'new', label:  t('header.navigation.new'), path: '/category/new' },
+        { id: 'hot', label:  t('header.navigation.hot'), path: '/category/hot' },
+        { id: 'tombola', label:  t('header.navigation.tombola'), path: '/tombola' }
     ];
 
     const getCurrentTab = () => {

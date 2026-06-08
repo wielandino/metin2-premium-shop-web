@@ -4,8 +4,11 @@ import { NavigationHeader } from "../components/common/Navigation/NavigationHead
 import { Navigation } from "../components/common/Navigation/Navigation";
 import { ItemCard } from "../components/common/ItemCard/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
+import { useTranslation } from "react-i18next";
 
 function ShopPage() {
+
+  const { t } = useTranslation()
 
   return (
     <>
@@ -49,7 +52,7 @@ function ShopPage() {
 
           <div className="mt-3 sm:mt-5 pb-5">
             <h2 className="item-sample text-[#f2e69f] border-tequila mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
-              Beliebte Artikel
+              {t('header.navigation.hot')}
             </h2>
             <ItemCard items={mockShopItems}
               isCarousel={true} />

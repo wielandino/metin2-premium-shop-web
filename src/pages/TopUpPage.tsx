@@ -3,13 +3,16 @@ import { MainContainer } from "../components/common/MainContainer";
 import { Icon } from "../components/common/Icon";
 import { PaymentMethodSelect } from "../components/pages/TopUpPage/PaymentMethodSelect";
 import { DrPackageSelect } from "../components/pages/TopUpPage/DrPackageSelect";
+import { useTranslation } from "react-i18next";
 
 export const TopUpPage = () => {
     const [selectedPayment, setSelectedPayment] = useState("");
     const [selectedPackage, setSelectedPackage] = useState("");
 
+    const { t } = useTranslation()
+
     return (
-        <MainContainer activeTabId="home" pageHeaderName="DR Aufladen">
+        <MainContainer activeTabId="home" pageHeaderName={t('common.topUp')}>
             <div className="flex flex-col gap-5 sm:gap-6 max-w-2xl">
                 <PaymentMethodSelect
                     selected={selectedPayment}
@@ -30,7 +33,7 @@ export const TopUpPage = () => {
                                 : ""
                         }`}>
                         <Icon icon="coins" />
-                        Jetzt aufladen
+                        {t('topUp.chargeNow')}
                     </button>
                 </div>
             </div>

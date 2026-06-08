@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 type DrPackage = {
     id: string;
     drAmount: number;
@@ -21,10 +23,12 @@ type DrPackageSelectProps = {
 };
 
 export const DrPackageSelect = ({ selected, onSelect }: DrPackageSelectProps) => {
+    const { t } = useTranslation();
+
     return (
         <div>
             <h3 className="text-[#f2e69f] text-base sm:text-lg mb-3">
-                DR Paket wählen
+                {t('topUp.selectPackage')}
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3">
                 {drPackages.map((pkg) => (
@@ -39,7 +43,7 @@ export const DrPackageSelect = ({ selected, onSelect }: DrPackageSelectProps) =>
                     >
                         {pkg.popular && (
                             <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-tequila text-[#3c1e16] text-[10px] font-bold px-2 py-0.5 rounded-full whitespace-nowrap">
-                                Beliebt
+                                {t('topUp.popular')}
                             </span>
                         )}
                         <span className="text-[#f2e69f] text-xl sm:text-2xl font-bold">
@@ -50,7 +54,7 @@ export const DrPackageSelect = ({ selected, onSelect }: DrPackageSelectProps) =>
                         </span>
                         {pkg.bonus > 0 && (
                             <span className="text-tequila text-xs mt-1 font-medium">
-                                +{pkg.bonus} DR Bonus
+                                {t('topUp.bonus', { bonus: pkg.bonus })}
                             </span>
                         )}
                     </button>

@@ -6,10 +6,12 @@ import { EmptyCart } from "../components/pages/CartPage/EmptyCart";
 import { PurchaseSuccess } from "../components/pages/CartPage/PurchaseSuccess";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext/CartContext";
+import { useTranslation } from "react-i18next";
 
 export const CartPage = () => {
     const cartContext = useContext(CartContext);
     const [purchased, setPurchased] = useState(false);
+    const { t } = useTranslation()
 
     if (purchased) {
         return (
@@ -35,13 +37,13 @@ export const CartPage = () => {
                     <div className="flex items-center justify-between bg-[rgba(0,0,0,0.25)] px-3 sm:px-4 py-2 rounded-sm">
                         <span className="text-[#f2e69f] text-sm sm:text-base">
                             <Icon icon="shopping-cart" className="mr-2" />
-                            {cartContext.cartItems.length} Artikel
+                            {cartContext.cartItems.length} {t("common.article")}
                         </span>
                         <button
                             className="text-[#eade9e] hover:text-red-400 text-xs sm:text-sm transition-colors flex items-center gap-1"
                             onClick={() => cartContext.clearCart()}>
                             <Icon icon="trash-can" />
-                            Warenkorb leeren
+                            {t("cartPage.common.emptyCartAction")}
                         </button>
                     </div>
 
