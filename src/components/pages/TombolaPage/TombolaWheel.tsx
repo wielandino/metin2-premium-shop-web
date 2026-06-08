@@ -27,7 +27,7 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
     const currentTotalWeight = useMemo(
         () => allTierItems.reduce((sum, item) => sum + item.rollChance, 0),
-        [selectedTombolaTier]
+        [allTierItems]
     );
 
     const totalSpinningRounds = 5;
@@ -168,7 +168,6 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                         <TombolaRewardCard
                             isFail={rolledItem?.item === undefined}
                             rewardName={rolledItem?.name ?? rolledItem?.item?.name ?? ""}
-                            reward={"reward"}
                             priceIcon={rolledItem!.item?.imageName ?? undefined} />
                     </RewardCard>
                 </Modal>

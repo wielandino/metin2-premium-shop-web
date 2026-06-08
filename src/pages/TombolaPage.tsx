@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { TicketCount } from "../components/pages/TombolaPage/TicketCount"
 import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
 import type { TombolaTier } from "../api/types/TombolaTier"
@@ -8,15 +8,8 @@ import { MainContainer } from "../components/common/MainContainer"
 
 export const TombolaPage = () => {
 
-    const [tombolaTiers, setTombolaTiers] = useState<TombolaTier[]>([]);
-    const [selectedTier, setSelectedTier] = useState<TombolaTier>();
-
-    useEffect(() => {
-        //TODO: API CALL
-        const tiers = [TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD];
-        setTombolaTiers(tiers);
-        setSelectedTier(tiers[1]);
-    }, []);
+    const tombolaTiers: TombolaTier[] = [TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD];
+    const [selectedTier, setSelectedTier] = useState<TombolaTier>(tombolaTiers[1]);
 
     return (
         <>
@@ -38,7 +31,7 @@ export const TombolaPage = () => {
 
                 {selectedTier && <TombolaWheel selectedTombolaTier={selectedTier} />}
             </MainContainer>
-            
+
         </>
     )
 }

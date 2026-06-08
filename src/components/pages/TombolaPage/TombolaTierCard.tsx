@@ -3,7 +3,7 @@ import type { TombolaTier } from "../../../api/types/TombolaTier"
 interface TombolaTierCardProps {
     tombolaTier: TombolaTier,
     onTombolaTierClick: (tier: TombolaTier) => void,
-    isTierSelected: Boolean
+    isTierSelected: boolean
 }
 
 export const TombolaTierCard = ({
