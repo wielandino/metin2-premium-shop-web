@@ -34,7 +34,7 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
                             { cartItem.item.name }
                         </h4>
                         <span className="text-[#662d12] text-base sm:text-lg font-bold whitespace-nowrap shrink-0">
-                            {cartItem.pricePerQuantity}
+                            {cartItem.quantity * cartItem.pricePerQuantity} DR
                         </span>
                     </div>
 

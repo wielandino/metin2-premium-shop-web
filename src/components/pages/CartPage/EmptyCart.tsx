@@ -12,12 +12,11 @@ export const EmptyCart = () => {
                     Dein Warenkorb ist leer
                 </h3>
                 <p className="text-[#eade9e] text-sm sm:text-base mb-6 max-w-md">
-                    Entdecke unsere vielfältigen Angebote und sichere dir noch heute die besten Items für dein Abenteuer!
+                    Füge Items in deinen Warenkorb hinzu
                 </p>
                 <Link
                     to="/"
-                    className="base-green-btn inline-block px-8 py-2 no-underline hover:no-underline"
-                >
+                    className="base-green-btn px-8 py-2 no-underline hover:no-underline flex items-center h-5">
                     <Icon icon="arrow-left" className="mr-2" />
                     Zum Shop
                 </Link>

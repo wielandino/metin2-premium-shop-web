@@ -4,12 +4,11 @@ import { Icon } from "../../common/Icon";
 interface TombolaRewardCardProps {
     isFail: boolean;
     rewardName: string;
-    reward: string;
     priceIcon?: string;
 }
 
 
-export const TombolaRewardCard = ({ isFail, rewardName, reward, priceIcon }: TombolaRewardCardProps) => {
+export const TombolaRewardCard = ({ isFail, rewardName, priceIcon }: TombolaRewardCardProps) => {
 
 
 
@@ -39,4 +38,4 @@ export const TombolaRewardCard = ({ isFail, rewardName, reward, priceIcon }: Tom
             </div>
         </>
     )
-}
+};

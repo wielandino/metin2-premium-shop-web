@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CategoryPage } from './pages/CategoryPage.tsx'
 import { TombolaPage } from './pages/TombolaPage.tsx'
 import { CartPage } from './pages/CartPage.tsx'
+import { TopUpPage } from './pages/TopUpPage.tsx'
 import { CartProvider } from './context/CartContext/CartProvider.tsx'
 import { UserProvider } from './context/UserContext/UserProvider.tsx'
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage />
+  },
+  {
+    path: "/top-up",
+    element: <TopUpPage />
   },
 ]);
 

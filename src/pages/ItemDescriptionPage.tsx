@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import type { ShopItem } from "../api/types/ShopItem"
 import { ItemDescriptionHeader } from "../components/pages/ItemDescriptionPage/ItemDescriptionHeader";
 import { ItemImage } from "../components/pages/ItemDescriptionPage/ItemImage";
 import { ItemInfo } from "../components/pages/ItemDescriptionPage/ItemInfo";
 import { ItemPurchaseFooter } from "../components/pages/ItemDescriptionPage/ItemPurchaseFooter";
+import { CartContext } from "../context/CartContext/CartContext";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem, isInModal?: boolean; }
 
@@ -11,11 +12,11 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const totalPrice = shopItem.price * selectedQuantity;
+  const cartContext = useContext(CartContext);
 
   return (
     <div className={`
-      ${isInModal ? 'bg-[rgba(0,0,0,0.3)]' : 'max-w-2xl mx-auto'}
-    `}>
+      ${isInModal ? 'bg-[rgba(0,0,0,0.3)]' : 'max-w-2xl mx-auto'}`}>
 
       <div className="mt-3 sm:mt-4 md:mt-5 p-3 sm:p-4 md:p-5 bg-[#eade9e]">
         <ItemDescriptionHeader
@@ -40,6 +41,7 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
         selectedQuantity={selectedQuantity}
         setSelectedQuantity={setSelectedQuantity}
         totalPrice={totalPrice}
+        onAddToCart={() => cartContext?.addItem(shopItem, selectedQuantity)}
       />
     </div>
   );

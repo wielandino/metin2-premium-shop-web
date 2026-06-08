@@ -1,5 +1,5 @@
-import type { ShopItem } from "../api/types/ShopItem";
-import type { CartItem } from "../api/types/CartItem";
+import type { ShopItem } from "../../api/types/ShopItem";
+import type { CartItem } from "../../api/types/CartItem";
 
 export type CartAction =
     | { type: "ADD_ITEM"; payload: { item: ShopItem; quantity: number } }

@@ -3,10 +3,14 @@ import { Button } from "../Button/Button";
 import { Icon } from "../Icon";
 import { useContext } from "react";
 import { UserContext } from "../../../context/UserContext/UserContext";
+import { CartContext } from "../../../context/CartContext/CartContext";
 
 export const NavigationHeader = () => {
 
   const user = useContext(UserContext);
+  const cartContext = useContext(CartContext);
+
+  const cartItemCount = cartContext?.cartItems.reduce((sum, ci) => sum + ci.quantity, 0) ?? 0;
 
   return (
     <div className="bg-transparent shadow-[0_1px_2px_#662d12] text-[#f2e69f] px-3 sm:px-4 md:px-5 md:pr-12 py-1.5 sm:py-2">
@@ -52,11 +56,16 @@ export const NavigationHeader = () => {
             <Icon
               icon="shopping-cart"
               className="text-xl sm:text-2xl" />
+            {cartItemCount > 0 && (
+              <span className="absolute -bottom-1 -left-1 w-4 h-4 sm:w-5 sm:h-5 bg-red-600 text-white text-[9px] sm:text-[10px] font-bold rounded-full flex items-center justify-center leading-none">
+                {cartItemCount}
+              </span>
+            )}
           </Link>
 
-          <Link to="/tombola">
+          <Link to="/top-up">
             <Button
-              title="Gambeln"
+              title="DR Aufladen"
               className="base-green-btn min-w-20 sm:min-w-28 md:min-w-40 uppercase h-7 sm:h-8 text-xs sm:text-sm md:text-base" />
           </Link>
         </div>

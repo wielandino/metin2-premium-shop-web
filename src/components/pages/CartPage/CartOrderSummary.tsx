@@ -1,19 +1,23 @@
 import { useContext } from "react";
-import { Icon } from "../../common/Icon";
 import { CartContext } from "../../../context/CartContext/CartContext";
 import { UserContext } from "../../../context/UserContext/UserContext";
 
-export const CartOrderSummary = () => {
-    const cartContext = useContext(CartContext)
-    const userContext = useContext(UserContext)
+export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => {
+    const cartContext = useContext(CartContext);
+    const userContext = useContext(UserContext);
 
-    const totalPrice = cartContext!.cartItems.reduce((sum, ci) => sum + ci.pricePerQuantity * ci.quantity, 0)
+    const totalPrice = cartContext!.cartItems.reduce((sum, ci) => sum + ci.pricePerQuantity * ci.quantity, 0);
     const canAfford = userContext!.drBalance >= totalPrice;
+
+    const handlePurchase = () => {
+        if (!canAfford || cartContext!.cartItems.length === 0) return;
+        cartContext!.clearCart();
+        onPurchase();
+    };
 
     return (
         <div className="bg-[#eade9e] shadow-[0_1px_2px_#000] p-4 sm:p-5 sticky top-4">
             <h3 className="text-[#5a3825] text-lg font-bold border-b border-[#c4b87a] pb-2 mb-4">
-                <Icon icon="receipt" className="mr-2" />
                 Bestellübersicht
             </h3>
 
@@ -24,7 +28,7 @@ export const CartOrderSummary = () => {
                 </div>
 
                 {cartContext!.cartItems.map((item) => (
-                    <div className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
+                    <div key={item.item.id} className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
                         <span className="truncate max-w-36">
                             {item.item.name} × {item.quantity}
                         </span>
@@ -55,13 +59,10 @@ export const CartOrderSummary = () => {
             </div>
 
             <button
-                className={`base-green-btn w-full py-2.5 text-sm sm:text-base flex items-center justify-center gap-2 h-5 ${!canAfford ? "opacity-50 cursor-not-allowed" : ""
-                    }`}
-            >
-                <>
-                    <Icon icon="cart-shopping" />
-                    Kaufen ({totalPrice} DR)
-                </>
+                onClick={handlePurchase}
+                disabled={!canAfford || cartContext!.cartItems.length === 0}
+                className={`base-green-btn w-full py-2.5 text-sm sm:text-base flex items-center justify-center gap-2 h-5 ${!canAfford ? "opacity-50 cursor-not-allowed" : ""}`}>
+                Kaufen ({totalPrice} DR)
             </button>
 
             {!canAfford && (
@@ -71,4 +72,4 @@ export const CartOrderSummary = () => {
             )}
         </div>
     );
-}
+};
