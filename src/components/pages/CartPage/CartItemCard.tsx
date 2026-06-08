@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import type { CartItem } from "../../../api/types/CartItem";
-import { CartContext } from "../../../context/CartContext";
+import { CartContext } from "../../../context/CartContext/CartContext";
 
 type CartItemProps = {
     cartItem: CartItem

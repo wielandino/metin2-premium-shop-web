@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Icon } from "../../common/Icon";
-import { CartContext } from "../../../context/CartContext";
-import { UserContext } from "../../../context/UserContext";
+import { CartContext } from "../../../context/CartContext/CartContext";
+import { UserContext } from "../../../context/UserContext/UserContext";
 
 export const CartOrderSummary = () => {
     const cartContext = useContext(CartContext)

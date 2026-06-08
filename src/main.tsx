@@ -7,9 +7,9 @@ import App from './App.tsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { CategoryPage } from './pages/CategoryPage.tsx'
 import { TombolaPage } from './pages/TombolaPage.tsx'
-import { UserProvider } from './context/UserContext.tsx'
 import { CartPage } from './pages/CartPage.tsx'
-import { CartProvider } from './context/CartContext.tsx'
+import { CartProvider } from './context/CartContext/CartProvider.tsx'
+import { UserProvider } from './context/UserContext/UserProvider.tsx'
 
 const router = createBrowserRouter([
   { path: "/", element: <App /> },

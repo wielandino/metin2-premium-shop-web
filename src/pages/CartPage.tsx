@@ -3,7 +3,7 @@ import { Icon } from "../components/common/Icon";
 import { CartItemCard } from "../components/pages/CartPage/CartItemCard";
 import { CartOrderSummary } from "../components/pages/CartPage/CartOrderSummary";
 import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../context/CartContext/CartContext";
 
 export const CartPage = () => {
     const cartContext = useContext(CartContext)
@@ -27,9 +27,7 @@ export const CartPage = () => {
                     </div>
 
                     {cartContext!.cartItems.map((item) => (
-                        <>
-                            <CartItemCard cartItem={item} />
-                        </>
+                        <CartItemCard cartItem={item} />
                     ))}
 
 

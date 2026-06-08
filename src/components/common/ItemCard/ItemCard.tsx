@@ -4,7 +4,7 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Modal } from '../Modal/Modal';
 import { ItemDescriptionPage } from '../../../pages/ItemDescriptionPage';
-import { CartContext } from '../../../context/CartContext';
+import { CartContext } from '../../../context/CartContext/CartContext';
 import { ItemCardItem } from './ItemCardItem';
 
 interface ItemCardProps {
