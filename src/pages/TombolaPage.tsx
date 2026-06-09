@@ -12,26 +12,23 @@ export const TombolaPage = () => {
     const [selectedTier, setSelectedTier] = useState<TombolaTier>(tombolaTiers[1]);
 
     return (
-        <>
-            <MainContainer activeTabId="tombola" pageHeaderName="Tombola">
+        <MainContainer activeTabId="tombola" pageHeaderName="Tombola">
 
-                <TicketCount />
+            <TicketCount />
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-5">
-                    {tombolaTiers.map((tombolaTier) => {
-                        return (
-                            <TombolaTierCard
-                                tombolaTier={tombolaTier}
-                                onTombolaTierClick={setSelectedTier}
-                                isTierSelected={selectedTier == tombolaTier}
-                                key={tombolaTier.id} />
-                        )
-                    })}
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-5">
+                {tombolaTiers.map((tombolaTier) => {
+                    return (
+                        <TombolaTierCard
+                            tombolaTier={tombolaTier}
+                            onTombolaTierClick={setSelectedTier}
+                            isTierSelected={selectedTier == tombolaTier}
+                            key={tombolaTier.id} />
+                    )
+                })}
+            </div>
 
-                {selectedTier && <TombolaWheel selectedTombolaTier={selectedTier} />}
-            </MainContainer>
-
-        </>
+            {selectedTier && <TombolaWheel selectedTombolaTier={selectedTier} />}
+        </MainContainer>
     )
 }

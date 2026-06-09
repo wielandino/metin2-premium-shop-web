@@ -18,13 +18,15 @@ export const MainContainer = ({ children, activeTabId, pageHeaderName }: MainCon
                 </div>
 
                 <div className="mt-3 sm:mt-4 md:mt-5">
-                    <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
-                        {pageHeaderName}
-                    </h2>
+                    {pageHeaderName && (
+                        <h2 className="item-sample text-[#f2e69f] border-[#E8A314] mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
+                            {pageHeaderName}
+                        </h2>
+                    )}
 
                     {children}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

@@ -46,18 +46,16 @@ export const CategoryPage = () => {
     = useMemo(() => buildCategoryTree(items.filter(c => c.category !== undefined).map(c => c.category!)), [items]);
 
   return (
-    <>
-      <MainContainer activeTabId={categoryId || 'all'} pageHeaderName={categoryTitle}>
-        <div className="flex flex-col md:flex-row gap-2 md:gap-0">
-          <SubNavigation categories={categoryNavigationTree}
-            activeCategoryId={activeSubCategoryId}
-            onCategoryClick={handleCategoryClick} />
+    <MainContainer activeTabId={categoryId || 'all'} pageHeaderName={categoryTitle}>
+      <div className="flex flex-col md:flex-row gap-2 md:gap-0">
+        <SubNavigation categories={categoryNavigationTree}
+          activeCategoryId={activeSubCategoryId}
+          onCategoryClick={handleCategoryClick} />
 
-          <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
-            <ItemCard items={filteredItems} />
-          </div>
+        <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
+          <ItemCard items={filteredItems} />
         </div>
-      </MainContainer>
-    </>
+      </div>
+    </MainContainer>
   );
 };

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 interface SlideProps {
   imageUrl: string;
   redirectUrl?: string;
-  duration?: number;
   alt?: string;
   children?: ReactNode;
 }

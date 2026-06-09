@@ -33,21 +33,19 @@ export const TombolaTierCard = ({
         ? tierStyles[tombolaTier.tierLevel].activeCss
         : tierStyles[tombolaTier.tierLevel].defaultCss;
 
-    const currentTierFontStyle = (isTierSelected) 
-        ? "text-[#3c1e16]" 
+    const currentTierFontStyle = (isTierSelected)
+        ? "text-[#3c1e16]"
         : "text-[#f2e69f]";
 
     return (
-        <>
-            <button
-                className={`p-3 sm:p-4 border-2 transition-all bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.4)] ${currentTierButtonStyle}`}
-                onClick={() => onTombolaTierClick(tombolaTier)}>
+        <button
+            className={`p-3 sm:p-4 border-2 transition-all bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.4)] ${currentTierButtonStyle}`}
+            onClick={() => onTombolaTierClick(tombolaTier)}>
 
-                <h3 className={`text-base sm:text-lg font-bold mb-2 ${currentTierFontStyle}`}>{tombolaTier.tierName}-Stufe</h3>
-                <div className={`text-xs sm:text-sm mb-2 ${currentTierFontStyle}`}>Kosten: {tombolaTier.tierCost.toString()} Tickets</div>
-                <p className={`text-xs ${currentTierFontStyle}`}>{tombolaTier.tierDescription}</p>
+            <h3 className={`text-base sm:text-lg font-bold mb-2 ${currentTierFontStyle}`}>{tombolaTier.tierName}-Stufe</h3>
+            <div className={`text-xs sm:text-sm mb-2 ${currentTierFontStyle}`}>Kosten: {tombolaTier.tierCost.toString()} Tickets</div>
+            <p className={`text-xs ${currentTierFontStyle}`}>{tombolaTier.tierDescription}</p>
 
-            </button>
-        </>
+        </button>
     )
 }

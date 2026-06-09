@@ -4,7 +4,6 @@ interface HeroSliderProps {
   autoPlay?: boolean;
   interval?: number;
   showArrows?: boolean;
-  showDots?: boolean;
   children: ReactNode;
 }
 
