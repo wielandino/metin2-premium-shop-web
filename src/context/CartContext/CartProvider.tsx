@@ -9,8 +9,12 @@ type CartProviderProps = {
 const CART_KEY = "cart";
 
 const getInitialCart = () => {
-    const stored = localStorage.getItem(CART_KEY);
-    return stored ? JSON.parse(stored) : [];
+    try {
+        const stored = localStorage.getItem(CART_KEY);
+        return stored ? JSON.parse(stored) : [];
+    } catch {
+        return [];
+    }
 };
 
 export const CartProvider = ({ children }: CartProviderProps) => {
@@ -19,7 +23,11 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     }));
 
     useEffect(() => {
-        localStorage.setItem(CART_KEY, JSON.stringify(state.cartItems));
+        try {
+            localStorage.setItem(CART_KEY, JSON.stringify(state.cartItems));
+        } catch {
+            // Need to decide what to do
+        }
     }, [state.cartItems]);
 
     const value: CartContextType = {

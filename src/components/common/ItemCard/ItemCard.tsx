@@ -104,7 +104,7 @@ export const ItemCard = ({
           </>
         )}
       </div>
-
+      
       <Modal isOpen={isModalOpen} onClose={handleCloseModal} showCloseModalBtn={true}>
         {selectedItem && (
           <ItemDescriptionPage shopItem={selectedItem} />
