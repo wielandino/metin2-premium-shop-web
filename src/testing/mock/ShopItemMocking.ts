@@ -20,8 +20,8 @@ export const SHOP_ITEM_DUMMY_MODEL_1: ShopItem = {
   ],
   category: METINPLUS_CATEGORY,
   imageName: "passierschein",
-  maxQuantity: 14,
-  quantityPercentDelimeter: 7,
+  maxQuantity: 15,
+  quantityPackageSplit: 3,
   isNew: false,
   isHot: true
 }
@@ -38,7 +38,7 @@ export const SHOP_ITEM_DUMMY_MODEL_2: ShopItem = {
   category: VEREDELN_CATEGORY,
   imageName: "drgutschein",
   maxQuantity: 1,
-  quantityPercentDelimeter: 0,
+  quantityPackageSplit: 1,
   isNew: false,
   isHot: true
 }
@@ -55,7 +55,7 @@ export const SHOP_ITEM_DUMMY_MODEL_3: ShopItem = {
   category: OFFERS_CATEGORY,
   imageName: "schmuckschatulle",
   maxQuantity: 1,
-  quantityPercentDelimeter: 0,
+  quantityPackageSplit: 1,
   isNew: true,
   isHot: true
 }
@@ -72,7 +72,7 @@ export const SHOP_ITEM_DUMMY_MODEL_4: ShopItem = {
   category: CHARACTER_CATEGORY,
   imageName: "autojagd",
   maxQuantity: 1,
-  quantityPercentDelimeter: 0,
+  quantityPackageSplit: 1,
   isNew: true,
   isHot: false
 }
@@ -89,7 +89,7 @@ export const SHOP_ITEM_DUMMY_MODEL_5: ShopItem = {
   category: HIGHLIGHTS_CATEGORY,
   imageName: "verzaubern",
   maxQuantity: 50,
-  quantityPercentDelimeter: 10,
+  quantityPackageSplit: 10,
   isNew: false,
   isHot: false
 }
@@ -106,7 +106,7 @@ export const SHOP_ITEM_DUMMY_MODEL_6: ShopItem = {
   category: HIGHLIGHTS_CATEGORY,
   imageName: "segi",
   maxQuantity: 20,
-  quantityPercentDelimeter: 5,
+  quantityPackageSplit: 5,
   isNew: false,
   isHot: true
 }
@@ -125,7 +125,7 @@ export const SHOP_ITEM_DUMMY_MODEL_7: ShopItem = {
   category: HIGHLIGHTS_CATEGORY,
   imageName: "atlantisbrust",
   maxQuantity: 1,
-  quantityPercentDelimeter: 0,
+  quantityPackageSplit: 0,
   isNew: true,
   isHot: true
 }
@@ -142,7 +142,7 @@ export const SHOP_ITEM_DUMMY_MODEL_8: ShopItem = {
   category: HIGHLIGHTS_CATEGORY,
   imageName: "ahnenwaechterschwert",
   maxQuantity: 1,
-  quantityPercentDelimeter: 0,
+  quantityPackageSplit: 0,
   isNew: true,
   isHot: true
 }

@@ -24,7 +24,7 @@ export const ItemPurchaseFooter = ({
           <div className="sm:col-span-1 md:col-span-2">
             <QuantitySelection
               maxQuantity={shopItem.maxQuantity}
-              quantityPercentDelimeter={shopItem.quantityPercentDelimeter}
+              quantityPackageSplit={shopItem.quantityPackageSplit}
               selectedQuantity={selectedQuantity}
               setSelectedQuantity={setSelectedQuantity}
             />

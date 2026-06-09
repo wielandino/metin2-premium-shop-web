@@ -6,7 +6,7 @@ export interface ShopItem extends Item {
     price: number,
     features: string[],  
     maxQuantity: number,
-    quantityPercentDelimeter: number,
+    quantityPackageSplit: number,
     isNew: boolean,
     isHot: boolean
 }

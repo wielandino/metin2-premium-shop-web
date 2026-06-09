@@ -9,9 +9,7 @@ interface TombolaRewardCardProps {
 
 
 export const TombolaRewardCard = ({ isFail, rewardName, priceIcon }: TombolaRewardCardProps) => {
-
-
-
+    
     return (
         <>
             <div className="m-auto">

@@ -3,12 +3,12 @@ import { useMemo } from "react";
 
 type QuantitySelectionProps = {
     maxQuantity: number
-    quantityPercentDelimeter: number,
+    quantityPackageSplit: number,
     selectedQuantity: number,
     setSelectedQuantity: (quantity: number) => void
 }
 
-export const QuantitySelection = ({ maxQuantity, quantityPercentDelimeter, selectedQuantity, setSelectedQuantity }: QuantitySelectionProps) => {
+export const QuantitySelection = ({ maxQuantity, quantityPackageSplit, selectedQuantity, setSelectedQuantity }: QuantitySelectionProps) => {
 
 
     const possibleQuantities = useMemo(() => {
@@ -17,15 +17,15 @@ export const QuantitySelection = ({ maxQuantity, quantityPercentDelimeter, selec
         }
         
         const quantities: number[] = [1];
-        const steps = Math.floor(maxQuantity / quantityPercentDelimeter);
-    
-        for (let i = 1; i <= steps; i++) {
-            quantities.push(i * quantityPercentDelimeter);
+        const minQuantityPackage = maxQuantity / quantityPackageSplit;
+
+        for (let i = 1; i <= quantityPackageSplit; i++) {
+            quantities.push(i * minQuantityPackage);
         }
 
         return quantities;
 
-    }, [maxQuantity, quantityPercentDelimeter]);
+    }, [maxQuantity, quantityPackageSplit]);
 
 
     return(
