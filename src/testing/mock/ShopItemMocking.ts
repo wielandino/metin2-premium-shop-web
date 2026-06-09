@@ -218,7 +218,7 @@ export const SHOP_ITEM_DUMMY_MODEL_7: ShopItem = {
   category: HIGHLIGHTS_CATEGORY,
   imageName: "atlantisbrust",
   maxQuantity: 1,
-  quantityPackageSplit: 0,
+  quantityPackageSplit: 1,
   isNew: true,
   isHot: true
 }
@@ -248,7 +248,7 @@ export const SHOP_ITEM_DUMMY_MODEL_8: ShopItem = {
   category: HIGHLIGHTS_CATEGORY,
   imageName: "ahnenwaechterschwert",
   maxQuantity: 1,
-  quantityPackageSplit: 0,
+  quantityPackageSplit: 1,
   isNew: true,
   isHot: true
 }

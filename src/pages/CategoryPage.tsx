@@ -1,8 +1,7 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import { SubNavigation } from "../components/pages/CategoryPage/SubNavigation";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { buildCategoryTree, type CategoryWithSubs } from "../utils/categoryHelper";
-import type { ShopItem } from "../api/types/ShopItem";
 import { ItemCard } from "../components/common/ItemCard/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
 import { MainContainer } from "../components/common/MainContainer";
@@ -12,32 +11,24 @@ import { useTranslation } from "react-i18next";
 export const CategoryPage = () => {
   const { categoryId } = useParams<{ categoryId: string }>();
   const [searchParams, setSearchParams] = useSearchParams();
-  
+
   const { t } = useTranslation()
 
-  const [items, setItems] = useState<ShopItem[]>([]);
   const activeSubCategoryId = Number(searchParams.get("cat"));
 
+  let items = mockShopItems;
+
+  if (categoryId == "new")
+    items = items.filter(i => i.isNew);
+  else if (categoryId == "hot")
+    items = items.filter(i => i.isHot);
+
   const filteredItems =
-    (activeSubCategoryId > 0) ? items.filter(i => i.category?.id === activeSubCategoryId) : items;
+    (activeSubCategoryId > 0) ? items.filter(i => i.category !== undefined && i.category.id === activeSubCategoryId) : items;
 
   function handleCategoryClick(categoryId: number) {
     setSearchParams({ cat: categoryId.toString() });
   }
-
-  useEffect(() => {
-    // TODO: Change this with a actual API CALL!
-
-    let items = mockShopItems;
-
-    if (categoryId == "new")
-      items = items.filter(i => i.isNew);
-    else if (categoryId == "hot")
-      items = items.filter(i => i.isHot);
-
-    setItems(items);
-  }, [categoryId])
-
 
   let categoryTitle;
 
@@ -52,7 +43,7 @@ export const CategoryPage = () => {
    *  that the items we recieve from the api is not null and have a category
   */
   const categoryNavigationTree: CategoryWithSubs[]
-    = useMemo(() => buildCategoryTree(items!.map(c => c.category!)), [items]);
+    = useMemo(() => buildCategoryTree(items.filter(c => c.category !== undefined).map(c => c.category!)), [items]);
 
   return (
     <>

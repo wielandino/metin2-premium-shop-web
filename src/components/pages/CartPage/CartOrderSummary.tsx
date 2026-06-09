@@ -15,8 +15,8 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
 
     const handlePurchase = () => {
         if (!canAfford || cartContext!.cartItems.length === 0) return;
-        cartContext!.clearCart();
         onPurchase();
+        cartContext!.clearCart();
     };
 
     return (
@@ -35,7 +35,7 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
                     
                     <div key={cartItem.item.id} className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
                         <span className="truncate max-w-36">
-                            {cartItem.item.itemDetails[i18n.language as LocalizationLanguage].name} × {cartItem.quantity}
+                            {cartItem.item.itemDetails[i18n.language as LocalizationLanguage ?? 'en'].name} × {cartItem.quantity}
                         </span>
                         <span className="shrink-0">
                             {cartItem.quantity * cartItem.pricePerQuantity} DR
@@ -72,7 +72,7 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
 
             {!canAfford && (
                 <p className="text-red-600 text-xs text-center mt-2">
-                    Nicht genügend Guthaben. Bitte lade DR auf.
+                    {t('cartPage.cartSummary.notEnoughBalance')}
                 </p>
             )}
         </div>

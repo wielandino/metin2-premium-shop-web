@@ -31,9 +31,7 @@ export const NavigationHeader = () => {
             <div className="flex items-center gap-2">
               <button
                 onClick={toggleLanguage}
-                className="text-[#f2e69f] hover:text-tequila transition-colors font-bold text-xs px-2 py-1 border border-[#E8A314] rounded mr-5"
-                aria-label="Sprache wechseln"
-              >
+                className="text-[#f2e69f] hover:text-tequila transition-colors font-bold text-xs px-2 py-1 border border-[#E8A314] rounded mr-5">
                 {i18n.language === 'de' ? 'DE' : 'EN'}
               </button>
               <div className="flex items-center md:hidden">

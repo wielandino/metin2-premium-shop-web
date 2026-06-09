@@ -20,7 +20,6 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
             <div className="item-card shadow-[0_1px_2px_#000] p-3 sm:p-4 flex flex-col sm:flex-row gap-3 sm:gap-4 relative">
                 <button
                     className="absolute top-[-10px] right-[-10px] w-6 h-6 flex items-center justify-center close-btn text-white text-sm leading-none hover:scale-110 transition-transform"
-                    aria-label={`Item entfernen`}
                     onClick={() => cartContext!.removeCartItem(cartItem)}>
                     ×
                 </button>

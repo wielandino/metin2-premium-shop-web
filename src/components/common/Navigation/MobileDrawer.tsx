@@ -57,9 +57,7 @@ export const MobileDrawer = ({ isOpen, onClose, tabs, currentTab }: MobileDrawer
                     <div className="metin-logo w-32 h-10 shrink-0"></div>
                     <button
                         onClick={onClose}
-                        className="text-[#f2e69f] hover:text-tequila transition-colors p-2"
-                        aria-label="Menü schließen"
-                    >
+                        className="text-[#f2e69f] hover:text-tequila transition-colors p-2">
                         <Icon icon="xmark" className="text-2xl" />
                     </button>
                 </div>

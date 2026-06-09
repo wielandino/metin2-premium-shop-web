@@ -12,7 +12,7 @@ export const SubNavigation = ({
   activeCategoryId,
   onCategoryClick
 }: SubNavigationProps) => {
-  const DEFAULT_ICON = "https://gf3.geo.gfsrv.net/cdn29/23b5f848f1a0b324f6e3c3d3564130.png";
+  const DEFAULT_ICON = "/images/star.png";
 
   const activeParentCategoryId = categories.find(
     (cat) => cat.subCategories.some((sub) => sub.id === activeCategoryId)

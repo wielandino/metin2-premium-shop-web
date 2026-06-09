@@ -6,7 +6,7 @@ import { ItemCard } from "../components/common/ItemCard/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
 import { useTranslation } from "react-i18next";
 
-function ShopPage() {
+export const ShopPage = () => {
 
   const { t } = useTranslation()
 
@@ -63,5 +63,3 @@ function ShopPage() {
     </>
   )
 }
-
-export default ShopPage

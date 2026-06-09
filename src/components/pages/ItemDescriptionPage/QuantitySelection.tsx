@@ -17,12 +17,16 @@ export const QuantitySelection = ({ maxQuantity, quantityPackageSplit, selectedQ
         if (maxQuantity === 1) {
             return [1];
         }
-        
-        const quantities: number[] = [1];
-        const minQuantityPackage = maxQuantity / quantityPackageSplit;
 
-        for (let i = 1; i <= quantityPackageSplit; i++) {
-            quantities.push(i * minQuantityPackage);
+        const quantities: number[] = [1];
+
+        if (maxQuantity > 1 && quantityPackageSplit > 1) {
+
+            const minQuantityPackage = maxQuantity / quantityPackageSplit;
+
+            for (let i = 1; i <= quantityPackageSplit; i++) {
+                quantities.push(i * minQuantityPackage);
+            }
         }
 
         return quantities;
@@ -30,7 +34,7 @@ export const QuantitySelection = ({ maxQuantity, quantityPackageSplit, selectedQ
     }, [maxQuantity, quantityPackageSplit]);
 
 
-    return(
+    return (
         <div className="w-full">
             <p className="text-xs sm:text-sm md:text-base mb-2 sm:mb-3 text-[#5a3825] font-semibold">{t('common.selectQuantity')}</p>
             <div className="flex flex-wrap gap-1.5 sm:gap-2">

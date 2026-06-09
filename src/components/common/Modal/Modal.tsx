@@ -39,21 +39,21 @@ export const Modal = ({ isOpen, onClose, children, showCloseModalBtn = true }: M
                 onClick={onClose} />
 
             <div className="relative max-w-full sm:max-w-xl md:max-w-2xl w-full animate-modal-in overflow-visible max-h-[95vh] sm:max-h-[90vh]">
-
-                <button
-                    onClick={onClose}
-                    className={clsx(
-                        "absolute -top-2 sm:top-0 -right-2 sm:-right-2.5 z-10",
-                        "flex items-center justify-center close-btn",
-                        "w-8 h-8 sm:w-8 sm:h-8 md:w-7.5 md:h-7.5",
-                        "text-xl sm:text-2xl text-white",
-                        {
-                            "hidden!": !showCloseModalBtn
-                        }
-                    )}
-                    aria-label="Close modal">
-                    ×
-                </button>
+                {onClose !== undefined &&
+                    <button
+                        onClick={onClose}
+                        className={clsx(
+                            "absolute -top-2 sm:top-0 -right-2 sm:-right-2.5 z-10",
+                            "flex items-center justify-center close-btn",
+                            "w-8 h-8 sm:w-8 sm:h-8 md:w-7.5 md:h-7.5",
+                            "text-xl sm:text-2xl text-white",
+                            {
+                                "hidden!": !showCloseModalBtn
+                            }
+                        )}>
+                        ×
+                    </button>
+                }
 
                 <div className="overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
                     {children}
