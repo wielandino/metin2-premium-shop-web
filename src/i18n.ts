@@ -30,6 +30,8 @@ i18n.use(initReactI18next).init({
                     pieceShort: "Stk.",
                     pieceLong: "Stück",
                     topUp: "DR Aufladen",
+                    availableFor: "Jetzt erhältlich für",
+                    addItem: "Hinzufügen",
                 },
 
                 cartPage: {
@@ -91,6 +93,8 @@ i18n.use(initReactI18next).init({
                     pieceShort: "pcs.",
                     pieceLong: "Piece",
                     topUp: "Buy DR",
+                    availableFor: "Get it for",
+                    addItem: "Add",
                 },
 
                 cartPage: {

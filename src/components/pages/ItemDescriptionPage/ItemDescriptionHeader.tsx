@@ -1,9 +1,14 @@
+import { useTranslation } from "react-i18next";
+
 type ItemDescriptionHeaderProps = {
   name: string;
   totalPrice: number;
 };
 
 export const ItemDescriptionHeader = ({ name, totalPrice }: ItemDescriptionHeaderProps) => {
+
+  const { t } = useTranslation();
+
   return (
     <header className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 sm:gap-0 mb-3 sm:mb-4 md:mb-5">
       <div className="flex-1">
@@ -13,7 +18,7 @@ export const ItemDescriptionHeader = ({ name, totalPrice }: ItemDescriptionHeade
       </div>
 
       <div className="text-left sm:text-right">
-        <span className="text-xs sm:text-sm text-[#5a3825] mr-2">Preis:</span>
+        <span className="text-xs sm:text-sm text-[#5a3825] mr-2">{t('common.price')}:</span>
         <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#5a3825]">
           {totalPrice} DR
         </span>

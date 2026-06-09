@@ -1,6 +1,7 @@
+import type { ItemLocalizationDetails, LocalizationLanguage } from "./ItemLocalization"
+
 export interface Item {
     id: number,
     imageName: string
-    name: string,
-    description?: string
+    itemDetails: Record<LocalizationLanguage, ItemLocalizationDetails>
 }

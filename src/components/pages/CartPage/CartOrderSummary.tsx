@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext/CartContext";
 import { UserContext } from "../../../context/UserContext/UserContext";
 import { useTranslation } from "react-i18next";
+import type { LocalizationLanguage } from "../../../api/types/ItemLocalization";
 
 export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => {
     const cartContext = useContext(CartContext);
@@ -10,7 +11,7 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
     const totalPrice = cartContext!.cartItems.reduce((sum, ci) => sum + ci.pricePerQuantity * ci.quantity, 0);
     const canAfford = userContext!.drBalance >= totalPrice;
 
-    const { t } = useTranslation()
+    const { t, i18n } = useTranslation()
 
     const handlePurchase = () => {
         if (!canAfford || cartContext!.cartItems.length === 0) return;
@@ -30,13 +31,14 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
                     <span>{totalPrice} DR</span>
                 </div>
 
-                {cartContext!.cartItems.map((item) => (
-                    <div key={item.item.id} className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
+                {cartContext!.cartItems.map((cartItem) => (
+                    
+                    <div key={cartItem.item.id} className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
                         <span className="truncate max-w-36">
-                            {item.item.name} × {item.quantity}
+                            {cartItem.item.itemDetails[i18n.language as LocalizationLanguage].name} × {cartItem.quantity}
                         </span>
                         <span className="shrink-0">
-                            {item.quantity * item.pricePerQuantity} DR
+                            {cartItem.quantity * cartItem.pricePerQuantity} DR
                         </span>
                     </div>
                 ))}

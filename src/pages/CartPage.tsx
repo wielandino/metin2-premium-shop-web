@@ -15,7 +15,7 @@ export const CartPage = () => {
 
     if (purchased) {
         return (
-            <MainContainer activeTabId="home" pageHeaderName="Warenkorb">
+            <MainContainer activeTabId="home" pageHeaderName={t('cartPage.common.cartHeader')}>
                 <PurchaseSuccess />
             </MainContainer>
         );
@@ -23,14 +23,14 @@ export const CartPage = () => {
 
     if (!cartContext || cartContext.cartItems.length === 0) {
         return (
-            <MainContainer activeTabId="home" pageHeaderName="Warenkorb">
+            <MainContainer activeTabId="home" pageHeaderName={t('cartPage.common.cartHeader')}>
                 <EmptyCart />
             </MainContainer>
         );
     }
 
     return (
-        <MainContainer activeTabId="home" pageHeaderName="Warenkorb">
+        <MainContainer activeTabId="home" pageHeaderName={t('cartPage.common.cartHeader')}>
             <div className="flex flex-col lg:flex-row gap-4 sm:gap-5">
                 <div className="flex-1 space-y-3 sm:space-y-4">
 

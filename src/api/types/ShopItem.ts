@@ -4,7 +4,6 @@ import type { Item } from "./Item";
 export interface ShopItem extends Item {
     category?: Category,
     price: number,
-    features: string[],  
     maxQuantity: number,
     quantityPackageSplit: number,
     isNew: boolean,

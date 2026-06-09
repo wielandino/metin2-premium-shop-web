@@ -2,6 +2,7 @@ import { useContext } from "react";
 import type { CartItem } from "../../../api/types/CartItem";
 import { CartContext } from "../../../context/CartContext/CartContext";
 import { useTranslation } from "react-i18next";
+import { useLocalizedItem } from "../../../utils/useLocalizedItemHook";
 
 type CartItemProps = {
     cartItem: CartItem
@@ -11,6 +12,7 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
 
     const cartContext = useContext(CartContext)
     const { t } = useTranslation()
+    const itemLocalization = useLocalizedItem(cartItem.item);
 
     return (
         <>
@@ -33,7 +35,7 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
                 <div className="flex-1 flex flex-col gap-2 min-w-0 pr-6 sm:pr-0">
                     <div className="flex items-start justify-between gap-2">
                         <h4 className="text-[#662d12] text-base sm:text-lg font-semibold leading-tight truncate">
-                            { cartItem.item.name }
+                            { itemLocalization.name }
                         </h4>
                         <span className="text-[#662d12] text-base sm:text-lg font-bold whitespace-nowrap shrink-0">
                             {cartItem.quantity * cartItem.pricePerQuantity} DR
@@ -41,7 +43,7 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
                     </div>
 
                     <div className="flex flex-wrap gap-1 max-w-[70%]">
-                        {cartItem.item.description}
+                        {itemLocalization.description}
                     </div>
 
                     <div className="flex items-center justify-between mt-auto pt-1">

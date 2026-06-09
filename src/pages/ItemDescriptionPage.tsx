@@ -5,10 +5,13 @@ import { ItemImage } from "../components/pages/ItemDescriptionPage/ItemImage";
 import { ItemInfo } from "../components/pages/ItemDescriptionPage/ItemInfo";
 import { ItemPurchaseFooter } from "../components/pages/ItemDescriptionPage/ItemPurchaseFooter";
 import { CartContext } from "../context/CartContext/CartContext";
+import { useLocalizedItem } from "../utils/useLocalizedItemHook";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem, isInModal?: boolean; }
 
 export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescriptionPageProps) => {
+  
+  const itemLocalization = useLocalizedItem(shopItem);
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const totalPrice = shopItem.price * selectedQuantity;
@@ -20,18 +23,18 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
 
       <div className="mt-3 sm:mt-4 md:mt-5 p-3 sm:p-4 md:p-5 bg-[#eade9e]">
         <ItemDescriptionHeader
-          name={shopItem.name}
+          name={itemLocalization.name}
           totalPrice={totalPrice}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-4 md:mb-5">
           <ItemImage
             imageName={shopItem.imageName}
-            alt={shopItem.name}
+            alt={itemLocalization.name}
           />
           <ItemInfo
-            features={shopItem.features}
-            description={shopItem.description}
+            features={itemLocalization.features}
+            description={itemLocalization.description}
           />
         </div>
       </div>
