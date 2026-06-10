@@ -16,15 +16,24 @@ export const CategoryPage = () => {
 
   const activeSubCategoryId = Number(searchParams.get("cat"));
 
-  let items = mockShopItems;
+  const items = useMemo(() => {
+    let items = mockShopItems;
 
-  if (categoryId == "new")
-    items = items.filter(i => i.isNew);
-  else if (categoryId == "hot")
-    items = items.filter(i => i.isHot);
+    if (categoryId === "new") items = mockShopItems.filter(i => i.isNew);
+    else if (categoryId === "hot") items = mockShopItems.filter(i => i.isHot);
 
-  const filteredItems =
-    (activeSubCategoryId > 0) ? items.filter(i => i.category !== undefined && i.category.id === activeSubCategoryId) : items;
+    return items;
+  }, [categoryId]);
+
+  const filteredItems = useMemo(
+    () => (activeSubCategoryId > 0)
+      ? items.filter(i => i.category !== undefined && i.category.id === activeSubCategoryId) 
+      : items, 
+      [activeSubCategoryId, items]
+  );
+
+  const categoryNavigationTree: CategoryWithSubs[]
+    = useMemo(() => buildCategoryTree(items.filter(c => c.category !== undefined).map(c => c.category!)), [items]);
 
   function handleCategoryClick(categoryId: number) {
     setSearchParams({ cat: categoryId.toString() });
@@ -38,12 +47,7 @@ export const CategoryPage = () => {
     default: categoryTitle = t('header.navigation.all');
   }
 
-  /**
-   *  Non-Null Assertion Operator because useEffect takes care
-   *  that the items we recieve from the api is not null and have a category
-  */
-  const categoryNavigationTree: CategoryWithSubs[]
-    = useMemo(() => buildCategoryTree(items.filter(c => c.category !== undefined).map(c => c.category!)), [items]);
+
 
   return (
     <MainContainer activeTabId={categoryId || 'all'} pageHeaderName={categoryTitle}>

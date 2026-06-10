@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import type { ShopItem } from "../../api/types/ShopItem";
 import type { CartItem } from "../../api/types/CartItem";
 
@@ -10,3 +10,11 @@ export type CartContextType = {
 };
 
 export const CartContext = createContext<CartContextType | undefined>(undefined);
+
+export function useCartContext(): CartContextType {
+    const ctx = useContext(CartContext);
+    if (!ctx) {
+        throw new Error("useCartContext must be used within <CartProvider>");
+    }
+    return ctx;
+}

@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import type { CartItem } from "../../../api/types/CartItem";
-import { CartContext } from "../../../context/CartContext/CartContext";
+import { useCartContext } from "../../../context/CartContext/CartContext";
 import { useTranslation } from "react-i18next";
 import { useLocalizedItem } from "../../../utils/useLocalizedItemHook";
 
@@ -10,7 +9,7 @@ type CartItemProps = {
 
 export const CartItemCard = ({ cartItem }: CartItemProps) => {
 
-    const cartContext = useContext(CartContext)
+    const cartContext = useCartContext()
     const { t } = useTranslation()
     const itemLocalization = useLocalizedItem(cartItem.item);
 
@@ -20,7 +19,7 @@ export const CartItemCard = ({ cartItem }: CartItemProps) => {
             <div className="item-card shadow-[0_1px_2px_#000] p-3 sm:p-4 flex flex-col sm:flex-row gap-3 sm:gap-4 relative">
                 <button
                     className="absolute top-[-10px] right-[-10px] w-6 h-6 flex items-center justify-center close-btn text-white text-sm leading-none hover:scale-110 transition-transform"
-                    onClick={() => cartContext!.removeCartItem(cartItem)}>
+                    onClick={() => cartContext.removeCartItem(cartItem)}>
                     ×
                 </button>
 

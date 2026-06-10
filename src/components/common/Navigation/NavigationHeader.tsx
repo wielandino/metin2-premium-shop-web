@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import { Icon } from "../Icon";
-import { useContext } from "react";
-import { UserContext } from "../../../context/UserContext/UserContext";
-import { CartContext } from "../../../context/CartContext/CartContext";
+import { useUserContext } from "../../../context/UserContext/UserContext";
+import { useCartContext } from "../../../context/CartContext/CartContext";
 import { useTranslation } from "react-i18next";
 
 export const NavigationHeader = () => {
 
-  const user = useContext(UserContext);
-  const cartContext = useContext(CartContext);
+  const userContext = useUserContext();
+  const cartContext = useCartContext()
 
-  const cartItemCount = cartContext?.cartItems.reduce((sum, ci) => sum + ci.quantity, 0) ?? 0;
+  const cartItemCount = cartContext.cartItems.reduce((sum, ci) => sum + ci.quantity, 0) ?? 0;
 
   const { t, i18n } = useTranslation()
 
@@ -54,7 +53,7 @@ export const NavigationHeader = () => {
               icon="coins"
               className="text-tequila text-base sm:text-lg" />
             <span className="text-[#f2e69f] text-xs sm:text-sm font-bold whitespace-nowrap">
-              {user?.drBalance} DR
+              {userContext.drBalance} DR
             </span>
           </div>
 
@@ -63,7 +62,7 @@ export const NavigationHeader = () => {
               icon="ticket"
               className="text-tequila text-base sm:text-lg" />
             <span className="text-[#f2e69f] text-xs sm:text-sm font-bold whitespace-nowrap">
-              {user?.tombolaTickets} Tickets
+              {userContext.tombolaTickets} Tickets
             </span>
           </div>
 

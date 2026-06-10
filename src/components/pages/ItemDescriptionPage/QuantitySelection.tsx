@@ -14,9 +14,8 @@ export const QuantitySelection = ({ maxQuantity, quantityPackageSplit, selectedQ
     const { t } = useTranslation();
 
     const possibleQuantities = useMemo(() => {
-        if (maxQuantity === 1) {
+        if (maxQuantity === 1)
             return [1];
-        }
 
         const quantities: number[] = [1];
 
@@ -24,9 +23,8 @@ export const QuantitySelection = ({ maxQuantity, quantityPackageSplit, selectedQ
 
             const minQuantityPackage = maxQuantity / quantityPackageSplit;
 
-            for (let i = 1; i <= quantityPackageSplit; i++) {
+            for (let i = 1; i <= quantityPackageSplit; i++)
                 quantities.push(i * minQuantityPackage);
-            }
         }
 
         return quantities;

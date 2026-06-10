@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import type { ShopItem } from "../api/types/ShopItem"
 import { ItemDescriptionHeader } from "../components/pages/ItemDescriptionPage/ItemDescriptionHeader";
 import { ItemImage } from "../components/pages/ItemDescriptionPage/ItemImage";
 import { ItemInfo } from "../components/pages/ItemDescriptionPage/ItemInfo";
 import { ItemPurchaseFooter } from "../components/pages/ItemDescriptionPage/ItemPurchaseFooter";
-import { CartContext } from "../context/CartContext/CartContext";
+import { useCartContext } from "../context/CartContext/CartContext";
 import { useLocalizedItem } from "../utils/useLocalizedItemHook";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem, isInModal?: boolean; }
@@ -15,7 +15,7 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
 
   const [selectedQuantity, setSelectedQuantity] = useState(1);
   const totalPrice = shopItem.price * selectedQuantity;
-  const cartContext = useContext(CartContext);
+  const cartContext = useCartContext()
 
   return (
     <div className={`
@@ -44,7 +44,7 @@ export const ItemDescriptionPage = ({ shopItem, isInModal = true }: ItemDescript
         selectedQuantity={selectedQuantity}
         setSelectedQuantity={setSelectedQuantity}
         totalPrice={totalPrice}
-        onAddToCart={() => cartContext?.addItem(shopItem, selectedQuantity)}
+        onAddToCart={() => cartContext.addItem(shopItem, selectedQuantity)}
       />
     </div>
   );

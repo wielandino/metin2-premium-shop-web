@@ -5,7 +5,7 @@ const savedLanguage = localStorage.getItem('language') ?? 'de';
 
 i18n.use(initReactI18next).init({
     lng: savedLanguage,
-    debug: true,
+    debug: import.meta.env.DEV,
     fallbackLng: "en",
 
     resources: {

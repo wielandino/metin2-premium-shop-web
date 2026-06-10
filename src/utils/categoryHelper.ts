@@ -1,11 +1,11 @@
 import type { Category } from "../api/types/Category"
 
-interface CategoryWithSubs {
+export type CategoryWithSubs = {
     parentCategory: Category
     subCategories: Category[]
 }
 
-function buildCategoryTree(categories: Category[]): CategoryWithSubs[] {
+export const buildCategoryTree = (categories: Category[]): CategoryWithSubs[] => {
     const filtered: Category[] = categories.filter(c => c != null);
     const result: CategoryWithSubs[] = [];
 
@@ -16,19 +16,14 @@ function buildCategoryTree(categories: Category[]): CategoryWithSubs[] {
 
         // Create main category if it does not exist in array
         let entry = result.find(r => r.parentCategory.id === mainCategory.id);
-        if (!entry)
-        {
+        if (!entry) {
             entry = { parentCategory: mainCategory, subCategories: [] };
             result.push(entry);
         }
 
-        if (isSubCategory) 
+        if (isSubCategory)
             entry.subCategories.push(category);
     });
 
     return result;
 }
-
-
-export { buildCategoryTree };
-export type { CategoryWithSubs };

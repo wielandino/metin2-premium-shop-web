@@ -71,14 +71,14 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
                 setTimeout(tick, delay);
             } else {
 
-                setTimeout(xyz, 800)
+                setTimeout(openResultModal, 800)
             }
         }
 
         setTimeout(tick, 80);
     }
 
-    function xyz() {
+    function openResultModal() {
         setIsWheelStopped(true);
         setIsWheelSpinning(false);
         setIsModalOpen(true)

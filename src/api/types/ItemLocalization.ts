@@ -1,6 +1,6 @@
 export type LocalizationLanguage = | 'de' | 'en';
 
-export interface ItemLocalizationDetails {
+export type ItemLocalizationDetails = {
     name: string;
     description: string;
     features: string[];

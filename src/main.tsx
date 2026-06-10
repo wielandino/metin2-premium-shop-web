@@ -20,10 +20,6 @@ const router = createBrowserRouter([
     element: <CategoryPage />
   },
   {
-    path: "/category/:categoryId?cat=:subCategoryId",
-    element: <CategoryPage />
-  },
-  {
     path: "/tombola",
     element: <TombolaPage />
   },

@@ -1,20 +1,19 @@
-import { useContext } from "react";
-import { CartContext } from "../../../context/CartContext/CartContext";
-import { UserContext } from "../../../context/UserContext/UserContext";
+import { useCartContext } from "../../../context/CartContext/CartContext";
+import { useUserContext } from "../../../context/UserContext/UserContext";
 import { useTranslation } from "react-i18next";
 import type { LocalizationLanguage } from "../../../api/types/ItemLocalization";
 
 export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => {
-    const cartContext = useContext(CartContext);
-    const userContext = useContext(UserContext);
+    const cartContext = useCartContext();
+    const userContext = useUserContext();
 
-    const totalPrice = cartContext!.cartItems.reduce((sum, ci) => sum + ci.pricePerQuantity * ci.quantity, 0);
-    const canAfford = userContext!.drBalance >= totalPrice;
+    const totalPrice = cartContext.cartItems.reduce((sum, ci) => sum + ci.pricePerQuantity * ci.quantity, 0);
+    const canAfford = userContext.drBalance >= totalPrice;
 
     const { t, i18n } = useTranslation()
 
     const handlePurchase = () => {
-        if (!canAfford || cartContext!.cartItems.length === 0) return;
+        if (!canAfford || cartContext.cartItems.length === 0) return;
         onPurchase();
         cartContext!.clearCart();
     };
@@ -31,7 +30,7 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
                     <span>{totalPrice} DR</span>
                 </div>
 
-                {cartContext!.cartItems.map((cartItem) => (
+                {cartContext.cartItems.map((cartItem) => (
                     
                     <div key={cartItem.item.id} className="flex justify-between text-xs text-[#5a3825]/70 pl-3">
                         <span className="truncate max-w-36">
@@ -52,20 +51,20 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
                 <div className="flex justify-between text-xs text-[#5a3825]/70 mb-1">
                     <span>{t('cartPage.cartSummary.balance')}</span>
                     <span className={!canAfford ? "text-red-600 font-bold" : ""}>
-                        {userContext!.drBalance} DR
+                        {userContext.drBalance} DR
                     </span>
                 </div>
                 <div className="flex justify-between text-xs text-[#5a3825]/70">
                     <span>{t('cartPage.cartSummary.remainingBalance')}</span>
                     <span className={!canAfford ? "text-red-600 font-bold" : "text-green-700"}>
-                        {userContext!.drBalance - totalPrice} DR
+                        {userContext.drBalance - totalPrice} DR
                     </span>
                 </div>
             </div>
 
             <button
                 onClick={handlePurchase}
-                disabled={!canAfford || cartContext!.cartItems.length === 0}
+                disabled={!canAfford || cartContext.cartItems.length === 0}
                 className={`base-green-btn w-full py-2.5 text-sm sm:text-base flex items-center justify-center gap-2 h-5 ${!canAfford ? "opacity-50 cursor-not-allowed" : ""}`}>
                 {t('common.buyNow')} ({totalPrice} DR)
             </button>

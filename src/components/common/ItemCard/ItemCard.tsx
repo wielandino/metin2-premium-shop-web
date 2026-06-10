@@ -1,10 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { ShopItem } from '../../../api/types/ShopItem';
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { Modal } from '../Modal/Modal';
 import { ItemDescriptionPage } from '../../../pages/ItemDescriptionPage';
-import { CartContext } from '../../../context/CartContext/CartContext';
+import { useCartContext } from '../../../context/CartContext/CartContext';
 import { ItemCardItem } from './ItemCardItem';
 
 interface ItemCardProps {
@@ -19,7 +19,7 @@ export const ItemCard = ({
   isCarousel = false
 }: ItemCardProps) => {
 
-  const cartContext = useContext(CartContext)
+  const cartContext = useCartContext();
 
   const [ref, instanceRef] = useKeenSlider<HTMLDivElement>({
     slides: {
@@ -72,8 +72,8 @@ export const ItemCard = ({
   };
 
   useEffect(() => {
-    if (isCarousel) instanceRef.current?.update();
-  }, [items]);
+    if (isCarousel && instanceRef.current) instanceRef.current.update();
+  }, [isCarousel, instanceRef]);
 
   return (
     <>

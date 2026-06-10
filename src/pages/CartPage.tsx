@@ -4,12 +4,12 @@ import { CartItemCard } from "../components/pages/CartPage/CartItemCard";
 import { CartOrderSummary } from "../components/pages/CartPage/CartOrderSummary";
 import { EmptyCart } from "../components/pages/CartPage/EmptyCart";
 import { PurchaseSuccess } from "../components/pages/CartPage/PurchaseSuccess";
-import { useContext, useState } from "react";
-import { CartContext } from "../context/CartContext/CartContext";
+import { useState } from "react";
+import { useCartContext } from "../context/CartContext/CartContext";
 import { useTranslation } from "react-i18next";
 
 export const CartPage = () => {
-    const cartContext = useContext(CartContext);
+    const cartContext = useCartContext();
     const [purchased, setPurchased] = useState(false);
     const { t } = useTranslation()
 
@@ -21,7 +21,7 @@ export const CartPage = () => {
         );
     }
 
-    if (!cartContext || cartContext.cartItems.length === 0) {
+    if (cartContext.cartItems.length === 0) {
         return (
             <MainContainer activeTabId="home" pageHeaderName={t('cartPage.common.cartHeader')}>
                 <EmptyCart />

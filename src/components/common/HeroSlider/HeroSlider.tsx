@@ -27,7 +27,7 @@ export const HeroSlider = ({
     }, interval);
     
     return () => clearInterval(timer);
-  }, [autoPlay, interval, slideCount, currentSlide]);
+  }, [autoPlay, interval, slideCount]);
   
   const goToPrevious = () => {
     setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount);
