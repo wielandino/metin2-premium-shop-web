@@ -68,6 +68,12 @@ i18n.use(initReactI18next).init({
                 tombola: {
                     remainingTickets: "Verfügbare Tickets:",
                     roll: "Drehen",
+                },
+
+                error: {
+                    somethingWentWrong: "Etwas ist schiefgelaufen",
+                    somethingWentWrongDescription: "Ein unerwarteter Fehler ist aufgetreten. Bitte versuche es erneut.",
+                    backToShop: "Zurück zum Shop",
                 }
             }
         },
@@ -135,6 +141,12 @@ i18n.use(initReactI18next).init({
                 tombola: {
                     remainingTickets: "Available tickets",
                     roll: "Roll",
+                },
+
+                error: {
+                    somethingWentWrong: "Something went wrong",
+                    somethingWentWrongDescription: "An unexpected error occurred. Please try again.",
+                    backToShop: "Back to Shop",
                 }
             }
         }

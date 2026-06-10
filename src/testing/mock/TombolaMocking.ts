@@ -9,9 +9,11 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID,
     item: {
       id: DUMMY_ID + 1,
-      name: "Segensschriftrolle",
       imageName: "segi",
-      description: "Diese Schriftrolle schützt dein Item vor dem Zerbrechen.",
+      itemDetails: {
+        de: { name: "Segensschriftrolle", description: "Diese Schriftrolle schützt dein Item vor dem Zerbrechen.", features: [] },
+        en: { name: "Blessing Scroll", description: "This scroll protects your item from breaking.", features: [] },
+      },
     },
     rollChance: 40,
   },
@@ -19,9 +21,11 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 11,
     item: {
       id: DUMMY_ID + 2,
-      name: "Gegenstand verzaubern",
       imageName: "verzaubern",
-      description: "Tausche mithilfe von Gegenstand verzaubern die bisherigen Boni eines deiner Ausrüstungsgegenstände gegen die gleiche Anzahl neuer Boni aus.",
+      itemDetails: {
+        de: { name: "Gegenstand verzaubern", description: "Tausche mithilfe von Gegenstand verzaubern die bisherigen Boni eines deiner Ausrüstungsgegenstände gegen die gleiche Anzahl neuer Boni aus.", features: [] },
+        en: { name: "Enchant Item", description: "Exchange the current bonuses of one of your equipment items for new ones.", features: [] },
+      },
     },
     rollChance: 35,
   },
@@ -29,9 +33,11 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 12,
     item: {
       id: DUMMY_ID + 3,
-      name: "Passierschein",
       imageName: "passierschein",
-      description: "Mit diesem Passierschein steht deinen Dungeon-Abenteuern nichts mehr im Wege.",
+      itemDetails: {
+        de: { name: "Passierschein", description: "Mit diesem Passierschein steht deinen Dungeon-Abenteuern nichts mehr im Wege.", features: [] },
+        en: { name: "Dungeon Pass", description: "With this pass, nothing stands in the way of your dungeon adventures.", features: [] },
+      },
     },
     rollChance: 25,
   },
@@ -42,9 +48,11 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 13,
     item: {
       id: DUMMY_ID + 11,
-      name: "DR-Gutschein (50)",
       imageName: "drgutschein",
-      description: "Mit diesem Gutschein im Wert von 50 Drachenmünzen treibst du den Yang-Umsatz in astronomische Höhen!",
+      itemDetails: {
+        de: { name: "DR-Gutschein (50)", description: "Mit diesem Gutschein im Wert von 50 Drachenmünzen treibst du den Yang-Umsatz in astronomische Höhen!", features: [] },
+        en: { name: "DR Voucher (50)", description: "With this voucher worth 50 Dragon Coins, you'll drive Yang sales to astronomical heights!", features: [] },
+      },
     },
     rollChance: 30,
   },
@@ -52,9 +60,11 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 14,
     item: {
       id: DUMMY_ID + 12,
-      name: "Schmuckschatulle",
       imageName: "schmuckschatulle",
-      description: "Du willst noch schneller stärker werden? Schau in die Schatulle!",
+      itemDetails: {
+        de: { name: "Schmuckschatulle", description: "Du willst noch schneller stärker werden? Schau in die Schatulle!", features: [] },
+        en: { name: "Jewelry Box", description: "Want to get stronger even faster? Look inside the box!", features: [] },
+      },
     },
     rollChance: 45,
   },
@@ -62,9 +72,11 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 15,
     item: {
       id: DUMMY_ID + 13,
-      name: "Veredelungsstein +7",
       imageName: "vedelungsstein7",
-      description: "Mit diesem mächtigen Stein veredelst du dein Equip auf bis zu +7, ohne es zu gefährden.",
+      itemDetails: {
+        de: { name: "Veredelungsstein +7", description: "Mit diesem mächtigen Stein veredelst du dein Equip auf bis zu +7, ohne es zu gefährden.", features: [] },
+        en: { name: "Refinement Stone +7", description: "With this powerful stone, you can refine your equipment up to +7 without endangering it.", features: [] },
+      },
     },
     rollChance: 25,
   },
@@ -90,9 +102,11 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 19,
     item: {
       id: DUMMY_ID + 21,
-      name: "Atlantiskrieger+",
       imageName: "atlantisbrust",
-      description: "Eine schlachtenerprobte Rüstung für alle mächtigen Krieger der Tiefen. Eine Atlantiskrone+ oder ein Atlantishelm+, Kneifi und eine Heldenmedaille verleihen dir jeweils zusätzliche Set-Boni.",
+      itemDetails: {
+        de: { name: "Atlantiskrieger+", description: "Eine schlachtenerprobte Rüstung für alle mächtigen Krieger der Tiefen.", features: [] },
+        en: { name: "Atlantis Warrior+", description: "A battle-tested armor for all mighty warriors of the deep.", features: [] },
+      },
     },
     rollChance: 20,
   },
@@ -100,9 +114,11 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 20,
     item: {
       id: DUMMY_ID + 22,
-      name: "Ahnenwächter-Schwert+",
       imageName: "ahnenwaechterschwert",
-      description: "Das legendäre Schwert der Ahnenwächter - ein Symbol absoluter Stärke und Würde.",
+      itemDetails: {
+        de: { name: "Ahnenwächter-Schwert+", description: "Das legendäre Schwert der Ahnenwächter - ein Symbol absoluter Stärke und Würde.", features: [] },
+        en: { name: "Ancestral Guardian Sword+", description: "The legendary sword of the Ancestral Guardians - a symbol of absolute strength and dignity.", features: [] },
+      },
     },
     rollChance: 5,
   },
@@ -110,9 +126,11 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     id: TOMBOLA_ITEM_DUMMY_ID + 21,
     item: {
       id: DUMMY_ID + 23,
-      name: "DR-Gutschein (200)",
       imageName: "drgutschein200",
-      description: "Ein mächtiger Gutschein im Wert von 200 Drachenmünzen - perfekt für große Upgrades.",
+      itemDetails: {
+        de: { name: "DR-Gutschein (200)", description: "Ein mächtiger Gutschein im Wert von 200 Drachenmünzen - perfekt für große Upgrades.", features: [] },
+        en: { name: "DR Voucher (200)", description: "A powerful voucher worth 200 Dragon Coins - perfect for major upgrades.", features: [] },
+      },
     },
     rollChance: 75,
   },

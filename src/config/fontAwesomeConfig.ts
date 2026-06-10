@@ -30,6 +30,7 @@ import {
   faBolt,
   faSkull,
   faHandFist,
+  faTriangleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -61,5 +62,6 @@ library.add(
   faSnowflake,
   faBolt,
   faSkull,
-  faHandFist
+  faHandFist,
+  faTriangleExclamation
 );

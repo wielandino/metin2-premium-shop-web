@@ -2,6 +2,7 @@ import { faSkullCrossbones } from "@fortawesome/free-solid-svg-icons/faSkullCros
 import type { TombolaItem } from "../../../api/types/TombolaItem"
 import { Icon } from "../../common/Icon"
 import clsx from "clsx"
+import { useTranslation } from "react-i18next"
 
 interface TombolaItemSlotProps {
     tombolaItem: TombolaItem,
@@ -10,8 +11,9 @@ interface TombolaItemSlotProps {
 
 export const TombolaItemSlot = ({ tombolaItem, isSlotActive }: TombolaItemSlotProps) => {
 
+    const { i18n } = useTranslation()
     const isBlank = !tombolaItem.item
-    const slotName = tombolaItem.item?.name ?? tombolaItem.name ?? "Empty"
+    const slotName = tombolaItem.item?.itemDetails[i18n.language as "de" | "en"]?.name ?? tombolaItem.name ?? "Empty"
 
     const slotVariant = !isBlank
         ? "tombola-item-slot-active border-[#662d12] "

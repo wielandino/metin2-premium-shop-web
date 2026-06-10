@@ -7,12 +7,15 @@ import { Modal } from "../../common/Modal/Modal"
 import clsx from "clsx"
 import { RewardCard } from "../../common/RewardCard"
 import { TombolaRewardCard } from "./TombolaRewardCard"
+import { useTranslation } from "react-i18next"
 
 interface TombolaWheelProps {
     selectedTombolaTier: TombolaTier
 }
 
 export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
+
+    const { i18n } = useTranslation()
 
     const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>(selectedTombolaTier.tombolaItems[0]);
 
@@ -167,8 +170,8 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
                         <TombolaRewardCard
                             isFail={rolledItem?.item === undefined}
-                            rewardName={rolledItem?.name ?? rolledItem?.item?.name ?? ""}
-                            priceIcon={rolledItem!.item?.imageName ?? undefined} />
+                            rewardName={rolledItem?.name ?? rolledItem?.item?.itemDetails[i18n.language as "de" | "en"]?.name ?? ""}
+                            priceIcon={rolledItem?.item?.imageName ?? undefined} />
                     </RewardCard>
                 </Modal>
             )}
