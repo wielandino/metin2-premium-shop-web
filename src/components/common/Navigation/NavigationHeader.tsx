@@ -10,7 +10,7 @@ export const NavigationHeader = () => {
   const userContext = useUserContext();
   const cartContext = useCartContext()
 
-  const cartItemCount = cartContext.cartItems.reduce((sum, ci) => sum + ci.quantity, 0) ?? 0;
+  const cartItemCount = cartContext.cartItems.reduce((sum, ci) => sum + ci.quantity, 0);
 
   const { t, i18n } = useTranslation()
 

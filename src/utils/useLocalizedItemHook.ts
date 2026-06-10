@@ -4,5 +4,5 @@ import type { LocalizationLanguage } from "../api/types/ItemLocalization";
 
 export const useLocalizedItem = (item: Item) => {
     const { i18n } = useTranslation();
-    return item.itemDetails[i18n.language as LocalizationLanguage ?? 'en'];
+    return item.itemDetails[(i18n.language ?? 'en') as LocalizationLanguage];
 }
