@@ -1,43 +1,14 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MobileDrawer } from './MobileDrawer';
 import { Icon } from '../Icon';
-import { useTranslation } from 'react-i18next';
-
-interface NavigationTab {
-    id: string;
-    label: string;
-    path: string;
-}
+import { useNavigation } from '../../../customHooks/useNavigation';
 
 interface NavigationProps {
     activeTabId?: string;
 }
 
-export const Navigation = ({ activeTabId: activeTab = 'all' }: NavigationProps) => {
-    const location = useLocation();
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-    const { t } = useTranslation()
-
-    const tabs: NavigationTab[] = [
-        { id: 'home', label: 'Home', path: '/' },
-        { id: 'all', label: t('header.navigation.all'), path: '/category/all' },
-        { id: 'new', label:  t('header.navigation.new'), path: '/category/new' },
-        { id: 'hot', label:  t('header.navigation.hot'), path: '/category/hot' },
-        { id: 'tombola', label:  t('header.navigation.tombola'), path: '/tombola' }
-    ];
-
-    const getCurrentTab = () => {
-        if (location.pathname === '/') return 'home';
-
-        const match = location.pathname.match(/\/category\/(.+)/);
-        if (match) return match[1];
-
-        return activeTab || 'home';
-    };
-
-    const currentTab = getCurrentTab();
+export const Navigation = ({ activeTabId = 'all' }: NavigationProps) => {
+    const { tabs, currentTab, isMobileMenuOpen, setIsMobileMenuOpen } = useNavigation(activeTabId);
 
     return (
         <>

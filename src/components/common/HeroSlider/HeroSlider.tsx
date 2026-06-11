@@ -1,4 +1,5 @@
-import { useEffect, useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
+import { useHeroSlider } from "../../../customHooks/useHeroSlider";
 
 interface HeroSliderProps {
   autoPlay?: boolean;
@@ -7,35 +8,13 @@ interface HeroSliderProps {
   children: ReactNode;
 }
 
-export const HeroSlider = ({ 
-  autoPlay = true, 
+export const HeroSlider = ({
+  autoPlay = true,
   interval = 5000,
   showArrows = true,
-  children 
+  children
 }: HeroSliderProps) => {
-  
-  const slides = Array.isArray(children) ? children : [children];
-  const slideCount = slides.length;
-  
-  const [currentSlide, setCurrentSlide] = useState(0);
-  
-  useEffect(() => {
-    if (!autoPlay || slideCount <= 1) return;
-    
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideCount);
-    }, interval);
-    
-    return () => clearInterval(timer);
-  }, [autoPlay, interval, slideCount]);
-  
-  const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount);
-  };
-  
-  const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % slideCount);
-  };
+  const { slides, slideCount, currentSlide, goToPrevious, goToNext } = useHeroSlider(children, autoPlay, interval);
   
   return (
     <div className="relative w-full h-40 sm:h-48 md:h-56 lg:h-67.5 overflow-hidden">
