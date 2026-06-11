@@ -8,7 +8,7 @@ import { MainContainer } from "../components/common/MainContainer"
 
 export const TombolaPage = () => {
 
-    const tombolaTiers: TombolaTier[] = [TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD];
+    const tombolaTiers: TombolaTier[] = [TOMBOLA_TIER_BRONZE, TOMBOLA_TIER_SILBER, TOMBOLA_TIER_GOLD]; // Mock data!
     const [selectedTier, setSelectedTier] = useState<TombolaTier>(tombolaTiers[1]);
 
     return (

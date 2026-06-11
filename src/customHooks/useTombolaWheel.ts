@@ -3,10 +3,9 @@ import type { TombolaTier } from "../api/types/TombolaTier";
 import type { TombolaItem } from "../api/types/TombolaItem";
 
 export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
-    const allTierItems = selectedTombolaTier.tombolaItems;
+    const allCurrentTierItems = selectedTombolaTier.tombolaItems;
 
-    const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>(allTierItems[0]);
-    const [isWheelStopped, setIsWheelStopped] = useState(false);
+    const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>();
     const [isWheelSpinning, setIsWheelSpinning] = useState(false);
     const [rolledItem, setRolledItem] = useState<TombolaItem>();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,42 +17,46 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
     const inactiveSpinningInterval = 1500;
 
     const currentTotalWeight = useMemo(
-        () => allTierItems.reduce((sum, item) => sum + item.rollChance, 0),
-        [allTierItems]
+        () => allCurrentTierItems.reduce((sum, item) => sum + item.rollChance, 0),
+        [allCurrentTierItems]
     );
 
-    function spinWheelInterval(time: number = 1500) {
+    useEffect(() => {
+        setActiveTombolaItemSlot(allCurrentTierItems[0]);
+    }, [allCurrentTierItems]);
+
+    useEffect(() => {
         if (wheelInterval.current !== undefined)
             clearInterval(wheelInterval.current);
 
         wheelInterval.current = setInterval(() => {
             setActiveTombolaItemSlot(prev => {
-                currentIdx.current = allTierItems.findIndex(i => i.id === prev?.id);
-                return allTierItems[currentIdx.current + 1] ?? allTierItems[0];
+                // If there is no previous item we use the first item in the array
+                currentIdx.current = allCurrentTierItems.findIndex(i => i.id === prev?.id) ?? allCurrentTierItems[0];
+                
+                return allCurrentTierItems[currentIdx.current + 1];
             });
-        }, time);
-    }
 
-    function openResultModal() {
-        setIsWheelStopped(true);
-        setIsWheelSpinning(false);
-        setIsModalOpen(true);
-    }
+        }, inactiveSpinningInterval);
 
-    function stopWheelOnItem(targetItem: TombolaItem) {
+        return () => clearInterval(wheelInterval.current);
+    }, [allCurrentTierItems])
+
+
+    const stopWheelOnItem = (targetItem: TombolaItem) => {
         clearInterval(wheelInterval.current);
 
-        const targetIdx = allTierItems.findIndex(i => i.id === targetItem.id);
-        const fullRotations = allTierItems.length * totalSpinningRounds;
-        const stepsToTarget = (targetIdx - currentIdx.current + allTierItems.length) % allTierItems.length;
+        const targetIdx = allCurrentTierItems.findIndex(i => i.id === targetItem.id);
+        const fullRotations = allCurrentTierItems.length * totalSpinningRounds;
+        const stepsToTarget = (targetIdx - currentIdx.current + allCurrentTierItems.length) % allCurrentTierItems.length;
         const totalSteps = fullRotations + stepsToTarget;
 
         let step = 0;
         setIsWheelSpinning(true);
 
         function tick() {
-            currentIdx.current = (currentIdx.current + 1) % allTierItems.length;
-            setActiveTombolaItemSlot(allTierItems[currentIdx.current]);
+            currentIdx.current = (currentIdx.current + 1) % allCurrentTierItems.length;
+            setActiveTombolaItemSlot(allCurrentTierItems[currentIdx.current]);
             step++;
 
             if (step < totalSteps) {
@@ -61,6 +64,7 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
                 const delay = 80 + 400 * Math.pow(progress, 3);
                 setTimeout(tick, delay);
             } else {
+                clearInterval(wheelInterval.current);
                 setTimeout(openResultModal, 800);
             }
         }
@@ -68,40 +72,30 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
         setTimeout(tick, 80);
     }
 
-    function calculateRolledItem() {
+    const calculateRolledItem = () => {
         if (isWheelSpinning) return;
 
         let random = Math.random() * currentTotalWeight;
 
-        for (const item of allTierItems) {
+        for (const item of allCurrentTierItems) {
             random -= item.rollChance;
             if (random <= 0) {
                 setRolledItem(item);
+                stopWheelOnItem(item);
                 break;
             }
         }
     }
 
-    function handleCloseResultModal() {
+    const handleCloseResultModal = () => {
         setRolledItem(undefined);
         setIsModalOpen(false);
     }
 
-    useEffect(() => {
-        setActiveTombolaItemSlot(allTierItems[0]);
-        spinWheelInterval(inactiveSpinningInterval);
-        return () => clearInterval(wheelInterval.current);
-    }, [selectedTombolaTier]);
-
-    useEffect(() => {
-        if (isWheelStopped)
-            clearInterval(wheelInterval.current);
-    }, [isWheelStopped]);
-
-    useEffect(() => {
-        if (rolledItem === undefined) return;
-        stopWheelOnItem(rolledItem);
-    }, [rolledItem]);
+    const openResultModal = () => {
+        setIsWheelSpinning(false);
+        setIsModalOpen(true);
+    }
 
     return {
         activeTombolaItemSlot,

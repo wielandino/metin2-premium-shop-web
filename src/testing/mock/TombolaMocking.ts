@@ -66,7 +66,7 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
         en: { name: "Jewelry Box", description: "Want to get stronger even faster? Look inside the box!", features: [] },
       },
     },
-    rollChance: 45,
+    rollChance: 75,
   },
   {
     id: TOMBOLA_ITEM_DUMMY_ID + 15,
@@ -80,19 +80,17 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     },
     rollChance: 25,
   },
+
   {
     id: TOMBOLA_ITEM_DUMMY_ID + 16,
-    name: "Pech gehabt!",
     rollChance: 12
   },
   {
     id: TOMBOLA_ITEM_DUMMY_ID + 17,
-    name: "I tried so hard",
     rollChance: 12
   },
   {
     id: TOMBOLA_ITEM_DUMMY_ID + 18,
-    name: "Versuchs erneut",
     rollChance: 12
   }
 ];
