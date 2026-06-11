@@ -52,7 +52,7 @@ export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => 
 
             <button
                 onClick={handlePurchase}
-                disabled={!canAfford || cartContext.cartItems.length === 0}
+                disabled={!canAfford || cartItems.length === 0}
                 className={`base-green-btn w-full py-2.5 text-sm sm:text-base flex items-center justify-center gap-2 h-5 ${!canAfford ? "opacity-50 cursor-not-allowed" : ""}`}>
                 {t('common.buyNow')} ({totalPrice} DR)
             </button>
