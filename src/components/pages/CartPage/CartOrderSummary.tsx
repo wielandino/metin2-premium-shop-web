@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import type { LocalizationLanguage } from "../../../api/types/ItemLocalization";
+import type { LocalizationLanguage } from "../../../api/types/Localization/ItemLocalization";
 import { useCartOrderSummary } from "../../../customHooks/useCartOrderSummary";
 
 export const CartOrderSummary = ({ onPurchase }: { onPurchase: () => void }) => {

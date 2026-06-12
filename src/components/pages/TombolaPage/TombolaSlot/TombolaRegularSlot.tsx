@@ -1,5 +1,5 @@
 import type { RegularTombolaItem } from "../../../../api/types/Tombola/TombolaItem"
-import { useLocalizedItem } from "../../../../utils/useLocalizedItemHook"
+import { useLocalizedItem } from "../../../../customHooks/useLocalizeHook"
 import { SlotShell } from "./SlotShell"
 
 interface TombolaRegularSlotProps {

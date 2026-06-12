@@ -1,5 +1,5 @@
 import type { RegularTombolaItem } from "../../../../api/types/Tombola/TombolaItem"
-import { useLocalizedItem } from "../../../../utils/useLocalizedItemHook"
+import { useLocalizedItem } from "../../../../customHooks/useLocalizeHook"
 
 export const TombolaRegularRewardContent = ({ tombolaItem }: { tombolaItem: RegularTombolaItem }) => {
     const localizedItem = useLocalizedItem(tombolaItem.item)

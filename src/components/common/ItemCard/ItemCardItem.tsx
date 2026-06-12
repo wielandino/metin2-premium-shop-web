@@ -1,7 +1,7 @@
 import type { ShopItem } from '../../../api/types/ShopItem';
 import { Button } from '../Button/Button';
 import { ItemHighlights } from './ItemHighlights';
-import { useLocalizedItem } from '../../../utils/useLocalizedItemHook';
+import { useLocalizedItem } from '../../../customHooks/useLocalizeHook';
 
 type ItemCardItemProps = {
   item: ShopItem;

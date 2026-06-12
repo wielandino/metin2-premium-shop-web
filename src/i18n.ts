@@ -109,8 +109,8 @@ i18n.use(initReactI18next).init({
                     topUp: "Buy DR",
                     availableFor: "Get it for",
                     addItem: "Add",
-                    cost: 'Kosten',
-                    tier: 'Stufe',
+                    cost: 'Price',
+                    tier: 'Tier',
                     ticket: 'Ticket',
                     tickets: 'Tickets'
                 },

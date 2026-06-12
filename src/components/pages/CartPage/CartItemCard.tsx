@@ -1,7 +1,7 @@
 import type { CartItem } from "../../../api/types/CartItem";
 import { useCartContext } from "../../../context/CartContext/CartContext";
 import { useTranslation } from "react-i18next";
-import { useLocalizedItem } from "../../../utils/useLocalizedItemHook";
+import { useLocalizedItem } from "../../../customHooks/useLocalizeHook";
 
 type CartItemProps = {
     cartItem: CartItem

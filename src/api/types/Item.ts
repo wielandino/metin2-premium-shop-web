@@ -1,4 +1,5 @@
-import type { ItemLocalizationDetails, LocalizationLanguage } from "./ItemLocalization"
+import type { ItemLocalizationDetails } from "./Localization/ItemLocalization"
+import type { LocalizationLanguage } from "./Localization/LocalizationLanguage"
 
 export interface Item {
     id: number,

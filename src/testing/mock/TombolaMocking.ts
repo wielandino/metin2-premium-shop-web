@@ -151,27 +151,51 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
 
 export const TOMBOLA_TIER_BRONZE: TombolaTier = {
   id: 1,
-  tierName: "Bronze",
+  tombolaDetails: {
+    de: {
+      tierName: "Bronze",
+      tierDescription: "Sichere Gewinne, niedrige Chancen auf DR-Gutschein",
+    },
+    en: {
+      tierName: "Bronce",
+      tierDescription: "Safe rewards, reduced chances for DR-Vouches"
+    }
+  },
   tierCost: 1,
-  tierDescription: "Sichere Gewinne, niedrige Chancen auf DR-Gutschein",
   tombolaItems: BRONZE_TOMBOLA_ITEMS,
   tierLevel: "bronze"
 };
 
 export const TOMBOLA_TIER_SILBER: TombolaTier = {
   id: 2,
-  tierName: "Silber",
+  tombolaDetails: {
+    de: {
+      tierName: "Silber",
+      tierDescription: "Moderate Gewinnchancen, höheres Risiko",
+    },
+    en: {
+      tierName: "Silver",
+      tierDescription: "Moderate profit potential, higher risk"
+    }
+  },
   tierCost: 2,
-  tierDescription: "Moderate Gewinnchancen, höheres Risiko",
   tombolaItems: SILBER_TOMBOLA_ITEMS,
   tierLevel: "silver"
 };
 
 export const TOMBOLA_TIER_GOLD: TombolaTier = {
   id: 3,
-  tierName: "Gold",
+  tombolaDetails: {
+    de: {
+      tierName: "Gold",
+      tierDescription: "Beste Items möglich, höchstes Risiko!",
+    },
+    en: {
+      tierName: "Gold",
+      tierDescription: "Best possible items, highest risk!"
+    }
+  },
   tierCost: 3,
-  tierDescription: "Beste Items möglich, höchstes Risiko!",
   tombolaItems: GOLD_TOMBOLA_ITEMS,
   tierLevel: "gold"
 };

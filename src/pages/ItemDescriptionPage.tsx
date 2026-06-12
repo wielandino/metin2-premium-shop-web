@@ -5,7 +5,7 @@ import { ItemImage } from "../components/pages/ItemDescriptionPage/ItemImage";
 import { ItemInfo } from "../components/pages/ItemDescriptionPage/ItemInfo";
 import { ItemPurchaseFooter } from "../components/pages/ItemDescriptionPage/ItemPurchaseFooter";
 import { useCartContext } from "../context/CartContext/CartContext";
-import { useLocalizedItem } from "../utils/useLocalizedItemHook";
+import { useLocalizedItem } from "../customHooks/useLocalizeHook";
 
 type ItemDescriptionPageProps = { shopItem: ShopItem, isInModal?: boolean; }
 
