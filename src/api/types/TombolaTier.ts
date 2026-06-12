@@ -1,10 +1,10 @@
-import type { TombolaItem } from "./TombolaItem"
+import type { TombolaItem } from "./Tombola/TombolaItem"
 
-export interface TombolaTier {
+export type TombolaTier = {
     id: number,
     tierName: string,
     tierCost: number,
     tierDescription: string,
     tombolaItems: TombolaItem[]
-    tierLevel: "bronze" | "silver" | "gold"
+    tierLevel: string;
 }

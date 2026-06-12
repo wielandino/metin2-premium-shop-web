@@ -1,10 +1,9 @@
-import type { TombolaItem } from "../../../api/types/TombolaItem"
-import type { Item } from "../../../api/types/Item"
-import { useLocalizedItem } from "../../../utils/useLocalizedItemHook"
+import type { RegularTombolaItem } from "../../../../api/types/Tombola/TombolaItem"
+import { useLocalizedItem } from "../../../../utils/useLocalizedItemHook"
 import { SlotShell } from "./SlotShell"
 
 interface TombolaRegularSlotProps {
-    tombolaItem: TombolaItem & { item: Item }
+    tombolaItem: RegularTombolaItem
     isSlotActive: boolean
 }
 

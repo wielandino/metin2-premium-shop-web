@@ -32,6 +32,10 @@ i18n.use(initReactI18next).init({
                     topUp: "DR Aufladen",
                     availableFor: "Jetzt erhältlich für",
                     addItem: "Hinzufügen",
+                    cost: 'Kosten',
+                    tier: 'Stufe',
+                    ticket: 'Ticket',
+                    tickets: 'Tickets'
                 },
 
                 cartPage: {
@@ -68,6 +72,10 @@ i18n.use(initReactI18next).init({
                 tombola: {
                     remainingTickets: "Verfügbare Tickets:",
                     roll: "Drehen",
+                    rolling: "Dreht...",
+                    dailyTickets: "Du erhältst täglich {{dailyTickets}} neue Tickets!",
+                    rewardTitle: "Glückwunsch!",
+                    penaltyTitle: "Leider eine Niete!",
                 },
 
                 error: {
@@ -101,6 +109,10 @@ i18n.use(initReactI18next).init({
                     topUp: "Buy DR",
                     availableFor: "Get it for",
                     addItem: "Add",
+                    cost: 'Kosten',
+                    tier: 'Stufe',
+                    ticket: 'Ticket',
+                    tickets: 'Tickets'
                 },
 
                 cartPage: {
@@ -141,6 +153,10 @@ i18n.use(initReactI18next).init({
                 tombola: {
                     remainingTickets: "Available tickets",
                     roll: "Roll",
+                    rolling: "Rolling...",
+                    dailyTickets: "You'll get {{dailyTickets}} new tickets every day!",
+                    rewardTitle: "Congratulations!",
+                    penaltyTitle: "Better luck next time!",
                 },
 
                 error: {

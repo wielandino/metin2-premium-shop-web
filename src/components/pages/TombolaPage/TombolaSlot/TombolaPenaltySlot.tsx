@@ -1,10 +1,10 @@
 import { faSkullCrossbones } from "@fortawesome/free-solid-svg-icons/faSkullCrossbones"
-import type { TombolaItem } from "../../../api/types/TombolaItem"
-import { Icon } from "../../common/Icon"
+import type { PenaltyTombolaItem } from "../../../../api/types/Tombola/TombolaItem"
+import { Icon } from "../../../common/Icon"
 import { SlotShell } from "./SlotShell"
 
 interface TombolaPenaltySlotProps {
-    tombolaItem: TombolaItem
+    tombolaItem: PenaltyTombolaItem
     isSlotActive: boolean
 }
 
@@ -18,5 +18,5 @@ export const TombolaPenaltySlot = ({ tombolaItem, isSlotActive }: TombolaPenalty
                 icon={faSkullCrossbones}
                 className="text-[#dc143c] text-[2.5rem] filter-(--tombola-item-icon-filter)" />
         }
-        name="Penalty" />
+        name={tombolaItem.penaltyName} />
 )

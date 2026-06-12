@@ -1,8 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { TombolaTier } from "../api/types/TombolaTier";
-import type { TombolaItem } from "../api/types/TombolaItem";
+import type { TombolaItem } from "../api/types/Tombola/TombolaItem";
+import { TOMBOLA_CONFIGURATION } from "../config/TombolaConfiguration";
 
-export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
+export function useTombolaWheel(selectedTombolaTier: TombolaTier) {    
+    const tombolaWheelConfiguration = TOMBOLA_CONFIGURATION.wheelConfiguration;
+
     const allCurrentTierItems = selectedTombolaTier.tombolaItems;
 
     const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>();
@@ -13,8 +16,8 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
     const currentIdx = useRef(0);
     const wheelInterval = useRef(0);
 
-    const totalSpinningRounds = 5;
-    const inactiveSpinningInterval = 1500;
+    const totalSpinningRounds = tombolaWheelConfiguration.totalSpinningRounds;
+    const inactiveSpinningInterval = tombolaWheelConfiguration.inactiveSpinningInterval;
 
     const currentTotalWeight = useMemo(
         () => allCurrentTierItems.reduce((sum, item) => sum + item.rollChance, 0),
@@ -40,7 +43,7 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
         }, inactiveSpinningInterval);
 
         return () => clearInterval(wheelInterval.current);
-    }, [allCurrentTierItems])
+    }, [allCurrentTierItems, inactiveSpinningInterval])
 
 
     const stopWheelOnItem = (targetItem: TombolaItem) => {
@@ -61,15 +64,15 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
 
             if (step < totalSteps) {
                 const progress = step / totalSteps;
-                const delay = 80 + 400 * Math.pow(progress, 3);
+                const delay = tombolaWheelConfiguration.wheelProgressDelay * Math.pow(progress, 3);
                 setTimeout(tick, delay);
             } else {
                 clearInterval(wheelInterval.current);
-                setTimeout(openResultModal, 800);
+                setTimeout(openResultModal, tombolaWheelConfiguration.openModalDelay);
             }
         }
 
-        setTimeout(tick, 80);
+        setTimeout(tick, tombolaWheelConfiguration.tickTimeout);
     }
 
     const calculateRolledItem = () => {

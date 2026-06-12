@@ -1,11 +1,12 @@
 import type { TombolaTier } from "../../api/types/TombolaTier";
-import type { TombolaItem } from "../../api/types/TombolaItem";
+import type { TombolaItem } from "../../api/types/Tombola/TombolaItem";
 
 const DUMMY_ID = 100;
 const TOMBOLA_ITEM_DUMMY_ID = 500;
 
 const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID,
     item: {
       id: DUMMY_ID + 1,
@@ -18,6 +19,7 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 40,
   },
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 11,
     item: {
       id: DUMMY_ID + 2,
@@ -30,6 +32,7 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 35,
   },
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 12,
     item: {
       id: DUMMY_ID + 3,
@@ -45,6 +48,7 @@ const BRONZE_TOMBOLA_ITEMS: TombolaItem[] = [
 
 const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 13,
     item: {
       id: DUMMY_ID + 11,
@@ -57,6 +61,7 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 30,
   },
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 14,
     item: {
       id: DUMMY_ID + 12,
@@ -69,6 +74,7 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 75,
   },
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 15,
     item: {
       id: DUMMY_ID + 13,
@@ -82,21 +88,28 @@ const SILBER_TOMBOLA_ITEMS: TombolaItem[] = [
   },
 
   {
+    itemType: "penalty",
     id: TOMBOLA_ITEM_DUMMY_ID + 16,
-    rollChance: 12
+    rollChance: 12,
+    penaltyName: "Niete",
   },
   {
+    itemType: "penalty",
     id: TOMBOLA_ITEM_DUMMY_ID + 17,
-    rollChance: 12
+    rollChance: 12,
+    penaltyName: "Niete",
   },
   {
+    itemType: "penalty",
     id: TOMBOLA_ITEM_DUMMY_ID + 18,
-    rollChance: 12
+    rollChance: 12,
+    penaltyName: "Niete",
   }
 ];
 
 const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 19,
     item: {
       id: DUMMY_ID + 21,
@@ -109,6 +122,7 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 20,
   },
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 20,
     item: {
       id: DUMMY_ID + 22,
@@ -121,6 +135,7 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
     rollChance: 5,
   },
   {
+    itemType: "regular",
     id: TOMBOLA_ITEM_DUMMY_ID + 21,
     item: {
       id: DUMMY_ID + 23,
