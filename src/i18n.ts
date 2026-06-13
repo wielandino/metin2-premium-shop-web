@@ -66,6 +66,10 @@ i18n.use(initReactI18next).init({
                 },
 
                 topUp: {
+                    selectPayment: "Zahlungsart auswählen",
+                    selectPackage: "DR-Paket auswählen",
+                    popular: "Beliebt",
+                    bonus: "+{{bonus}} DR Bonus",
                     chargeNow: "Jetzt aufladen",
                 },
 

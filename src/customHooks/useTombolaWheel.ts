@@ -3,12 +3,12 @@ import type { TombolaTier } from "../api/types/TombolaTier";
 import type { TombolaItem } from "../api/types/Tombola/TombolaItem";
 import { TOMBOLA_CONFIGURATION } from "../config/TombolaConfiguration";
 
-export function useTombolaWheel(selectedTombolaTier: TombolaTier) {    
+export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
     const tombolaWheelConfiguration = TOMBOLA_CONFIGURATION.wheelConfiguration;
 
-    const allCurrentTierItems = selectedTombolaTier.tombolaItems;
+    const currentTierItems = selectedTombolaTier.tombolaItems;
 
-    const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>();
+    const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>(currentTierItems[0]);
     const [isWheelSpinning, setIsWheelSpinning] = useState(false);
     const [rolledItem, setRolledItem] = useState<TombolaItem>();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,13 +20,13 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
     const inactiveSpinningInterval = tombolaWheelConfiguration.inactiveSpinningInterval;
 
     const currentTotalWeight = useMemo(
-        () => allCurrentTierItems.reduce((sum, item) => sum + item.rollChance, 0),
-        [allCurrentTierItems]
+        () => currentTierItems.reduce((sum, item) => sum + item.rollChance, 0),
+        [currentTierItems]
     );
 
     useEffect(() => {
-        setActiveTombolaItemSlot(allCurrentTierItems[0]);
-    }, [allCurrentTierItems]);
+        setActiveTombolaItemSlot(currentTierItems[0]);
+    }, [currentTierItems]);
 
     useEffect(() => {
         if (wheelInterval.current !== undefined)
@@ -34,32 +34,30 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
 
         wheelInterval.current = setInterval(() => {
             setActiveTombolaItemSlot(prev => {
-                // If there is no previous item we use the first item in the array
-                currentIdx.current = allCurrentTierItems.findIndex(i => i.id === prev?.id) ?? allCurrentTierItems[0];
-                
-                return allCurrentTierItems[currentIdx.current + 1];
+                const nextIndex = (currentTierItems.indexOf(prev) + 1) % currentTierItems.length;
+                return currentTierItems[nextIndex];
             });
 
         }, inactiveSpinningInterval);
 
         return () => clearInterval(wheelInterval.current);
-    }, [allCurrentTierItems, inactiveSpinningInterval])
+    }, [currentTierItems, inactiveSpinningInterval])
 
 
     const stopWheelOnItem = (targetItem: TombolaItem) => {
         clearInterval(wheelInterval.current);
 
-        const targetIdx = allCurrentTierItems.findIndex(i => i.id === targetItem.id);
-        const fullRotations = allCurrentTierItems.length * totalSpinningRounds;
-        const stepsToTarget = (targetIdx - currentIdx.current + allCurrentTierItems.length) % allCurrentTierItems.length;
+        const targetIdx = currentTierItems.findIndex(i => i.id === targetItem.id);
+        const fullRotations = currentTierItems.length * totalSpinningRounds;
+        const stepsToTarget = (targetIdx - currentIdx.current + currentTierItems.length) % currentTierItems.length;
         const totalSteps = fullRotations + stepsToTarget;
 
         let step = 0;
         setIsWheelSpinning(true);
 
         function tick() {
-            currentIdx.current = (currentIdx.current + 1) % allCurrentTierItems.length;
-            setActiveTombolaItemSlot(allCurrentTierItems[currentIdx.current]);
+            currentIdx.current = (currentIdx.current + 1) % currentTierItems.length;
+            setActiveTombolaItemSlot(currentTierItems[currentIdx.current]);
             step++;
 
             if (step < totalSteps) {
@@ -80,7 +78,7 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
 
         let random = Math.random() * currentTotalWeight;
 
-        for (const item of allCurrentTierItems) {
+        for (const item of currentTierItems) {
             random -= item.rollChance;
             if (random <= 0) {
                 setRolledItem(item);
