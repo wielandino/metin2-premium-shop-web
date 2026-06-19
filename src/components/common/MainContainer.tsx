@@ -1,5 +1,7 @@
 import { NavigationHeader } from "./Navigation/NavigationHeader";
 import { Navigation } from "./Navigation/Navigation"
+import { Suspense } from "react";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 interface MainContainerProps {
     children: React.ReactNode;
@@ -24,7 +26,9 @@ export const MainContainer = ({ children, activeTabId, pageHeaderName }: MainCon
                         </h2>
                     )}
 
-                    {children}
+                    <Suspense fallback={<LoadingSpinner />}>
+                        {children}
+                    </Suspense>
                 </div>
             </div>
         </div >

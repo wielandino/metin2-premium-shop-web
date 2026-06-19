@@ -1,12 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { TombolaTier } from "../api/types/TombolaTier";
-import type { TombolaItem } from "../api/types/Tombola/TombolaItem";
-import { TOMBOLA_CONFIGURATION } from "../config/TombolaConfiguration";
+import type { TombolaItem } from "../../api/types/Tombola/TombolaItem";
+import { TOMBOLA_CONFIGURATION } from "../../config/TombolaConfiguration";
 
-export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
+export function useTombolaWheel(currentTierItems: TombolaItem[]) {
     const tombolaWheelConfiguration = TOMBOLA_CONFIGURATION.wheelConfiguration;
-
-    const currentTierItems = selectedTombolaTier.tombolaItems;
 
     const [activeTombolaItemSlot, setActiveTombolaItemSlot] = useState<TombolaItem>(currentTierItems[0]);
     const [isWheelSpinning, setIsWheelSpinning] = useState(false);
@@ -103,6 +100,7 @@ export function useTombolaWheel(selectedTombolaTier: TombolaTier) {
         isWheelSpinning,
         rolledItem,
         isModalOpen,
+        currentTierItems,
         calculateRolledItem,
         handleCloseResultModal,
     };

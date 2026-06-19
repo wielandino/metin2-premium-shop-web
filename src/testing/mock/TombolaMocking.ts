@@ -1,4 +1,4 @@
-import type { TombolaTier } from "../../api/types/TombolaTier";
+import type { TombolaTier } from "../../api/types/Tombola/TombolaTier";
 import type { TombolaItem } from "../../api/types/Tombola/TombolaItem";
 
 const DUMMY_ID = 100;
@@ -151,7 +151,7 @@ const GOLD_TOMBOLA_ITEMS: TombolaItem[] = [
 
 export const TOMBOLA_TIER_BRONZE: TombolaTier = {
   id: 1,
-  tombolaDetails: {
+  tombolaLocalizationDetails: {
     de: {
       tierName: "Bronze",
       tierDescription: "Sichere Gewinne, niedrige Chancen auf DR-Gutschein",
@@ -161,14 +161,17 @@ export const TOMBOLA_TIER_BRONZE: TombolaTier = {
       tierDescription: "Safe rewards, reduced chances for DR-Vouches"
     }
   },
-  tierCost: 1,
+
+  tombolaTierSettings: {
+    tierCost: 1,
+  },
   tombolaItems: BRONZE_TOMBOLA_ITEMS,
   tierLevel: "bronze"
 };
 
 export const TOMBOLA_TIER_SILBER: TombolaTier = {
   id: 2,
-  tombolaDetails: {
+  tombolaLocalizationDetails: {
     de: {
       tierName: "Silber",
       tierDescription: "Moderate Gewinnchancen, höheres Risiko",
@@ -178,14 +181,16 @@ export const TOMBOLA_TIER_SILBER: TombolaTier = {
       tierDescription: "Moderate profit potential, higher risk"
     }
   },
-  tierCost: 2,
+  tombolaTierSettings: {
+    tierCost: 2,
+  },
   tombolaItems: SILBER_TOMBOLA_ITEMS,
   tierLevel: "silver"
 };
 
 export const TOMBOLA_TIER_GOLD: TombolaTier = {
   id: 3,
-  tombolaDetails: {
+  tombolaLocalizationDetails: {
     de: {
       tierName: "Gold",
       tierDescription: "Beste Items möglich, höchstes Risiko!",
@@ -195,7 +200,9 @@ export const TOMBOLA_TIER_GOLD: TombolaTier = {
       tierDescription: "Best possible items, highest risk!"
     }
   },
-  tierCost: 3,
+  tombolaTierSettings: {
+    tierCost: 3,
+  },
   tombolaItems: GOLD_TOMBOLA_ITEMS,
   tierLevel: "gold"
 };

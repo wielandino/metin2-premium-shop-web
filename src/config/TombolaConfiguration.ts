@@ -1,15 +1,15 @@
-export type TombolaConfiguration = {
-    dailyTickets: number;
-    wheelConfiguration: TombolaWheelConfiguration;
-
-}
-
 type TombolaWheelConfiguration = {
     totalSpinningRounds: number;
     inactiveSpinningInterval: number;
     tickTimeout: number;
     openModalDelay: number;
     wheelProgressDelay: number;
+}
+
+export type TombolaConfiguration = {
+    dailyTickets: number;
+    wheelConfiguration: TombolaWheelConfiguration;
+
 }
 
 export const TOMBOLA_CONFIGURATION: TombolaConfiguration = {

@@ -14,6 +14,7 @@ import { TopUpPage } from './pages/TopUpPage.tsx'
 import { CartProvider } from './context/CartContext/CartProvider.tsx'
 import { UserProvider } from './context/UserContext/UserProvider.tsx'
 import { ErrorBoundary } from './components/common/ErrorBoundary/ErrorBoundary.tsx'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const wrap = (element: React.ReactElement) => <ErrorBoundary>{element}</ErrorBoundary>;
 
@@ -31,16 +32,20 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ErrorBoundary>
-      <UserProvider>
-        <CartProvider>
+      <QueryClientProvider client={queryClient}>
+        <UserProvider>
+          <CartProvider>
 
-          <RouterProvider router={router} />
+            <RouterProvider router={router} />
 
-        </CartProvider>
-      </UserProvider>
+          </CartProvider>
+        </UserProvider>
+      </QueryClientProvider>
     </ErrorBoundary>
   </StrictMode>
 )

@@ -14,6 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
     "@fortawesome/react-fontawesome": "^3.2.0",
     "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-query": "^5.101.0",
     "clsx": "^2.1.1",
     "focus-trap-react": "^12.0.2",
     "i18next": "^25.8.17",
@@ -36,6 +37,7 @@
     "globals": "^16.5.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-plugin-mkcert": "^2.1.0"
   }
 }

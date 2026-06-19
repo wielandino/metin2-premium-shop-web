@@ -1,8 +1,9 @@
-import type { TombolaTier } from "../../../api/types/TombolaTier"
+import type { TombolaTier } from "../../../api/types/Tombola/TombolaTier"
+import type { TombolaItem } from "../../../api/types/Tombola/TombolaItem"
 import { Button } from "../../common/Button/Button"
 import { TombolaItemSlot } from "./TombolaSlot/TombolaItemSlot"
 import clsx from "clsx"
-import { useTombolaWheel } from "../../../customHooks/useTombolaWheel"
+import { useTombolaWheel } from "../../../customHooks/Tombola/useTombolaWheel"
 import { useTranslation } from "react-i18next"
 import { TombolaRewardCard } from "./TombolaRewardCard/TombolaRewardCard"
 import { RewardCard } from "../../common/RewardCard"
@@ -10,20 +11,21 @@ import { Modal } from "../../common/Modal/Modal"
 
 interface TombolaWheelProps {
     selectedTombolaTier: TombolaTier,
+    tierItems: TombolaItem[],
 }
 
-export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
+export const TombolaWheel = ({ selectedTombolaTier, tierItems }: TombolaWheelProps) => {
     const { t } = useTranslation()
 
-    const { activeTombolaItemSlot, isWheelSpinning, rolledItem, isModalOpen, calculateRolledItem, handleCloseResultModal }
-        = useTombolaWheel(selectedTombolaTier)
+    const { activeTombolaItemSlot, isWheelSpinning, rolledItem, isModalOpen, currentTierItems, calculateRolledItem, handleCloseResultModal }
+        = useTombolaWheel(tierItems)
 
     return (
         <div className="tombola-container pb-5">
             <div className="tombola-wrapper border-solid border border-[#662d12] h-122.25 mb.5">
                 <div className="m-auto max-w-150 pt-4 pb-4">
                     <div className="grid gap-3 mt-8 grid-cols-4">
-                        {selectedTombolaTier.tombolaItems.map((tombolaItem) => {
+                        {currentTierItems.map((tombolaItem) => {
                             const isSlotActive = activeTombolaItemSlot === tombolaItem
 
                             return (
@@ -37,7 +39,9 @@ export const TombolaWheel = ({ selectedTombolaTier }: TombolaWheelProps) => {
 
                     <div className="mt-6 flex items-center justify-center">
                         <Button
-                            title={`${isWheelSpinning ? t('tombola.rolling') : `${t('tombola.roll')} (${selectedTombolaTier.tierCost} ${t('common.tickets')})`}`}
+                            title={`${isWheelSpinning
+                                ? t('tombola.rolling')
+                                : `${t('tombola.roll')} (${selectedTombolaTier.tombolaTierSettings.tierCost} ${t('common.tickets')})`}`}
                             className={clsx(
                                 "base-green-btn min-w-50",
                                 { "opacity-50 cursor-not-allowed": isWheelSpinning }
