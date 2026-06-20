@@ -1,9 +1,9 @@
 import { HeroSlider } from "../components/common/HeroSlider/HeroSlider"
 import { Slide } from "../components/common/HeroSlider/Slide"
-import { ItemCard } from "../components/common/ItemCard/ItemCard";
 import { mockShopItems } from "../testing/mock/ShopItemMocking";
 import { useTranslation } from "react-i18next";
 import { MainContainer } from "../components/common/MainContainer";
+import { ItemCardList } from "../components/common/ItemCard/ItemCardList";
 
 export const ShopPage = () => {
 
@@ -45,8 +45,7 @@ export const ShopPage = () => {
         <h2 className="item-sample text-[#f2e69f] border-tequila mb-2 sm:mb-2.5 border-b text-lg sm:text-xl md:text-2xl">
           {t('header.navigation.hot')}
         </h2>
-        <ItemCard items={mockShopItems}
-          isCarousel={true} />
+        <ItemCardList items={mockShopItems} isCarousel={true} />
       </div>
 
     </MainContainer>

@@ -1,6 +1,6 @@
 import { useCategoryPage } from "../../../customHooks/useCategoryPage";
 import { useItemData } from "../../../customHooks/useItemData";
-import { ItemCard } from "../../common/ItemCard/ItemCard";
+import { ItemCardList } from "../../common/ItemCard/ItemCardList";
 import { CategoryNavigation } from "./CategoryNavigation";
 
 export const CategoryContent = () => {
@@ -14,7 +14,7 @@ export const CategoryContent = () => {
         onCategoryClick={handleCategoryClick} />
 
       <div className="overflow-y-auto h-75 sm:h-87.5 md:h-100 flex-1">
-        <ItemCard items={filteredItems} />
+        <ItemCardList items={filteredItems} />
       </div>
     </div>
   );
