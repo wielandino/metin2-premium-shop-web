@@ -1,5 +1,6 @@
-export type ItemLocalizationDetails = {
-    name: string;
+import type { EntityLocalizationDetails } from "./EntityLocalization";
+
+export interface ItemLocalizationDetails extends EntityLocalizationDetails {
     description: string;
     features: string[];
 }

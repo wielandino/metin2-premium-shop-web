@@ -34,9 +34,9 @@ export const TombolaTierCard = ({
             className={`p-3 sm:p-4 border-2 transition-all bg-[rgba(0,0,0,0.3)] hover:bg-[rgba(0,0,0,0.4)] ${currentTierButtonStyle}`}
             onClick={() => onTombolaTierClick(tombolaTier)}>
 
-            <h3 className={`text-base sm:text-lg font-bold mb-2 ${currentTierFontStyle}`}>{tombolaLocalization.tierName}-{t('common.tier')}</h3>
+            <h3 className={`text-base sm:text-lg font-bold mb-2 ${currentTierFontStyle}`}>{tombolaLocalization.name}-{t('common.tier')}</h3>
             <div className={`text-xs sm:text-sm mb-2 ${currentTierFontStyle}`}>{t('common.cost')}: {tombolaTierCost.toString()} {t('common.tickets')}</div>
-            <p className={`text-xs ${currentTierFontStyle}`}>{tombolaLocalization.tierDescription}</p>
+            <p className={`text-xs ${currentTierFontStyle}`}>{tombolaLocalization.description}</p>
 
         </button>
     )

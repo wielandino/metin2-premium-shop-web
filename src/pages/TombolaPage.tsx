@@ -1,32 +1,8 @@
-import { TombolaTierCard } from "../components/pages/TombolaPage/TombolaTierCard"
-import { TombolaWheel } from "../components/pages/TombolaPage/TombolaWheel"
 import { MainContainer } from "../components/common/MainContainer"
 import { useTranslation } from "react-i18next"
 import { useUserContext } from "../context/UserContext/UserContext"
 import { TOMBOLA_CONFIGURATION } from "../config/TombolaConfiguration"
-import { useTombolaData } from "../customHooks/Tombola/useTombolaData"
-
-const TombolaTierSection = () => {
-    const { tiers, tierItems, selectedTier, setSelectedTier } = useTombolaData();
-
-    console.log(tierItems)
-
-    return (
-        <>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4 sm:mb-5">
-                {tiers.map((tombolaTier) => (
-                    <TombolaTierCard
-                        tombolaTier={tombolaTier}
-                        onTombolaTierClick={setSelectedTier}
-                        isTierSelected={selectedTier == tombolaTier}
-                        key={tombolaTier.id} />
-                ))}
-            </div>
-
-            <TombolaWheel selectedTombolaTier={selectedTier} tierItems={tierItems} />
-        </>
-    )
-}
+import { TombolaTierSection } from "../components/pages/TombolaPage/TombolaTierSection"
 
 export const TombolaPage = () => {
     const user = useUserContext();

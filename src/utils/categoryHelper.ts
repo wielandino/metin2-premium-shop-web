@@ -1,28 +1,17 @@
-import type { Category } from "../api/types/Category"
-
-export type CategoryWithSubs = {
-    parentCategory: Category
-    subCategories: Category[]
-}
+import type { Category, CategoryWithSubs } from "../api/types/Category"
 
 export const buildCategoryTree = (categories: Category[]): CategoryWithSubs[] => {
-    const filtered: Category[] = categories.filter(c => c != null);
+    const filtered: Category[] = categories.filter((c, i, arr) => c != null && arr.findIndex(x => x?.id === c.id) === i);
     const result: CategoryWithSubs[] = [];
 
+    const rootCategories = filtered.filter(c => !c.parentCategory);
+    const subCategories = filtered.filter(c => c.parentCategory);
 
-    filtered.forEach(category => {
-        const isSubCategory = category.parentCategory !== undefined;
-        const mainCategory = category.parentCategory ?? category;
-
-        // Create main category if it does not exist in array
-        let entry = result.find(r => r.parentCategory.id === mainCategory.id);
-        if (!entry) {
-            entry = { parentCategory: mainCategory, subCategories: [] };
-            result.push(entry);
-        }
-
-        if (isSubCategory)
-            entry.subCategories.push(category);
+    rootCategories.forEach(parent => {
+        result.push({
+            parentCategory: parent,
+            subCategories: subCategories.filter(sub => sub.parentCategory?.id === parent.id),
+        });
     });
 
     return result;

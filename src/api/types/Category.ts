@@ -1,7 +1,14 @@
+import type { EntityLocalizationDetails } from "./Localization/EntityLocalization";
+import type { LocalizationLanguage } from "./Localization/LocalizationLanguage";
+
 export type Category = {
     id: number;
-    name: string;
     iconName?: string;
-    description?: string;
     parentCategory?: Category
+    categoryLocalizationDetails: Record<LocalizationLanguage, EntityLocalizationDetails>
+}
+
+export type CategoryWithSubs = {
+    parentCategory: Category
+    subCategories: Category[]
 }
